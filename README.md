@@ -1,45 +1,51 @@
-# Portfolio Project
-
-## English
-
-This project uses Docker to serve a portfolio website using Nginx.
+# Portfolio
+- Made with GitHub Copilot Edit (Claude 3.5 Sonnet)
 
 ### Prerequisites
 
-- Docker installed on your machine.
+- Install Docker
 
-### Getting Started
+### Method One (Docker Run)
+1. Fork from GitHub
 
-1. Build the Docker image:
+   ```sh
+   git clone https://github.com/mmw1984/protfolio.git
+   ```
+2. Build the Docker image:
     ```sh
     docker build -t portfolio .
     ```
 
-2. Run the Docker container:
+3. Run the Docker container:
     ```sh
-    docker run -p 3000:80 portfolio
+    docker run -p 3000:3000 portfolio
     ```
 
-3. Open your browser and navigate to `http://localhost:3000` to see the portfolio website.
+4. Open your browser and navigate to `http://yourip:3000` to see the portfolio website.
 
-## 中文
+### Method Two (Docker Compose)
+1. Fork from GitHub
 
-這個項目使用 Docker 和 Nginx 來提供作品集網站服務。
-
-### 先決條件
-
-- 在您的機器上安裝 Docker。
-
-### 入門指南
-
-1. 構建 Docker 映像：
+   ```sh
+   git clone https://github.com/mmw1984/protfolio.git
+   ```
+2. Build the Docker image:
     ```sh
     docker build -t portfolio .
     ```
 
-2. 運行 Docker 容器：
+3. Run the Docker container:
     ```sh
-    docker run -p 3000:80 portfolio
+    docker compose up -d
     ```
 
-3. 打開瀏覽器並導航到 `http://localhost:3000` 查看作品集網站。
+4. Open your browser and navigate to `http://yourip:3000` to see the portfolio website.
+
+### Method Three (GitHub Pages)
+1. Fork the repo
+2. Run GitHub Actions
+3. Done
+
+### Change font
+1. Upload font.ttf in \font folder
+2. Build New Docker Image/ Run GitHub Actions
