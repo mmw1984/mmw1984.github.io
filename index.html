@@ -1,0 +1,2687 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    
+    <!-- Add these SEO meta tags -->
+    <title>Marco Wong - mmw1984</title>
+    <meta name="description" content="Marco (MMW1984) - WordPress hosting expert and server consultant. Providing professional web hosting and server purchase consultation services.">
+    <meta name="keywords" content="MMW1984, Marco, WordPress hosting, server consultation, web hosting expert">
+    <meta name="author" content="Marco Wong - mmw1984">
+    
+    <!-- Open Graph meta tags for social sharing -->
+    <meta property="og:title" content="Marco Wong">
+    <meta property="og:description" content="WordPress hosting expert and server consultant. Professional web hosting and server purchase consultation services.">
+    <meta property="og:site_name" content="MMW1984">
+    <meta property="og:type" content="website">
+    
+    <!-- Twitter Card meta tags -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Marco Wong">
+    <meta name="twitter:description" content="WordPress hosting expert and server consultant providing professional services.">
+    
+    <!-- Consolidate all styles into a single style tag -->
+    <style>
+        /* Add this at the top of your styles */
+        @font-face {
+            font-family: 'YourCustomFont';
+            src: url('fonts/your-font-file.woff2') format('woff2'),
+                 url('fonts/your-font-file.ttf') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+            font-display: swap; /* This ensures text remains visible during font loading */
+        }
+
+        /* Theme Variables */
+        :root {
+            /* Light theme */
+            --primary: #006495;
+            --primary-light: #333333;
+            --secondary: #666666;
+            --accent: #000000;
+            --background: #fafbfc;
+            --card-bg: #ffffff;
+            --text: #000000;
+            --text-light: #666666;
+            --shadow: rgba(0, 0, 0, 0.08);
+            
+            /* Material Design System Colors */
+            --md-sys-color-primary: var(--primary);
+            --md-sys-color-on-primary: #ffffff;
+            --md-sys-color-surface: #fafbfc;
+            --md-sys-color-surface-container: var(--card-bg);
+            --md-sys-color-on-surface: var(--text);
+            --md-sys-color-outline: #72787e;
+        }
+
+        /* Dark theme */
+        :root[data-theme="dark"] {
+            --primary: #90caf9;
+            --primary-light: #42a5f5;
+            --secondary: #9e9e9e;
+            --background: #121212;
+            --card-bg: #1e1e1e;
+            --text: #ffffff;
+            --text-light: #bbbbbb;
+            --shadow: rgba(255, 255, 255, 0.08);
+            --border: #333333;
+            
+            /* Ensure MD3 variables are properly set for dark mode */
+            --md-sys-color-primary: var(--primary);
+            --md-sys-color-on-primary: #000000;
+            --md-sys-color-surface: #121212;
+            --md-sys-color-surface-container: var(--card-bg);
+            --md-sys-color-on-surface: var(--text);
+            --md-sys-color-outline: #666666;
+            --md-sys-color-surface-variant: #2d2d2d;
+        }
+
+        /* Base styles */
+        * { box-sizing: border-box; }
+        
+        /* Fix background styles */
+        html {
+            min-height: 100%;
+            background: var(--background);
+        }
+        
+        body { 
+            margin: 0;
+            padding: 2em;
+            background: transparent;
+            color: var(--text);
+            font-family: 'YourCustomFont', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+            font-size: 14px;
+            min-height: 100vh;
+            position: relative;
+        }
+
+        /* Remove the gradient from page-wrapper */
+        .page-wrapper {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: var(--background);
+            z-index: -1;
+        }
+
+        /* Enhanced Typography */
+        .page-title {
+            font-size: 24px;
+            font-weight: 800;
+            margin: 0 0 1em;
+            background: linear-gradient(45deg, #000, #333);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-align: center;
+        }
+
+        /* Improved Card Styles */
+        .card {
+            background: var(--card-bg);
+            border-radius: 16px;
+            box-shadow: 0 2px 4px var(--shadow);
+            padding: 2em;
+            margin-bottom: 2em;
+            transition: all 0.3s ease;
+            border: 1px solid var(--md-sys-color-outline);
+        }
+
+        .card:hover {
+            transform: translateY(-5px) scale(1.01);
+            box-shadow: 0 4px 8px var(--shadow);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+
+        .card h2 {
+            color: var(--text);
+            font-size: 20px; /* Increased from 18px */
+            margin: 0 0 1em;
+            padding-bottom: 0.5em;
+            border-bottom: 2px solid #eee;
+            font-family: 'YourCustomFont', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+        }
+
+        .card h3 {
+            font-size: 16px; /* Increased from 14px */
+        }
+
+        /* Enhanced Skills Section */
+        .skills-category {
+            background: var(--glass-bg);
+            backdrop-filter: var(--glass-blur);
+            -webkit-backdrop-filter: var(--glass-blur);
+            border: 1px solid var(--glass-border);
+            border-radius: 12px;
+            padding: 1.5em;
+            border: 1px solid #eee;
+            box-shadow: 0 2px 4px var(--shadow);
+            transition: all 0.3s ease;
+        }
+
+        .skills-category:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 4px 8px var (--shadow);
+        }
+
+        .skill-box {
+            background: var(--glass-bg);
+            backdrop-filter: var(--glass-blur);
+            -webkit-backdrop-filter: var(--glass-blur);
+            border: 1px solid var(--glass-border);
+            border-radius: 8px;
+            padding: 0.8em;
+            font-weight: 500;
+            color: var(--text);
+            border: 1px solid #eee;
+            transition: all 0.2s ease;
+            font-size: 14px; /* Increased from 12px */
+            gap: 8px;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 2px; /* Add margin around each skill box */
+            text-decoration: none; /* Add this line */
+            min-height: 44px;
+        }
+
+        .skill-box:hover {
+            background: var(--md-sys-color-primary); /* Fixed variable consistency */
+            color: var(--md-sys-color-on-primary);
+            transform: scale(1.05);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+
+        .skill-box img {
+            width: 24px;
+            height: 24px;
+            flex-shrink: 0;
+        }
+
+        .skill-box i {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 20px;
+            height: 20px;
+            margin: 0;
+            flex-shrink: 0;
+        }
+
+        /* Enhanced Tables */
+        .simple-table {
+            background: var(--card-bg);
+            border-radius: 8px;
+            overflow: hidden;
+            border: 1px solid rgba(0,0,0,0.05);
+            font-size: 14px; /* Increased from 12px */
+            border-radius: 16px;
+            border-spacing: 0;
+            overflow: hidden;
+        }
+
+        .simple-table th {
+            background: #000;
+            color: white;
+            font-weight: 600;
+            padding: 1em;
+        }
+
+        .simple-table td {
+            padding: 1em;
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+        }
+
+        .simple-table th:first-child {
+            border-top-left-radius: 16px;
+        }
+
+        .simple-table th:last-child {
+            border-top-right-radius: 16px;
+        }
+
+        .simple-table tr:last-child td:first-child {
+            border-bottom-left-radius: 16px;
+        }
+
+        .simple-table tr:last-child td:last-child {
+            border-bottom-right-radius: 16px;
+        }
+
+        /* Contact Form Improvements */
+        .contact-form-container {
+            background: var(--card-bg);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px var(--shadow);
+            border: 1px solid #eee;
+        }
+
+        /* Responsive Improvements */
+        @media screen and (max-width: 768px) {
+            body { 
+                margin: 0.5em;
+                padding: 0.5em;
+                font-size: 14px; /* Increased from 12px */
+            }
+
+            .card {
+                padding: 1.2em;
+                margin-bottom: 1em;
+                border-radius: 12px;
+            }
+
+            .page-title {
+                font-size: 20px;
+                margin-bottom: 0.5em;
+            }
+
+            .column-list {
+                flex-direction: column-reverse;
+                gap: 1em;
+            }
+
+            .column {
+                width: 100% !important;
+                padding: 0;
+            }
+
+            .column img {
+                width: 180px !important;
+                margin: 0 auto;
+                display: block;
+            }
+
+            .skills-section {
+                grid-template-columns: 1fr;
+                gap: 1em;
+            }
+
+            .skills-category {
+                max-width: none;
+                margin-bottom: 1em;
+                padding: 1em;
+            }
+
+            .language-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 0.5em;
+            }
+
+            .skill-box {
+                padding: 0.6em;
+                font-size: 14px; /* Increased from 12px */
+            }
+
+            .simple-table {
+                display: block;
+                overflow-x: auto;
+                -webkit-overflow-scrolling: touch;
+                margin: 0.5em 0;
+            }
+
+            .simple-table th,
+            .simple-table td {
+                padding: 0.8em;
+                font-size: 14px; /* Increased from 12px */
+                white-space: nowrap;
+            }
+
+            .contact-section .column-list {
+                flex-direction: column;
+            }
+
+            .contact-form-container {
+                margin-top: 1em;
+            }
+
+            .contact-form-container iframe {
+                height: 450px !important;
+            }
+
+            .skill-box,
+            .card a,
+            button {
+                min-height: 44px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+
+            p {
+                font-size: 14px; /* Increased from 12px */
+                line-height: 1.4;
+            }
+
+            .nav-button {
+                font-size: 12px; /* Increased from 10px */
+            }
+
+            input, select, textarea {
+                font-size: 12px !important;
+            }
+        }
+
+        @media (hover: none) {
+            .card:hover {
+                transform: none;
+            }
+
+            .skill-box:active,
+            .skills-category:active {
+                transform: scale(0.98);
+            }
+        }
+
+        @media screen and (max-width: 768px) {
+            input, select, textarea {
+                font-size: 12px !important;
+            }
+        }
+
+        /* Animation for page load */
+        @keyframes fadeIn {
+            0% { 
+                opacity: 0; 
+                transform: translateY(30px); 
+                filter: blur(5px);
+            }
+            100% { 
+                opacity: 1; 
+                transform: translateY(0);
+                filter: blur(0);
+            }
+        }
+
+        .card {
+            animation: fadeIn 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+            opacity: 0;
+        }
+
+        .card:nth-child(1) { animation-delay: 0.1s; }
+        .card:nth-child(2) { animation-delay: 0.2s; }
+        .card:nth-child(3) { animation-delay: 0.3s; }
+        .card:nth-child(4) { animation-delay: 0.4s; }
+        .card:nth-child(5) { animation-delay: 0.5s; }
+
+        /* Bottom Navigation Styles */
+        .bottom-nav {
+            display: none;
+        }
+
+        @media screen and (max-width: 768px) {
+            .bottom-nav {
+                display: flex;
+                position: fixed;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                background: var(--glass-bg);
+                backdrop-filter: var(--glass-blur);
+                -webkit-backdrop-filter: var(--glass-blur);
+                border-top: 1px solid var(--glass-border);
+                box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+                z-index: 1000;
+                padding: 10px;
+                justify-content: space-around;
+                border-top: 1px solid #eee;
+            }
+
+            .nav-button {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                color: var(--text);
+                text-decoration: none;
+                font-size: 12px; /* Increased from 10px */
+                padding: 8px;
+                border-radius: 8px;
+                transition: all 0.2s ease;
+            }
+
+            .nav-button.active {
+                background: #f5f5f5;
+                color: var(--primary);
+            }
+
+            .nav-button svg {
+                width: 24px;
+                height: 24px;
+                margin-bottom: 4px;
+            }
+
+            /* Adjust body padding for bottom nav */
+            body {
+                padding-bottom: 80px;
+            }
+        }
+
+        /* Enhanced Mobile Styles */
+        @media screen and (max-width: 768px) {
+            /* Base mobile typography */
+            body { 
+                margin: 0.5em;
+                padding: 0.5em;
+                font-size: 14px; /* Increased from 12px */
+                line-height: 1.4;
+            }
+
+            /* Card adjustments */
+            .card {
+                padding: 1.5em;
+                margin-bottom: 1.5em;
+                border-radius: 12px;
+            }
+
+            /* Mobile headings */
+            .page-title {
+                font-size: 20px;
+                margin-bottom: 0.8em;
+            }
+
+            .card h2 {
+                font-size: 16px;
+                margin-bottom: 0.8em;
+            }
+
+            .card h3 {
+                font-size: 14px;
+                margin-bottom: 0.6em;
+            }
+
+            /* Mobile paragraph text */
+            p {
+                font-size: 14px; /* Increased from 12px */
+                line-height: 1.4;
+                margin-bottom: 0.8em;
+            }
+
+            /* Mobile skills */
+            .skill-box {
+                padding: 0.7em;
+                font-size: 14px; /* Increased from 12px */
+                min-height: 40px;
+            }
+
+            /* Mobile tables */
+            .simple-table th,
+            .simple-table td {
+                padding: 0.8em;
+                font-size: 14px; /* Increased from 12px */
+            }
+
+            /* Mobile navigation */
+            .nav-button {
+                font-size: 12px; /* Increased from 10px */
+                padding: 8px;
+            }
+
+            .nav-button svg {
+                width: 22px;
+                height: 22px;
+                margin-bottom: 4px;
+            }
+
+            /* Better spacing for mobile content */
+            .column-list {
+                gap: 2em;
+            }
+
+            .skills-section {
+                gap: 1.5em;
+            }
+
+            .language-grid {
+                gap: 1em;
+            }
+
+            /* Improve form readability */
+            input, select, textarea {
+                font-size: 12px !important;
+                padding: 10px !important;
+            }
+
+            /* Adjust bottom nav spacing */
+            body {
+                padding-bottom: 90px;
+            }
+
+            .bottom-nav {
+                padding: 12px 10px;
+            }
+        }
+
+        /* Larger screens optimization */
+        @media screen and (min-width: 769px) {
+            .card {
+                max-width: 900px;
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            body {
+                margin: 0;
+                padding: 2em;
+                padding-left: calc(80px + 2em); /* sidebar width + padding */
+                max-width: none;
+                width: 100%;
+            }
+
+            .page-body {
+                max-width: 700px; /* Reduced from 800px */
+                margin: 0 auto;
+                padding: 0;
+                width: 100%;
+            }
+
+            .card {
+                max-width: 100%; /* Changed from fixed width */
+                margin-bottom: 2em;
+            }
+
+            /* Ensure content fills available space */
+            .column-list {
+                width: 100%;
+                display: flex;
+                align-items: center;
+                gap: 2em;
+            }
+
+            /* Adjust columns to use available space */
+            .column {
+                flex: 1;
+            }
+
+            .column:last-child {
+                flex: 0 0 auto;
+            }
+
+            /* Fix avatar size and alignment */
+            .intro-image {
+                display: flex;
+                justify-content: flex-end;
+                align-items: center;
+            }
+
+            .intro-image img {
+                width: 140px; /* Reduced from 248px */
+                height: auto;
+            }
+
+            /* Adjust intro columns */
+            #intro .column-list {
+                align-items: center;
+                gap: 1em;
+            }
+
+            #intro .column:first-child {
+                flex: 2;
+            }
+
+            #intro .column:last-child {
+                flex: 1;
+            }
+            .skills-section {
+                gap: 3em; /* Increased gap specifically for desktop */
+            }
+        }
+
+        /* Desktop Navigation Styles */
+        .side-nav {
+            position: fixed;
+            left: 0;
+            top: 0;
+            width: 80px;
+            height: 100vh;
+            background: var(--glass-bg);
+            backdrop-filter: var(--glass-blur);
+            -webkit-backdrop-filter: var(--glass-blur);
+            border-right: 1px solid var(--glass-border);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 2em 0;
+            gap: 2em;
+        }
+
+        .nav-button {
+            width: 60px;
+            height: 60px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: var(--text);
+            text-decoration: none;
+            font-size: 10px;
+            border-radius: 8px;
+            transition: all 0.2s ease;
+        }
+
+        .nav-button svg {
+            width: 24px;
+            height: 24px;
+            margin-bottom: 4px;
+        }
+
+        .nav-button.active {
+            background: #f5f5f5;
+            color: var(--primary);
+        }
+
+        /* Adjust main content for sidebar */
+        @media screen and (min-width: 769px) {
+            body {
+                margin-left: 80px;
+            }
+            .bottom-nav {
+                display: none;
+            }
+        }
+
+        /* Mobile Navigation Adjustments */
+        @media screen and (max-width: 768px) {
+            .side-nav {
+                display: none;
+            }
+            /* ...existing mobile nav styles... */
+        }
+
+        /* Update contact section styles */
+        .contact-section {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5em;
+        }
+
+        .contact-form-container {
+            margin-top: 1em;
+            width: 100%;
+        }
+
+        /* Settings button - Enhanced */
+        .settings-btn {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            width: 56px; /* Increased size */
+            height: 56px; /* Increased size */
+            border-radius: 50%;
+            background: var(--glass-bg);
+            backdrop-filter: var(--glass-blur);
+            -webkit-backdrop-filter: var(--glass-blur);
+            border: 1px solid var(--glass-border);
+            border: none;
+            color: var(--md-sys-color-on-surface);
+            cursor: pointer;
+            z-index: 1001;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: var(--md-elevation-2);
+            transition: box-shadow 0.2s, transform 0.2s;
+        }
+
+        .settings-btn:hover {
+            box-shadow: var(--md-elevation-3);
+            transform: scale(1.05);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+
+        .settings-btn svg {
+            width: 28px; /* Increased size */
+            height: 28px; /* Increased size */
+        }
+
+        /* Settings modal - Material Design update */
+        .settings-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 2000;
+            padding: 2em;
+            animation: fadeIn 0.3s ease-out;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .settings-modal .modal-content {
+            max-width: 600px;
+            width: 90%;
+            background: var(--glass-bg);
+            backdrop-filter: var(--glass-blur);
+            -webkit-backdrop-filter: var(--glass-blur);
+            border: 1px solid var(--glass-border);
+            box-shadow: var(--glass-shadow);
+            padding: 24px;
+            border-radius: 28px;
+            box-shadow: var(--md-elevation-3);
+            position: relative;
+        }
+
+        .settings-modal h3 {
+            margin: 0 0 24px 0;
+            font-size: var(--md-sys-typescale-headline-s);
+            color: var(--md-sys-color-on-surface);
+        }
+
+        .settings-section {
+            background: var(--md-sys-color-surface);
+            border-radius: 16px;
+            padding: 16px;
+            margin-bottom: 24px;
+        }
+
+        .settings-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 12px;
+            border-radius: 12px;
+            transition: background-color 0.2s;
+        }
+
+        .settings-row:hover {
+            background: var(--md-sys-color-surface-variant);
+        }
+
+        .settings-label {
+            font-size: var(--md-sys-typescale-body-l);
+            font-weight: 500;
+            color: var(--md-sys-color-on-surface);
+        }
+
+        .settings-control {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        /* Switch styling */
+        .switch {
+            position: relative;
+            display: inline-block;
+            width: 52px;
+            height: 32px;
+        }
+
+        .switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: var(--md-sys-color-surface-variant);
+            transition: .3s;
+            border-radius: 34px;
+        }
+
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 24px;
+            width: 24px;
+            left: 4px;
+            bottom: 4px;
+            background-color: white;
+            transition: .3s;
+            border-radius: 50%;
+            box-shadow: var(--md-elevation-1);
+        }
+
+        input:checked + .slider {
+            background-color: var(--md-sys-color-primary);
+        }
+
+        input:checked + .slider:before {
+            transform: translateX(20px);
+        }
+
+        /* Mobile optimization */
+        @media (max-width: 768px) {
+            .settings-control input[type="range"] {
+                max-width: 140px;
+                height: 8px; /* Slightly thicker on mobile */
+            }
+
+            .settings-control input[type="range"]::-webkit-slider-thumb {
+                width: 24px;
+                height: 24px;
+                margin-top: -8px;
+            }
+            
+            .settings-control input[type="range"]::-moz-range-thumb {
+                width: 24px;
+                height: 24px;
+            }
+        }
+
+        /* Mobile specific adjustments */
+        @media screen and (max-width: 768px) {
+            .settings-control {
+                touch-action: none; /* Prevent scrolling when adjusting slider */
+            }
+            
+            input[type="range"] {
+                width: 160px; /* Slightly smaller width on mobile */
+            }
+        }
+
+        .reset-button {
+            background: var(--md-sys-color-primary);
+            color: var(--md-sys-color-on-primary);
+            border: none;
+            padding: 12px 24px;
+            border-radius: 20px;
+            font-size: var(--md-sys-typescale-label);
+            font-weight: 500;
+            cursor: pointer;
+            transition: background-color 0.2s;
+            width: 100%;
+        }
+
+        .reset-button:hover {
+            background: var(--md-sys-color-primary-container);
+        }
+
+        .close-settings {
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            background: transparent;
+            border: none;
+            color: var (--md-sys-color-on-surface);
+            cursor: pointer;
+            padding: 8px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background-color 0.2s;
+        }
+
+        .close-settings:hover {
+            background: var(--md-sys-color-surface-variant);
+        }
+
+        /* Dark mode specific styles */
+        :root[data-theme="dark"] {
+            --primary: #90caf9;
+            --primary-light: #42a5f5;
+            --secondary: #9e9e9e;
+            --background: #121212;
+            --card-bg: #1e1e1e;
+            --text: #ffffff;
+            --text-light: #bbbbbb;
+        }
+
+        /* Material Design 3 Variables */
+        :root {
+            /* Colors */
+            --md-sys-color-primary: #006495;
+            --md-sys-color-on-primary: #ffffff;
+            --md-sys-color-surface: #fafbfc;
+            --md-sys-color-surface-container: #ffffff;
+            --md-sys-color-on-surface: #1a1c1e;
+            --md-sys-color-outline: #72787e;
+            
+            /* Elevation */
+            --md-elevation-1: 0px 1px 2px rgba(0,0,0,0.3), 0px 1px 3px 1px rgba(0,0,0,0.15);
+            --md-elevation-2: 0px 2px 6px rgba(0,0,0,0.15), 0px 1px 2px rgba(0,0,0,0.3);
+            --md-elevation-3: 0px 4px 8px 3px rgba(0,0,0,0.15), 0px 1px 3px rgba(0,0,0,0.3);
+
+            /* Typography */
+            --md-sys-typescale-headline-l: 2rem;
+            --md-sys-typescale-headline-m: 1.75rem;
+            --md-sys-typescale-headline-s: 1.5rem;
+            --md-sys-typescale-body-l: 1rem;
+            --md-sys-typescale-body-m: 0.875rem;
+            --md-sys-typescale-label: 0.75rem;
+        }
+
+        /* Update base styles */
+        body {
+            background: var(--md-sys-color-surface);
+            color: var(--md-sys-color-on-surface);
+            font-family: 'YourCustomFont', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+        }
+
+        /* Card updates */
+        .card {
+            background: var(--md-sys-color-surface-container);
+            box-shadow: var(--md-elevation-1);
+            border: none;
+            transition: box-shadow 0.2s;
+            border-radius: 28px;
+            padding: 24px;
+        }
+
+        .card:hover {
+            box-shadow: var(--md-elevation-2);
+            transform: none;
+        }
+
+        /* Skills box updates */
+        .skill-box {
+            background: var(--md-sys-color-surface);
+            border: 1px solid var(--md-sys-color-outline);
+            box-shadow: none;
+            border-radius: 16px;
+            transition: background 0.2s;
+        }
+
+        .skill-box:hover {
+            background: var (--md-sys-color-primary);
+            color: var (--md-sys-color-on-primary);
+            transform: none;
+        }
+
+        /* Navigation updates */
+        .side-nav {
+            background: var(--md-sys-color-surface-container);
+            box-shadow: var(--md-elevation-2);
+        }
+
+        .nav-button {
+            border-radius: 16px;
+        }
+
+        .nav-button.active {
+            background: var(--md-sys-color-primary);
+            color: var (--md-sys-color-on-primary);
+        }
+
+        /* Typography updates */
+        .page-title {
+            font-size: var(--md-sys-typescale-headline-l);
+            background: none;
+            -webkit-text-fill-color: var(--md-sys-color-on-surface);
+            font-weight: 400;
+        }
+
+        .card h2 {
+            font-size: var(--md-sys-typescale-headline-s);
+            color: var (--md-sys-color-on-surface);
+            border-bottom: 1px solid var(--md-sys-color-outline);
+        }
+
+        /* Tables update */
+        .simple-table th {
+            background: var(--md-sys-color-primary);
+            color: var(--md-sys-color-on-primary);
+        }
+
+        /* Mobile adjustments */
+        @media screen and (max-width: 768px) {
+            .card {
+                border-radius: 24px;
+                padding: 16px;
+            }
+
+            .bottom-nav {
+                background: var(--md-sys-color-surface-container);
+                box-shadow: var(--md-elevation-2);
+            }
+        }
+
+        /* Update table styles */
+        .simple-table {
+            border-radius: 16px;
+            border-spacing: 0;
+            overflow: hidden;
+            border: 1px solid var (--md-sys-color-outline);
+        }
+
+        .simple-table th {
+            border: 1px solid var(--md-sys-color-outline);
+        }
+
+        .simple-table td {
+            border: 1px solid var(--md-sys-color-outline);
+        }
+
+        .simple-table th:first-child {
+            border-top-left-radius: 16px;
+        }
+
+        .simple-table th:last-child {
+            border-top-right-radius: 16px;
+        }
+
+        .simple-table tr:last-child td:first-child {
+            border-bottom-left-radius: 16px;
+        }
+
+        .simple-table tr:last-child td:last-child {
+            border-bottom-right-radius: 16px;
+        }
+
+        /* Update language grid spacing */
+        .language-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px; /* Increased from 8px */
+            padding: 2px; /* Add padding around grid */
+        }
+
+        .skill-box {
+            /* ...existing skill-box styles... */
+            margin: 2px; /* Add margin around each skill box */
+        }
+
+        /* For the English skill box that spans two columns */
+        .skill-box[style*="grid-column:1/span 2"] {
+            margin-top: 4px; /* Add extra space above the full-width box */
+        }
+
+        /* Update contact section spacing */
+        .contact-section {
+            gap: 0.8em; /* Reduced from 1.5em */
+        }
+
+        .contact-section p {
+            margin-bottom: 0.5em; /* Reduced from 0.8em */
+        }
+
+        .contact-form-container {
+            margin-top: 0.5em; /* Reduced from 1em */
+        }
+
+        /* Adjust contact card padding */
+        #contact.card {
+            padding: 1.2em; /* Reduced from 2em */
+        }
+
+        #contact h2 {
+            margin-bottom: 0.5em; /* Reduced from 1em */
+        }
+
+        /* Update dark mode variables */
+        :root[data-theme="dark"] {
+            /* Basic theme colors */
+            --primary: #90caf9;
+            --primary-light: #42a5f5;
+            --secondary: #9e9e9e;
+            --background: #121212;
+            --card-bg: #1e1e1e;
+            --text: #ffffff;
+            --text-light: #bbbbbb;
+            --shadow: rgba(255, 255, 255, 0.08);
+            --border: #333333;
+            
+            /* Material Design colors */
+            --md-sys-color-primary: #90caf9;
+            --md-sys-color-on-primary: #ffffff;
+            --md-sys-color-surface: #121212;
+            --md-sys-color-surface-container: #1e1e1e;
+            --md-sys-color-on-surface: #ffffff;
+            --md-sys-color-outline: #666666;
+            --md-sys-color-surface-variant: #2d2d2d;
+            --md-sys-color-primary-container: #42a5f5;
+        }
+
+        /* Table dark mode fixes */
+        :root[data-theme="dark"] .simple-table {
+            border-color: var(--md-sys-color-outline);
+        }
+
+        :root[data-theme="dark"] .simple-table td {
+            border-color: var(--md-sys-color-outline);
+            background: var(--card-bg);
+        }
+
+        :root[data-theme="dark"] .simple-table th {
+            background: var(--md-sys-color-primary);
+        }
+
+        /* Remove text selection highlight in dark mode */
+        :root[data-theme="dark"] .settings-modal * {
+            -webkit-user-select: none;
+            user-select: none;
+        }
+
+        :root[data-theme="dark"] .settings-label,
+        :root[data-theme="dark"] .settings-modal h3 {
+            color: var(--text);
+        }
+
+        /* Update settings section background in dark mode */
+        :root[data-theme="dark"] .settings-section {
+            background: var(--md-sys-color-surface-container);
+        }
+
+        /* Update settings row hover in dark mode */
+        :root[data-theme="dark"] .settings-row:hover {
+            background: var(--md-sys-color-surface);
+        }
+
+        /* Fix table borders - consistent thickness */
+        .simple-table {
+            border-collapse: separate;
+            border-spacing: 0;
+            border: 1px solid var(--md-sys-color-outline);
+            overflow: hidden;
+        }
+
+        /* Reset all borders first */
+        .simple-table td,
+        .simple-table th {
+            border: none;
+            position: relative;
+        }
+
+        /* Add borders using pseudo elements for consistent thickness */
+        .simple-table td:after,
+        .simple-table th:after {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            pointer-events: none;
+        }
+
+        .simple-table td:after {
+            border-right: 1px solid var(--md-sys-color-outline);
+            border-bottom: 1px solid var(--md-sys-color-outline);
+        }
+
+        .simple-table td:last-child:after {
+            border-right: none;
+        }
+
+        .simple-table tr:last-child td:after {
+            border-bottom: none;
+        }
+
+        /* Adjust border radius for consistent appearance */
+        .simple-table {
+            border-radius: 16px;
+        }
+
+        .simple-table tr:first-child th:first-child {
+            border-top-left-radius: 16px;
+        }
+
+        .simple-table tr:first-child th:last-child {
+            border-top-right-radius: 16px;
+        }
+
+        .simple-table tr:last-child td:first-child {
+            border-bottom-left-radius: 16px;
+        }
+
+        .simple-table tr:last-child td:last-child {
+            border-bottom-right-radius: 16px;
+        }
+
+        /* Keep background colors working */
+        .simple-table th {
+            background: var(--md-sys-color-primary);
+            color: var(--md-sys-color-on-primary);
+        }
+
+        :root[data-theme="dark"] .simple-table td {
+            background: var(--card-bg);
+        }
+
+        /* Mobile table scrolling styles */
+        @media screen and (max-width: 768px) {
+            .table-container {
+                position: relative;
+                width: 100%;
+                overflow-x: auto;
+                -webkit-overflow-scrolling: touch;
+                margin: 0;
+                padding: 0;
+            }
+
+            .simple-table {
+                width: max-content; /* Allow table to be wider than container */
+                min-width: 100%;
+                border-spacing: 0;
+                border-collapse: separate;
+            }
+
+            .simple-table td,
+            .simple-table th {
+                white-space: nowrap; /* Prevent text wrapping */
+                padding: 1em;
+                min-width: 120px; /* Minimum column width */
+            }
+
+            /* Projects table specific */
+            #projects .simple-table {
+                min-width: 600px; /* Minimum table width */
+            }
+
+            /* Services table specific */
+            #services .simple-table {
+                min-width: 500px; /* Minimum table width */
+            }
+
+            /* Remove arrow indicator */
+            .table-container::after {
+                display: none;
+            }
+        }
+
+        /* Update navigation button styles */
+        .nav-button {
+            // ...existing code...
+        }
+
+        .nav-button.active {
+            background: var(--md-sys-color-primary);
+            color: var(--md-sys-color-on-primary) !important; /* Force text color */
+        }
+
+        /* Fix dark mode navigation */
+        :root[data-theme="dark"] .nav-button {
+            color: var(--text);
+        }
+
+        :root[data-theme="dark"] .nav-button.active {
+            background: var(--md-sys-color-primary);
+            color: var(--md-sys-color-on-primary) !important;
+        }
+
+        :root[data-theme="dark"] .bottom-nav {
+            background: var(--card-bg);
+            border-top-color: var(--md-sys-color-outline);
+        }
+
+        /* Enhanced Range Slider Styles */
+        input[type="range"] {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 200px;
+            height: 4px;
+            border-radius: 8px;
+            background: var(--md-sys-color-surface-variant);
+            outline: none;
+            margin: 15px 0;
+            position: relative;
+        }
+
+        /* Thumb styling */
+        input[type="range"]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: var(--md-sys-color-primary);
+            cursor: pointer;
+            border: 2px solid var(--md-sys-color-surface-container);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+            transition: transform 0.2s, box-shadow 0.2s;
+            position: relative;
+            z-index: 2;
+        }
+
+        input[type="range"]::-moz-range-thumb {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: var(--md-sys-color-primary);
+            cursor: pointer;
+            border: 2px solid var(--md-sys-color-surface-container);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        /* Active state */
+        input[type="range"]:active::-webkit-slider-thumb {
+            transform: scale(1.2);
+            box-shadow: 0 3px 6px rgba(0, 0, 0, 0.3);
+        }
+
+        input[type="range"]:active::-moz-range-thumb {
+            transform: scale(1.2);
+            box-shadow: 0 3px 6px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Track progress styling */
+        input[type="range"]::before {
+            content: '';
+            position: absolute;
+            height: 4px;
+            left: 0;
+            right: 0;
+            border-radius: 8px;
+            background: var(--md-sys-color-primary);
+            width: var(--track-progress, 50%);
+            z-index: 1;
+        }
+
+        /* Font size value label styling */
+        #fontSizeValue {
+            background: var(--md-sys-color-surface-container);
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 14px;
+            font-weight: 500;
+            min-width: 50px;
+            text-align: center;
+            display: inline-block;
+        }
+
+        /* Dark mode adjustments */
+        :root[data-theme="dark"] input[type="range"] {
+            background: var(--md-sys-color-surface);
+        }
+
+        :root[data-theme="dark"] input[type="range"]::-webkit-slider-thumb {
+            border-color: var(--md-sys-color-surface);
+        }
+
+        :root[data-theme="dark"] input[type="range"]::-moz-range-thumb {
+            border-color: var(--md-sys-color-surface);
+        }
+
+        /* Blog button dark mode styles */
+        :root[data-theme="dark"] .blog-button:hover {
+            background: var(--md-sys-color-primary);
+            color: var(--md-sys-color-on-primary);
+        }
+
+        /* Add WordPress logo dark mode fix */
+        :root[data-theme="dark"] .skill-box img {
+            filter: brightness(0) invert(1);
+        }
+
+        /* Mobile social buttons fix */
+        @media screen and (max-width: 768px) {
+            #intro .social-buttons {
+                display: grid;
+                grid-template-columns: 1fr;
+                gap: 8px;
+                width: 100%;
+            }
+
+            .blog-button {
+                width: 100%;
+                justify-content: center;
+                padding: 16px;
+                font-size: 16px;
+            }
+
+            /* Bigger touch targets */
+            .skill-box {
+                padding: 16px;
+                min-height: 56px;
+                font-size: 16px;
+            }
+
+            /* Better card spacing */
+            .card {
+                padding: 20px;
+                margin: 12px 8px;
+            }
+
+            /* Improved bottom navigation */
+            .bottom-nav {
+                padding: 12px 4px;
+                height: 72px;
+            }
+
+            .bottom-nav .nav-button {
+                font-size: 12px;
+                padding: 8px 4px;
+            }
+
+            /* Adjust spacing above bottom nav */
+            body {
+                padding-bottom: 84px;
+            }
+
+            /* Better headings */
+            .card h2 {
+                font-size: 20px;
+                margin-bottom: 16px;
+            }
+
+            .card h3 {
+                font-size: 18px;
+                margin: 16px 0;
+            }
+
+            /* Improved paragraph readability */
+            p {
+                font-size: 16px;
+                line-height: 1.5;
+                margin-bottom: 16px;
+            }
+        }
+
+        /* Fix skills grid on mobile */
+        @media screen and (max-width: 768px) {
+            .skills-section {
+                display: grid;
+                gap: 16px;
+            }
+
+            .skills-category {
+                padding: 16px;
+            }
+
+            .language-grid {
+                grid-template-columns: 1fr;
+            }
+
+            /* Make English skill box same width */
+            .skill-box[style*="grid-column:1/span 2"] {
+                grid-column: auto;
+                margin-top: 0;
+            }
+        }
+        .skills-section {
+            display: grid;
+            gap: 2em; /* Increased from default gap */
+        }
+
+        /* Fix mobile navigation height issue */
+        @media screen and (max-width: 768px) {
+            .bottom-nav {
+                height: auto;
+                min-height: 72px;
+                padding: 8px 4px;
+            }
+
+            body {
+                padding-bottom: calc(72px + 12px); /* bottom-nav height + extra padding */
+            }
+        }
+
+        /* Fix table scrolling on mobile */
+        .table-container {
+            -webkit-overflow-scrolling: touch;
+            scrollbar-width: none; /* Firefox */
+            position: relative;
+            width: 100%;
+        }
+
+        .table-container::-webkit-scrollbar {
+            display: none; /* Chrome, Safari */
+        }
+
+        /* Font size control styles */
+        :root {
+            --base-font-size: 14px;
+        }
+
+        body {
+            font-size: var(--base-font-size);
+        }
+
+        /* Animation control classes */
+        .disable-animations * {
+            animation: none !important;
+            transition: none !important;
+        }
+
+        .reduced-motion * {
+            transition-duration: 0.05s !important;
+            animation-duration: 0.05s !important;
+        }
+
+        /* Range input styling */
+        input[type="range"] {
+            -webkit-appearance: none;
+            width: 200px;
+            height: 4px;
+            background: var(--md-sys-color-surface-variant);
+            border-radius: 2px;
+            outline: none;
+        }
+
+        input[type="range"]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            width: 20px;
+            height: 20px;
+            background: var(--md-sys-color-primary);
+            border-radius: 50%;
+            cursor: pointer;
+            transition: transform 0.1s;
+        }
+
+        input[type="range"]::-webkit-slider-thumb:hover {
+            transform: scale(1.1);
+        }
+
+        /* Settings value display */
+        #fontSizeValue {
+            min-width: 48px;
+            text-align: right;
+            color: var(--text);
+        }
+
+        /* Settings modal - Enhanced Glassmorphism */
+        .settings-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.3);
+            z-index: 2000;
+            padding: 2em;
+            animation: fadeIn 0.3s ease-out;
+            align-items: center;
+            justify-content: center;
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+        }
+
+        .settings-modal .modal-content {
+            background: var(--glass-bg);
+            backdrop-filter: var(--glass-blur);
+            -webkit-backdrop-filter: var(--glass-blur);
+            border: 1px solid var(--glass-border);
+            box-shadow: var(--glass-shadow);
+            max-width: 600px;
+            width: 90%;
+            padding: 24px;
+            border-radius: 28px;
+            animation: modalSlideUp 0.3s ease-out;
+        }
+
+        /* Enhanced settings section with Glassmorphism */
+        .settings-section {
+            background: var(--glass-bg);
+            backdrop-filter: var(--glass-blur);
+            -webkit-backdrop-filter: var(--glass-blur);
+            border: 1px solid var(--glass-border);
+            border-radius: 16px;
+            padding: 16px;
+            margin-bottom: 24px;
+        }
+
+        .settings-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 12px;
+            border-radius: 12px;
+            transition: all 0.3s ease;
+        }
+
+        .settings-row:hover {
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        /* Enhanced switch styling */
+        .switch {
+            position: relative;
+            display: inline-block;
+            width: 60px;
+            height: 34px;
+        }
+
+        .switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: var(--glass-bg);
+            backdrop-filter: var(--glass-blur);
+            -webkit-backdrop-filter: var(--glass-blur);
+            border: 1px solid var(--glass-border);
+            transition: .3s;
+            border-radius: 34px;
+        }
+
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 26px;
+            width: 26px;
+            left: 4px;
+            bottom: 4px;
+            background-color: white;
+            transition: .3s;
+            border-radius: 50%;
+            box-shadow: var(--glass-shadow);
+        }
+
+        input:checked + .slider {
+            background: var(--md-sys-color-primary);
+        }
+
+        input:checked + .slider:before {
+            transform: translateX(26px);
+        }
+
+        /* Enhanced reset button */
+        .reset-button {
+            background: var(--glass-bg);
+            backdrop-filter: var(--glass-blur);
+            -webkit-backdrop-filter: var(--glass-blur);
+            border: 1px solid var(--glass-border);
+            color: var(--text);
+            padding: 12px 24px;
+            border-radius: 20px;
+            font-size: 16px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            width: 100%;
+        }
+
+        .reset-button:hover {
+            background: var(--md-sys-color-primary);
+            color: var(--md-sys-color-on-primary);
+        }
+
+        /* Modal animation */
+        @keyframes modalSlideUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Mobile optimization */
+        @media screen and (max-width: 768px) {
+            .settings-modal {
+                padding: 1em;
+            }
+
+            .settings-modal .modal-content {
+                width: 95%;
+                padding: 20px;
+                margin: 10px;
+            }
+
+            .settings-row {
+                padding: 16px;
+            }
+
+            .settings-label {
+                font-size: 16px;
+            }
+
+            .switch {
+                width: 52px;
+                height: 32px;
+            }
+
+            .slider:before {
+                height: 24px;
+                width: 24px;
+            }
+
+            input:checked + .slider:before {
+                transform: translateX(18px);
+            }
+
+            .reset-button {
+                padding: 16px;
+                font-size: 16px;
+                margin-top: 16px;
+            }
+        }
+
+        /* Dark mode specific adjustments */
+        :root[data-theme="dark"] .settings-modal .modal-content {
+            background: rgba(30, 30, 30, 0.8);
+        }
+
+        :root[data-theme="dark"] .settings-section {
+            background: rgba(40, 40, 40, 0.8);
+        }
+
+        :root[data-theme="dark"] .settings-row:hover {
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        /* Font Awesome icon sizes */
+        .blog-button i,
+        .skill-box i {
+            font-size: 28px; /* Increased from default size */
+            width: 28px;
+            height: 28px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 8px;
+        }
+
+        /* Make icons slightly smaller on mobile */
+        @media screen and (max-width: 768px) {
+            .blog-button i,
+            .skill-box i {
+                font-size: 24px;
+                width: 24px;
+                height: 24px;
+            }
+        }
+        /* Icon spacing adjustments */
+        .blog-button i,
+        .skill-box i {
+            font-size: 20px;
+            width: 20px;
+            height: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 1px; /* Reduced from 4px */
+        }
+
+        /* Center icons in square buttons */
+        .blog-button.icon-only {
+            width: 48px; /* Fixed width and height for square buttons */
+            height: 48px;
+            padding: 0;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .blog-button.icon-only i {
+            margin: 0; /* Remove margin for icon-only buttons */
+        }
+
+        /* Add beta label style */
+        .beta-label {
+            background: var(--md-sys-color-primary);
+            color: var(--md-sys-color-on-primary);
+            font-size: 12px;
+            padding: 2px 6px;
+            border-radius: 4px;
+            margin-left: 8px;
+            font-weight: 500;
+        }
+
+        /* Additional responsive design improvements */
+        
+        /* Extra small devices (phones, 320px and up) */
+        @media screen and (min-width: 320px) {
+            body {
+                padding: 0.5em;
+                font-size: 14px;
+            }
+
+            .card {
+                padding: 1em;
+                margin: 0.5em 0;
+                border-radius: 12px;
+            }
+
+            .intro-image img {
+                width: 120px;
+                height: auto;
+            }
+
+            .column-list {
+                flex-direction: column;
+            }
+
+            .column {
+                width: 100% !important;
+                text-align: center;
+            }
+
+            .social-buttons {
+                justify-content: center;
+            }
+        }
+
+        /* Small devices (tablets, 768px and up) */
+        @media screen and (min-width: 768px) {
+            body {
+                padding: 1em;
+                font-size: 16px;
+            }
+
+            .card {
+                padding: 1.5em;
+                margin: 1em 0;
+            }
+
+            .intro-image img {
+                width: 160px;
+            }
+
+            .column-list {
+                flex-direction: row;
+            }
+
+            .column {
+                width: auto !important;
+                text-align: left;
+            }
+        }
+
+        /* Medium devices (desktops, 992px and up) */
+        @media screen and (min-width: 992px) {
+            body {
+                padding: 2em;
+                max-width: 1200px;
+                margin: 0 auto;
+            }
+
+            .intro-image img {
+                width: 200px;
+            }
+        }
+
+        /* Table responsiveness improvements */
+        .table-container {
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+            margin: 1em -1em;
+            padding: 0 1em;
+        }
+
+        @media screen and (max-width: 600px) {
+            .simple-table {
+                font-size: 14px;
+            }
+
+            .simple-table td, 
+            .simple-table th {
+                padding: 0.5em;
+            }
+        }
+
+        /* Fix navigation for small devices */
+        @media screen and (max-width: 768px) {
+            .side-nav {
+                display: none;
+            }
+
+            .bottom-nav {
+                padding: 0.5em;
+            }
+
+            .nav-button {
+                padding: 0.5em;
+                font-size: 12px;
+            }
+
+            .settings-btn {
+                right: 10px;
+                top: 10px;
+                width: 40px;
+                height: 40px;
+            }
+        }
+
+        /* Improve modal responsiveness */
+        @media screen and (max-width: 600px) {
+            .settings-modal .modal-content {
+                width: 95%;
+                margin: 1em;
+                padding: 1em;
+            }
+
+            .settings-row {
+                flex-direction: column;
+                gap: 0.5em;
+                align-items: flex-start;
+            }
+        }
+
+        /* Fix form responsiveness */
+        @media screen and (max-width: 768px) {
+            .contact-form-container iframe {
+                height: 600px !important;
+            }
+        }
+
+        /* Safe area insets for modern mobile devices */
+        @supports(padding: max(0px)) {
+            body {
+                padding-left: max(1em, env(safe-area-inset-left));
+                padding-right: max(1em, env(safe-area-inset-right));
+                padding-bottom: max(80px, env(safe-area-inset-bottom));
+            }
+
+            .bottom-nav {
+                padding-bottom: max(0.5em, env(safe-area-inset-bottom));
+            }
+        }
+        .social-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            width: 100%;
+        }
+
+        .blog-button {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--glass-bg);
+            backdrop-filter: var(--glass-blur);
+            -webkit-backdrop-filter: var(--glass-blur);
+            color: var(--text);
+            padding: 12px 16px;
+            border-radius: 12px;
+            text-decoration: none;
+            border: 1px solid var(--glass-border);
+            transition: all 0.2s ease;
+            width: 100%;
+        }
+
+        .blog-button:hover {
+            background: var(--md-sys-color-primary);
+            color: var(--md-sys-color-on-primary);
+            transform: translateY(-2px);
+        }
+
+        .blog-button i {
+            font-size: 20px;
+            width: 20px;
+            height: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Mobile optimization */
+        @media screen and (max-width: 768px) {
+            .blog-button {
+                padding: 16px;
+                font-size: 16px;
+            }
+        }
+        /* Glass effect variables */
+        :root {
+            --glass-bg: rgba(255, 255, 255, 0.7);
+            --glass-blur: blur(10px);
+            --glass-border: rgba(255, 255, 255, 0.5);
+            --glass-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        :root[data-theme="dark"] {
+            --glass-bg: rgba(30, 30, 30, 0.7);
+            --glass-border: rgba(255, 255, 255, 0.1);
+            --glass-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Remove duplicate card:hover rules and merge them */
+        .card:hover {
+            transform: translateY(-5px) scale(1.01);
+            box-shadow: 0 4px 8px var(--shadow);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+
+        /* Fix dark mode navigation button colors */
+        :root[data-theme="dark"] .nav-button.active {
+            background: var(--md-sys-color-primary);
+            color: var(--md-sys-color-on-primary) !important;
+        }
+
+        /* Fix table borders in dark mode */
+        :root[data-theme="dark"] .simple-table {
+            border-color: var(--md-sys-color-outline);
+        }
+
+        :root[data-theme="dark"] .simple-table td,
+        :root[data-theme="dark"] .simple-table th {
+            border-color: var(--md-sys-color-outline);
+        }
+
+        /* Add focus styles for accessibility */
+        .nav-button:focus,
+        .blog-button:focus,
+        .skill-box:focus,
+        .settings-btn:focus {
+            outline: 2px solid var(--md-sys-color-primary);
+            outline-offset: 2px;
+        }
+
+        /* Fix social buttons grid on mobile */
+        @media screen and (max-width: 768px) {
+            .social-buttons {
+                grid-template-columns: 1fr;
+                gap: 8px;
+            }
+        }
+
+        /* 添加彈窗樣式 */
+        .welcome-popup {
+            display: none;
+            position: fixed;
+            bottom: 24px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--glass-bg);
+            backdrop-filter: var(--glass-blur);
+            -webkit-backdrop-filter: var(--glass-blur);
+            border: 1px solid var(--glass-border);
+            box-shadow: var(--glass-shadow);
+            padding: 20px;
+            border-radius: 16px;
+            z-index: 2001;
+            min-width: 280px;
+            max-width: 90%;
+            animation: none; /* 移除之前的動畫 */
+            opacity: 0;
+            transform: translate(-50%, 20px);
+            transition: opacity 0.3s ease-out, transform 0.3s ease-out;
+        }
+
+        .welcome-popup.show {
+            display: block;
+            opacity: 1;
+            transform: translate(-50%, 0);
+        }
+
+        .welcome-popup.hiding {
+            opacity: 0;
+            transform: translate(-50%, 20px);
+        }
+
+        .welcome-title {
+            font-size: 16px;
+            font-weight: 500;
+            margin: 0 0 8px 0;
+            color: var(--md-sys-color-on-surface);
+        }
+
+        .welcome-message {
+            font-size: 12px;
+            margin: 0 0 16px 0;
+            color: var(--md-sys-color-on-surface);
+        }
+
+        .close-popup {
+            background: var(--md-sys-color-primary);
+            color: var(--md-sys-color-on-primary);
+            border: none;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            display: block;
+            width: 100%;
+        }
+
+        .close-popup:hover {
+            background: var(--md-sys-color-primary-container);
+        }
+
+        /* Dark mode 支援 */
+        :root[data-theme="dark"] .welcome-popup {
+            background: rgba(30, 30, 30, 0.8);
+        }
+
+        /* 新增版本號樣式 */
+        .version-info {
+            font-size: 12px;
+            color: var(--md-sys-color-outline);
+            text-align: center;
+            padding: 12px 0 0;
+            border-top: 1px solid var(--md-sys-color-outline);
+            margin-top: 24px;
+        }
+
+        /* 美化語言選擇器 */
+        .language-select {
+            appearance: none;
+            background: var(--md-sys-color-surface);
+            border: 1px solid var(--md-sys-color-outline);
+            border-radius: 12px;
+            padding: 8px 36px 8px 16px;
+            font-size: 14px;
+            color: var(--md-sys-color-on-surface);
+            cursor: pointer;
+            transition: all 0.2s ease;
+            min-width: 120px;
+            position: relative;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 8px center;
+            background-size: 16px;
+        }
+
+        .language-select:hover {
+            border-color: var(--md-sys-color-primary);
+            background-color: var(--md-sys-color-surface-variant);
+        }
+
+        .language-select:focus {
+            outline: none;
+            border-color: var(--md-sys-color-primary);
+            box-shadow: 0 0 0 2px var(--md-sys-color-primary-container);
+        }
+
+        /* 深色模式適配 */
+        :root[data-theme="dark"] .language-select {
+            background-color: var(--md-sys-color-surface-variant);
+            border-color: var(--md-sys-color-outline);
+        }
+
+        :root[data-theme="dark"] .language-select:hover {
+            background-color: var(--md-sys-color-surface);
+        }
+    </style>
+    <!-- Add structured data before closing head tag -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org/",
+        "@type": "Person",
+        "name": "Marco Wong",
+        "url": "https://mmw1984.com",
+        "image": "https://1.gravatar.com/avatar/40ad61aac43b0564bbd2cf7e5658b30cc2a1670a953bbda7af6fb5baa7048fe7?size=256",
+        "jobTitle": "WordPress & Server Expert",
+        "description": "WordPress hosting expert and server consultant providing professional services",
+        "sameAs": [
+            "https://www.instagram.com/tszfung.w",
+            "https://github.com/mmw1984",
+            "https://blog.mmw1984.com"
+        ],
+        "knowsLanguage": ["en", "zh-HK", "zh-CN"],
+        "knowsAbout": ["WordPress", "Web Hosting", "Server Administration"],
+        "makesOffer": [
+            {
+                "@type": "Offer",
+                "name": "Web hosting consultation",
+                "description": "WordPress and server setup assistance",
+                "price": "120",
+                "priceCurrency": "USD"
+            },
+            {
+                "@type": "Offer",
+                "name": "Server purchase consultation",
+                "description": "Server selection and recommendation",
+                "price": "50",
+                "priceCurrency": "USD"
+            }
+        ]
+    }
+    </script>
+    
+    <!-- Add Font Awesome before closing head tag -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <script src="translations.js"></script>
+</head>
+<body>
+    <div class="page-wrapper"></div>
+    <nav class="side-nav">
+        <a href="#intro" class="nav-button">
+            <svg viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
+            </svg>
+            <span data-i18n="nav_about">About</span>
+        </a>
+        <a href="#skills" class="nav-button">
+            <svg viewBox="0 0 24 24" fill="currentColor">
+                <path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zm4.24 16L12 15.45 7.77 18l1.12-4.81-3.73-3.23 4.92-.42L12 5l1.92 4.53 4.92.42-3.73 3.23L16.23 18z"/>
+            </svg>
+            <span data-i18n="nav_skills">Skills</span>
+        </a>
+        <a href="#projects" class="nav-button">
+            <svg viewBox="0 0 24 24" fill="currentColor">
+                <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/>
+            </svg>
+            <span data-i18n="nav_projects">Projects</span>
+        </a>
+        <a href="#services" class="nav-button">
+            <svg viewBox="0 0 24 24" fill="currentColor">
+                <path d="M21.67 18.17l-5.3-5.3h-.99l-2.54 2.54v.99l5.3 5.3c.39.39 1.02.39 1.41 0l2.12-2.12c.39-.38.39-1.02 0-1.41zm-2.83 1.42l-4.24-4.24.71-.71 4.24 4.24-.71.71z"/>
+                <path d="M17.34 10.19l1.41-1.41 2.12 2.12c1.17-1.17 1.17-3.07 0-4.24l-3.54-3.54-1.41 1.41V1.71L15.22 1l-3.54 3.54.71.71h2.83l-1.41 1.41 1.06 1.06-2.89 2.89-4.13-4.13V5.06L4.83 2.04 2 4.87 5.03 7.9h1.41l4.13 4.13-.85.85H7.6l-5.3 5.3c-.39.39-.39 1.02 0 1.41l2.12 2.12c.39.39 1.02.39 1.41 0l5.3-5.3v-2.12l5.15-5.15 1.06 1.05zm-7.98 5.15l-4.24 4.24-.71-.71 4.24-4.24.71.71z"/>
+            </svg>
+            <span data-i18n="nav_services">Services</span>
+        </a>
+        <a href="#contact" class="nav-button">
+            <svg viewBox="0 0 24 24" fill="currentColor">
+                <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+            </svg>
+            <span data-i18n="nav_contact">Contact</span>
+        </a>
+    </nav>
+
+    <article class="page sans">
+        <div class="page-body">
+            <!-- Introduction Card -->
+            <div class="card" id="intro">
+                <div class="column-list">
+                    <div class="column" style="width:62.5%">
+                        <h2 data-i18n="intro_hello">Hello, I'm Marco.</h2>
+                        <p data-i18n="intro_exp">I have long experience in WordPress hosting.</p>
+                        <p data-i18n="intro_skills">I have wonderful problem solving skills.</p>
+                    </div>
+                    <div class="column" style="width:37.5%">
+                        <div class="intro-image">
+                            <img src="notion-avatar-1736580317649.png" alt="Profile"/>
+                        </div>
+                    </div>
+                </div>
+                <div style="margin-top: 1em;">
+                    <h3 data-i18n="connect_title">Connect with Me</h3>
+                    <div class="social-buttons">
+                        <a href="https://blog.mmw1984.com" target="_blank" class="skill-box">
+                            <i class="fa-solid fa-window-maximize"></i>
+                            <span data-i18n="visit_blog">Visit My Blog</span>
+                        </a>
+                        <a href="https://github.com/mmw1984" target="_blank" class="skill-box">
+                            <i class="fa-brands fa-github"></i>
+                            GitHub
+                        </a>
+                        <a href="https://instagram.com/tszfung.w" target="_blank" class="skill-box">
+                            <i class="fa-brands fa-instagram"></i>
+                            Instagram
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Skills Card -->
+            <div class="card" id="skills">
+                <h2 data-i18n="skills_title">Skills</h2>
+                <div class="skills-section">
+                    <div class="skills-category">
+                        <h3 data-i18n="software_skills">Software Skills</h3>
+                        <a href="https://wordpress.org" target="_blank" class="skill-box" style="text-decoration: none;">
+                            <i class="fa-brands fa-wordpress-simple"></i>
+                            WordPress
+                        </a>
+                    </div>
+                    <div class="skills-category">
+                        <h3 data-i18n="language_skills">Language Skills</h3>
+                        <div class="language-grid">
+                            <div class="skill-box" data-i18n="cantonese">Cantonese</div>
+                            <div class="skill-box" data-i18n="mandarin">Mandarin</div>
+                            <div class="skill-box" style="grid-column:1/span 2" data-i18n="english">English</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Projects Card -->
+            <div class="card" id="projects">
+                <h2 data-i18n="projects_title">Projects</h2>
+                <div class="table-container">
+                    <table class="simple-table">
+                        <thead>
+                            <tr>
+                                <th data-i18n="projects_name">Name</th>
+                                <th data-i18n="projects_featured">Featured</th>
+                                <th data-i18n="projects_service">Service</th>
+                                <th data-i18n="projects_desc">Description</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td data-i18n="project_consultation">Consultation for Server specs</td>
+                                <td data-i18n="project_featured_check">✓</td>
+                                <td data-i18n="project_service_type">Server purchase help</td>
+                                <td data-i18n="project_description">Guided and choose the most valuable server for her.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Services Card -->
+            <div class="card" id="services">
+                <h2 data-i18n="services_title">Services</h2>
+                <div class="table-container">
+                    <table class="simple-table">
+                        <tbody>
+                            <tr>
+                                <td></td>
+                                <td><strong data-i18n="web_hosting">Web hosting</strong></td>
+                                <td><strong data-i18n="server_help">Server purchase help</strong></td>
+                            </tr>
+                            <tr>
+                                <td><strong data-i18n="services_description">Description</strong></td>
+                                <td data-i18n="web_hosting_desc">I could help you in setting up WordPress or other stuffs on your server.</td>
+                                <td data-i18n="server_help_desc">Choose and recommend some server. Choose the most valuable one for you.</td>
+                            </tr>
+                            <tr>
+                                <td><strong data-i18n="services_pricing">Pricing</strong></td>
+                                <td data-i18n="web_hosting_price">$120 for a 30-min session</td>
+                                <td data-i18n="server_help_price">$50 for a 20-min session</td>
+                            </tr>
+                            <tr>
+                                <td><strong data-i18n="services_features">Features</strong></td>
+                                <td data-i18n="web_hosting_features">• Set up customization<br/>• WordPress Help</td>
+                                <td data-i18n="server_help_features">• Well-prepared for you need</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Contact Card -->
+            <div class="card" id="contact">
+                <div class="contact-section">
+                    <h2 data-i18n="contact_title">Any Questions?</h2>
+                    <p data-i18n="contact_desc">I'm here to help! Fill out the contact form and I'll get back to you as soon as possible.</p>
+                    <div class="contact-form-container">
+                        <iframe src="https://tally.so/embed/3X11lP?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1"
+                            width="100%" height="520" frameborder="0" marginheight="0" marginwidth="0"
+                            title="Contact Form" style="border:none;max-width:100%;margin:0;">
+                        </iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </article>
+
+    <nav class="bottom-nav">
+        <a href="#intro" class="nav-button">
+            <svg viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
+            </svg>
+            <span data-i18n="nav_about">About</span>
+        </a>
+        <a href="#skills" class="nav-button">
+            <svg viewBox="0 0 24 24" fill="currentColor">
+                <path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zm4.24 16L12 15.45 7.77 18l1.12-4.81-3.73-3.23 4.92-.42L12 5l1.92 4.53 4.92.42-3.73 3.23L16.23 18z"/>
+            </svg>
+            <span data-i18n="nav_skills">Skills</span>
+        </a>
+        <a href="#projects" class="nav-button">
+            <svg viewBox="0 0 24 24" fill="currentColor">
+                <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/>
+            </svg>
+            <span data-i18n="nav_projects">Projects</span>
+        </a>
+        <a href="#services" class="nav-button">
+            <svg viewBox="0 0 24 24" fill="currentColor">
+                <path d="M21.67 18.17l-5.3-5.3h-.99l-2.54 2.54v.99l5.3 5.3c.39.39 1.02.39 1.41 0l2.12-2.12c.39-.38.39-1.02 0-1.41zm-2.83 1.42l-4.24-4.24.71-.71 4.24 4.24-.71.71z"/>
+                <path d="M17.34 10.19l1.41-1.41 2.12 2.12c1.17-1.17 1.17-3.07 0-4.24l-3.54-3.54-1.41 1.41V1.71L15.22 1l-3.54 3.54.71.71h2.83l-1.41 1.41 1.06 1.06-2.89 2.89-4.13-4.13V5.06L4.83 2.04 2 4.87 5.03 7.9h1.41l4.13 4.13-.85.85H7.6l-5.3 5.3c-.39.39-.39 1.02 0 1.41l2.12 2.12c.39.39 1.02.39 1.41 0l5.3-5.3v-2.12l5.15-5.15 1.06 1.05zm-7.98 5.15l-4.24 4.24-.71-.71 4.24-4.24.71.71z"/>
+            </svg>
+            <span data-i18n="nav_services">Services</span>
+        </a>
+        <a href="#contact" class="nav-button">
+            <svg viewBox="0 0 24 24" fill="currentColor">
+                <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+            </svg>
+            <span data-i18n="nav_contact">Contact</span>
+        </a>
+    </nav>
+
+    <button class="settings-btn" onclick="toggleSettings()">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M19.14,12.94c0.04-0.3,0.06-0.61,0.06-0.94c0-0.32-0.02-0.64-0.07-0.94l2.03-1.58c0.18-0.14,0.23-0.41,0.12-0.61 l-1.92-3.32c-0.12-0.22-0.37-0.29-0.59-0.22l-2.39,0.96c-0.5-0.38-1.03-0.7-1.62-0.94L14.4,2.81c-0.04-0.24-0.24-0.41-0.48-0.41 h-3.84c-0.24,0-0.43,0.17-0.47,0.41L9.25,5.35C8.66,5.59,8.12,5.92,7.63,6.29L5.24,5.33c-0.22-0.08-0.47,0-0.59,0.22L2.74,8.87 C2.62,9.08,2.66,9.34,2.86,9.48l2.03,1.58C4.84,11.36,4.8,11.69,4.8,12s0.02,0.64,0.07,0.94l-2.03,1.58 c-0.18,0.14-0.23,0.41-0.12,0.61l1.92,3.32c0.12,0.22,0.37,0.29,0.59,0.22l2.39-0.96c0.5,0.38,1.03,0.7,1.62,0.94l0.36,2.54 c0.04,0.24,0.24,0.41,0.48,0.41h3.84c0.24,0,0.43-0.17,0.47-0.41l0.36-2.54c0.59-0.24,1.13-0.56,1.62-0.94l2.39,0.96 c0.22,0.08,0.47,0,0.59-0.22l1.92-3.32c0.12-0.22,0.07-0.47-0.12-0.61L19.14,12.94z M12,15.6c-1.98,0-3.6-1.62-3.6-3.6 s1.62-3.6,3.6-3.6s3.6,1.62,3.6,3.6S13.98,15.6,12,15.6z"/>
+        </svg>
+    </button>
+
+    <div class="settings-modal" id="settingsModal">
+        <div class="modal-content">
+            <button class="close-settings" onclick="toggleSettings()">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/>
+                </svg>
+            </button>
+            <h3 data-i18n="settings">Settings</h3>
+            
+            <div class="settings-section">
+                <div class="settings-row">
+                    <span class="settings-label">
+                        <span data-i18n="dark_mode">Dark Mode</span>
+                        <span class="beta-label">Beta</span>
+                    </span>
+                    <div class="settings-control">
+                        <label class="switch">
+                            <input type="checkbox" id="darkMode" onchange="toggleDarkMode()">
+                            <span class="slider"></span>
+                        </label>
+                    </div>
+                </div>
+                <div class="settings-row">
+                    <span class="settings-label" data-i18n="language">Language</span>
+                    <div class="settings-control">
+                        <select id="languageSelect" class="language-select" onchange="changeLanguage(this.value)">
+                            <option value="en">English</option>
+                            <option value="zh-HK">繁體中文</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <button class="reset-button" onclick="resetSettings()" data-i18n="reset">Reset to Default</button>
+            
+            <!-- 添加版本信息 -->
+            <div class="version-info">
+                Version v0.1.2-langbeta
+            </div>
+        </div>
+    </div>
+
+    <!-- 添加彈窗HTML結構 -->
+    <div class="welcome-popup" id="welcomePopup">
+        <div class="welcome-title">香港人!!!!</div>
+        <div class="welcome-message">你好！已經幫你切換成中文了</div>
+        <button class="close-popup" onclick="closeWelcomePopup()">關閉</button>
+    </div>
+
+    <script>
+        // Navigation button functionality
+        document.querySelectorAll('.nav-button').forEach(button => {
+            button.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                targetElement.scrollIntoView({ behavior: 'smooth' });
+                
+                document.querySelectorAll('.nav-button').forEach(btn => btn.classList.remove('active'));
+                this.classList.add('active');
+            });
+        });
+
+        // Update active section on scroll
+        window.addEventListener('scroll', () => {
+            const sections = document.querySelectorAll('.card');
+            const navButtons = document.querySelectorAll('.nav-button');
+            
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                if (pageYOffset >= sectionTop - 60) {
+                    current = '#' + section.getAttribute('id');
+                }
+            });
+
+            navButtons.forEach(btn => {
+                btn.classList.remove('active');
+                if (btn.getAttribute('href') === current) {
+                    btn.classList.add('active');
+                }
+            });
+        });
+
+        // Settings functionality
+        function toggleSettings() {
+            const modal = document.getElementById('settingsModal');
+            modal.style.display = modal.style.display === 'flex' ? 'none' : 'flex';
+        }
+
+        function toggleDarkMode() {
+            const isDark = document.getElementById('darkMode').checked;
+            document.documentElement.setAttribute('data-theme', isDark ? 'dark' : 'light');
+            localStorage.setItem('theme', isDark ? 'dark' : 'light');
+        }
+
+        function resetSettings() {
+            // Reset theme
+            document.getElementById('darkMode').checked = false;
+            document.documentElement.setAttribute('data-theme', 'light');
+            localStorage.setItem('theme', 'light');
+
+            // Reset language to browser default or English
+            const browserLang = navigator.language;
+            const defaultLang = browserLang.startsWith('zh-HK') || browserLang.startsWith('zh-TW') ? 'zh-HK' : 'en';
+            setLanguage(defaultLang);
+        }
+
+        // Load saved settings
+        window.addEventListener('load', () => {
+            // Load theme only
+            const savedTheme = localStorage.getItem('theme') || 'light';
+            document.documentElement.setAttribute('data-theme', savedTheme);
+            document.getElementById('darkMode').checked = savedTheme === 'dark';
+
+            // 檢查用戶語言偏好
+            const savedLang = localStorage.getItem('language');
+            const browserLang = navigator.language;
+            const preferredLang = savedLang || (browserLang.startsWith('zh-HK') || browserLang.startsWith('zh-TW') ? 'zh-HK' : 'en');
+            
+            setLanguage(preferredLang);
+        });
+
+        // Close settings when clicking outside
+        window.addEventListener('click', (e) => {
+            const modal = document.getElementById('settingsModal');
+            if (!e.target.closest('.modal-content') && !e.target.closest('.settings-btn')) {
+                modal.style.display = 'none';
+            }
+        });
+
+        // Table scrolling functionality
+        function updateTableScrollIndicators() {
+            document.querySelectorAll('.table-container').forEach(container => {
+                const canScrollLeft = container.scrollLeft > 0;
+                const canScrollRight = container.scrollLeft < (container.scrollWidth - container.clientWidth);
+                container.classList.toggle('can-scroll-left', canScrollLeft);
+                container.classList.toggle('can-scroll-right', canScrollRight);
+            });
+        }
+
+        document.querySelectorAll('.table-container').forEach(container => {
+            container.addEventListener('scroll', updateTableScrollIndicators);
+            container.style.webkitOverflowScrolling = 'touch';
+        });
+
+        window.addEventListener('resize', updateTableScrollIndicators);
+        updateTableScrollIndicators();
+
+        // Fix navigation active state
+        function updateActiveNavigation() {
+            const sections = document.querySelectorAll('.card');
+            const navButtons = document.querySelectorAll('.nav-button');
+            
+            const scrollPosition = window.scrollY + 60; // Add offset
+
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionBottom = sectionTop + section.offsetHeight;
+                
+                if (scrollPosition >= sectionTop && scrollPosition < sectionBottom) {
+                    const id = section.getAttribute('id');
+                    navButtons.forEach(btn => {
+                        btn.classList.toggle('active', btn.getAttribute('href') === `#${id}`);
+                    });
+                }
+            });
+        }
+
+        window.addEventListener('scroll', updateActiveNavigation);
+        window.addEventListener('load', updateActiveNavigation);
+
+        // Fix settings modal close behavior
+        function closeSettingsModal(event) {
+            const modal = document.getElementById('settingsModal');
+            const modalContent = modal.querySelector('.modal-content');
+            const settingsBtn = document.querySelector('.settings-btn');
+            
+            if (!modalContent.contains(event.target) && !settingsBtn.contains(event.target)) {
+                modal.style.display = 'none';
+            }
+        }
+
+        document.addEventListener('click', closeSettingsModal);
+
+        // 語言設置相關功能
+        function setLanguage(lang) {
+            const elements = document.querySelectorAll('[data-i18n]');
+            elements.forEach(element => {
+                const key = element.getAttribute('data-i18n');
+                if (translations[lang] && translations[lang][key]) {
+                    if (element.tagName === 'INPUT' && element.type === 'placeholder') {
+                        element.placeholder = translations[lang][key];
+                    } else {
+                        element.textContent = translations[lang][key];
+                    }
+                }
+            });
+            document.getElementById('languageSelect').value = lang;
+            localStorage.setItem('language', lang);
+        }
+
+        function changeLanguage(lang) {
+            setLanguage(lang);
+        }
+
+        // 添加彈窗控制腳本
+        window.addEventListener('load', () => {
+            // 檢查是否已經顯示過彈窗
+            const hasShownPopup = localStorage.getItem('hasShownWelcomePopup');
+            const browserLang = navigator.language;
+            
+            if (!hasShownPopup && (browserLang.startsWith('zh-HK') || browserLang.startsWith('zh-TW'))) {
+                const popup = document.getElementById('welcomePopup');
+                // 先設置為顯示但不可見
+                popup.style.display = 'block';
+                // 強制重繪
+                popup.offsetHeight;
+                // 添加顯示類
+                popup.classList.add('show');
+                
+                // 3秒後自動關閉
+                setTimeout(() => {
+                    closeWelcomePopup();
+                }, 3000);
+                
+                // 記錄已顯示過彈窗
+                localStorage.setItem('hasShownWelcomePopup', 'true');
+            }
+        });
+
+        function closeWelcomePopup() {
+            const popup = document.getElementById('welcomePopup');
+            popup.classList.add('hiding');
+            
+            // 等待動畫完成後再隱藏元素
+            setTimeout(() => {
+                popup.classList.remove('show');
+                popup.classList.remove('hiding');
+            }, 300); // 300ms 要和 CSS transition 時間相匹配
+        }
+    </script>
+</body>
+</html>
