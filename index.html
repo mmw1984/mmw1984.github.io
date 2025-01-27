@@ -2316,13 +2316,21 @@
             overflow: hidden;
             opacity: 0;
             transition: opacity 0.3s ease;
-            margin: 0 auto;
+            margin: 24px auto 0;  /* 增加上邊距 */
+        }
+
+        .progress-bar {
+            width: 0;
+            height: 100%;
+            background: var(--md-sys-color-primary);
+            border-radius: 2px;
+            transition: width 2s linear;  /* 調整動畫時間為 2 秒 */
         }
 
         .progress-bar {
             width: 0%;
             height: 100%;
-            background: var(--md-sys-color-primary);
+            background: var (--md-sys-color-primary);
             transition: width 5s linear;
         }
 
@@ -2903,7 +2911,10 @@
                             messages.greeting = '哈嘍，在英港人!!!';
                             break;
                         case 'Macau':
+                        case 'Macao':  // 添加 Macao 作為備選名稱
+                        case 'Macao SAR':  // 添加更多可能的澳門名稱變體
                             messages.greeting = '哈嘍，澳門人!!!';
+                            messages.location = ''; // 清空位置信息
                             break;
                         default:
                             messages.greeting = '哈嘍，香港人!!!';
@@ -2961,8 +2972,12 @@
                         welcomeMessage.textContent = messages.progress;
                         welcomeMessage.style.opacity = '1';
                         welcomeMessage.style.transform = 'translateY(0)';
+                        
+                        // 顯示並啟動進度條
                         progressContainer.style.opacity = '1';
-                        progressBar.style.width = '100%';
+                        requestAnimationFrame(() => {
+                            progressBar.style.width = '100%';
+                        });
                     }, 300);
                 }, 2000);
             } else {
@@ -2974,8 +2989,12 @@
                         welcomeMessage.textContent = messages.progress;
                         welcomeMessage.style.opacity = '1';
                         welcomeMessage.style.transform = 'translateY(0)';
+                        
+                        // 顯示並啟動進度條
                         progressContainer.style.opacity = '1';
-                        progressBar.style.width = '100%';
+                        requestAnimationFrame(() => {
+                            progressBar.style.width = '100%';
+                        });
                     }, 300);
                 }, 1000);
             }
@@ -3028,17 +3047,154 @@
         // Add this function to get user's location from IP
         async function getUserLocation() {
             try {
-                const response = await fetch('https://ipapi.co/json/');
+                const response = await fetch('https://ip-api.io/json');
                 const data = await response.json();
                 return {
                     country: data.country_name,
                     city: data.city,
-                    region: data.region
+                    region: data.region_name
                 };
             } catch (error) {
                 console.error('Error fetching location:', error);
                 return null;
             }
+        }
+
+        async function showWelcomeAnimation() {
+            const welcomeScreen = document.getElementById('welcomeFullscreen');
+            const welcomeMessage = document.getElementById('welcomeMessage');
+            const progressContainer = document.getElementById('progressContainer');
+            const progressBar = document.getElementById('progressBar');
+            const userLocation = await getUserLocation();
+            const browserLang = navigator.language;
+            
+            let messages = {
+                greeting: '',
+                location: '',
+                progress: '',
+                final: '歡迎'
+            };
+
+            // Determine message based on language and location
+            if (browserLang.startsWith('zh-HK')) {
+                messages.progress = '而家幫緊你更換至香港版繁體中文';
+                
+                if (userLocation) {
+                    switch(userLocation.country) {
+                        case 'Hong Kong':
+                            messages.greeting = '哈嘍，香港人!!!';
+                            break;
+                        case 'United Kingdom':
+                            messages.greeting = '哈嘍，在英港人!!!';
+                            break;
+                        case 'Macau':
+                        case 'Macao':  // 添加 Macao 作為備選名稱
+                        case 'Macao SAR':  // 添加更多可能的澳門名稱變體
+                            messages.greeting = '哈嘍，澳門人!!!';
+                            messages.location = ''; // 清空位置信息
+                            break;
+                        default:
+                            messages.greeting = '哈嘍，香港人!!!';
+                            messages.location = `但是你在${userLocation.country}呢!`;
+                            break;
+                    }
+                } else {
+                    messages.greeting = '哈嘍，香港人!!!';
+                }
+            } else if (browserLang.startsWith('zh-TW')) {
+                messages.progress = '現在幫您切換至台灣正體中文';
+                
+                if (userLocation) {
+                    if (userLocation.country === 'Taiwan') {
+                        messages.greeting = '哈囉，台灣人!!!';
+                    } else {
+                        messages.greeting = '哈囉，台灣人!!!';
+                        messages.location = `但是您在${userLocation.country}呢!`;
+                    }
+                } else {
+                    messages.greeting = '哈囉，台灣人!!!';
+                }
+            }
+
+            // 顯示歡迎畫面
+            welcomeScreen.style.opacity = '0';
+            welcomeScreen.style.display = 'flex';
+            welcomeScreen.style.visibility = 'visible';
+
+            // Initial greeting
+            requestAnimationFrame(() => {
+                welcomeScreen.style.opacity = '1';
+                welcomeMessage.textContent = messages.greeting;
+                welcomeMessage.style.opacity = '1';
+                welcomeMessage.style.transform = 'translateY(0)';
+            });
+
+            // Show location message if exists
+            if (messages.location) {
+                setTimeout(() => {
+                    welcomeMessage.style.opacity = '0';
+                    welcomeMessage.style.transform = 'translateY(-10px)';
+                    setTimeout(() => {
+                        welcomeMessage.textContent = messages.location;
+                        welcomeMessage.style.opacity = '1';
+                        welcomeMessage.style.transform = 'translateY(0)';
+                    }, 300);
+                }, 1000);
+
+                // Adjust timing for the next message
+                setTimeout(() => {
+                    welcomeMessage.style.opacity = '0';
+                    welcomeMessage.style.transform = 'translateY(-10px)';
+                    setTimeout(() => {
+                        welcomeMessage.textContent = messages.progress;
+                        welcomeMessage.style.opacity = '1';
+                        welcomeMessage.style.transform = 'translateY(0)';
+                        
+                        // 顯示並啟動進度條
+                        progressContainer.style.opacity = '1';
+                        requestAnimationFrame(() => {
+                            progressBar.style.width = '100%';
+                        });
+                    }, 300);
+                }, 2000);
+            } else {
+                // Skip location message if none
+                setTimeout(() => {
+                    welcomeMessage.style.opacity = '0';
+                    welcomeMessage.style.transform = 'translateY(-10px)';
+                    setTimeout(() => {
+                        welcomeMessage.textContent = messages.progress;
+                        welcomeMessage.style.opacity = '1';
+                        welcomeMessage.style.transform = 'translateY(0)';
+                        
+                        // 顯示並啟動進度條
+                        progressContainer.style.opacity = '1';
+                        requestAnimationFrame(() => {
+                            progressBar.style.width = '100%';
+                        });
+                    }, 300);
+                }, 1000);
+            }
+
+            // Final welcome message
+            setTimeout(() => {
+                welcomeMessage.style.opacity = '0';
+                welcomeMessage.style.transform = 'translateY(-10px)';
+                progressContainer.style.opacity = '0';
+                setTimeout(() => {
+                    welcomeMessage.textContent = messages.final;
+                    welcomeMessage.style.opacity = '1';
+                    welcomeMessage.style.transform = 'translateY(0)';
+                }, 300);
+            }, messages.location ? 5000 : 4000);
+
+            // Close animation
+            setTimeout(() => {
+                welcomeScreen.style.opacity = '0';
+                setTimeout(() => {
+                    welcomeScreen.style.display = 'none';
+                }, 300);
+            }, messages.location ? 6500 : 5500);
         }
     </script>
 </body>
