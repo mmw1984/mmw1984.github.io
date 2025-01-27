@@ -2910,19 +2910,28 @@
                             messages.location = `但是你在${userLocation.country}呢!`;
                             break;
                     }
+                } else {
+                    messages.greeting = '哈嘍，香港人!!!';
                 }
             } else if (browserLang.startsWith('zh-TW')) {
-                messages.progress = '而家幫緊你更換至台灣版繁體中文';
-                messages.greeting = '哈嘍，台灣人!!!';
+                messages.progress = '現在幫您切換至台灣正體中文';
                 
-                if (userLocation && userLocation.country !== 'Taiwan') {
-                    messages.location = `但是你在${userLocation.country}呢!`;
+                if (userLocation) {
+                    if (userLocation.country === 'Taiwan') {
+                        messages.greeting = '哈囉，台灣人!!!';
+                    } else {
+                        messages.greeting = '哈囉，台灣人!!!';
+                        messages.location = `但是您在${userLocation.country}呢!`;
+                    }
+                } else {
+                    messages.greeting = '哈囉，台灣人!!!';
                 }
             }
 
-            // Animation sequence
+            // 顯示歡迎畫面
             welcomeScreen.style.opacity = '0';
             welcomeScreen.style.display = 'flex';
+            welcomeScreen.style.visibility = 'visible';
 
             // Initial greeting
             requestAnimationFrame(() => {
@@ -2944,7 +2953,7 @@
                     }, 300);
                 }, 1000);
 
-                // Adjust the timing for the next message
+                // Adjust timing for the next message
                 setTimeout(() => {
                     welcomeMessage.style.opacity = '0';
                     welcomeMessage.style.transform = 'translateY(-10px)';
@@ -2996,17 +3005,17 @@
         window.addEventListener('load', () => {
             const savedLang = localStorage.getItem('language');
             const browserLang = navigator.language;
-            const hasShownWelcome = localStorage.getItem('hasShownWelcomeHK');
+            const hasShownWelcomeHK = localStorage.getItem('hasShownWelcomeHK');
+            const hasShownWelcomeTW = localStorage.getItem('hasShownWelcomeTW');
 
-            if (!hasShownWelcome && browserLang.startsWith('zh-HK')) {
-                const welcomeScreen = document.getElementById('welcomeFullscreen');
-                welcomeScreen.style.display = 'flex'; // 確保顯示
-                welcomeScreen.style.visibility = 'visible'; // 確保可見
-                welcomeScreen.style.opacity = '1';
-                
+            if (!hasShownWelcomeHK && browserLang.startsWith('zh-HK')) {
                 showWelcomeAnimation();
                 localStorage.setItem('hasShownWelcomeHK', 'true');
                 setLanguage('zh-HK');
+            } else if (!hasShownWelcomeTW && browserLang.startsWith('zh-TW')) {
+                showWelcomeAnimation();
+                localStorage.setItem('hasShownWelcomeTW', 'true');
+                setLanguage('zh-TW');
             } else if (browserLang.startsWith('zh-HK')) {
                 setLanguage('zh-HK');
             } else if (browserLang.startsWith('zh-TW')) {
@@ -3031,6 +3040,49 @@
                 return null;
             }
         }
+
+        // 添加测试函数
+        async function testWelcomeMessage(testCase) {
+            const testCases = {
+                'hktest': { lang: 'zh-HK', country: 'Hong Kong' },
+                'uktest': { lang: 'zh-HK', country: 'United Kingdom' },
+                'motest': { lang: 'zh-HK', country: 'Macau' },
+                'hkother': { lang: 'zh-HK', country: 'United States' },
+                'twtest': { lang: 'zh-TW', country: 'Taiwan' },
+                'twother': { lang: 'zh-TW', country: 'Japan' }
+            };
+
+            // Mock the browser language
+            Object.defineProperty(navigator, 'language', {
+                get: function() { return testCases[testCase].lang; }
+            });
+
+            // Mock getUserLocation function
+            window.getUserLocation = async () => {
+                return {
+                    country: testCases[testCase].country,
+                    city: 'Test City',
+                    region: 'Test Region'
+                };
+            };
+
+            // Reset welcome flags
+            localStorage.removeItem('hasShownWelcomeHK');
+            localStorage.removeItem('hasShownWelcomeTW');
+            
+            // Show welcome animation
+            await showWelcomeAnimation();
+        }
+
+        // 监听 URL 变化
+        window.addEventListener('load', () => {
+            const testCases = ['hktest', 'uktest', 'motest', 'hkother', 'twtest', 'twother'];
+            const currentPath = window.location.pathname.substring(1);
+            
+            if (testCases.includes(currentPath)) {
+                testWelcomeMessage(currentPath);
+            }
+        });
     </script>
 </body>
 </html>
