@@ -3040,49 +3040,6 @@
                 return null;
             }
         }
-
-        // 添加测试函数
-        async function testWelcomeMessage(testCase) {
-            const testCases = {
-                'hktest': { lang: 'zh-HK', country: 'Hong Kong' },
-                'uktest': { lang: 'zh-HK', country: 'United Kingdom' },
-                'motest': { lang: 'zh-HK', country: 'Macau' },
-                'hkother': { lang: 'zh-HK', country: 'United States' },
-                'twtest': { lang: 'zh-TW', country: 'Taiwan' },
-                'twother': { lang: 'zh-TW', country: 'Japan' }
-            };
-
-            // Mock the browser language
-            Object.defineProperty(navigator, 'language', {
-                get: function() { return testCases[testCase].lang; }
-            });
-
-            // Mock getUserLocation function
-            window.getUserLocation = async () => {
-                return {
-                    country: testCases[testCase].country,
-                    city: 'Test City',
-                    region: 'Test Region'
-                };
-            };
-
-            // Reset welcome flags
-            localStorage.removeItem('hasShownWelcomeHK');
-            localStorage.removeItem('hasShownWelcomeTW');
-            
-            // Show welcome animation
-            await showWelcomeAnimation();
-        }
-
-        // 监听 URL 变化
-        window.addEventListener('load', () => {
-            const testCases = ['hktest', 'uktest', 'motest', 'hkother', 'twtest', 'twother'];
-            const currentPath = window.location.pathname.substring(1);
-            
-            if (testCases.includes(currentPath)) {
-                testWelcomeMessage(currentPath);
-            }
-        });
     </script>
 </body>
 </html>
