@@ -1,8 +1,9 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="color-scheme" content="light dark">
     
     <!-- Add these SEO meta tags -->
     <title>Marco Wong - mmw1984</title>
@@ -20,6 +21,18 @@
     <meta name="twitter:card" content="summary">
     <meta name="twitter:title" content="Marco Wong">
     <meta name="twitter:description" content="WordPress hosting expert and server consultant providing professional services.">
+    <!-- Open Graph additional -->
+    <meta property="og:url" content="https://mmw1984.com/">
+    <meta property="og:image" content="/android-chrome-512x512.png">
+    <link rel="canonical" href="https://mmw1984.com/">
+
+    <!-- PWA manifest and theme colors -->
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#fafbfc" media="(prefers-color-scheme: light)">
+    <meta name="theme-color" content="#121212" media="(prefers-color-scheme: dark)">
+
+    <!-- Performance: preload custom font -->
+    <link rel="preload" href="fonts/your-font-file.woff2" as="font" type="font/woff2" crossorigin>
     
     <!-- Consolidate all styles into a single style tag -->
     <style>
@@ -166,7 +179,7 @@
 
         .skills-category:hover {
             transform: translateY(-3px);
-            box-shadow: 0 4px 8px var (--shadow);
+            box-shadow: 0 4px 8px var(--shadow);
         }
 
         .skill-box {
@@ -910,7 +923,7 @@
             right: 12px;
             background: transparent;
             border: none;
-            color: var (--md-sys-color-on-surface);
+            color: var(--md-sys-color-on-surface);
             cursor: pointer;
             padding: 8px;
             border-radius: 50%;
@@ -991,8 +1004,8 @@
         }
 
         .skill-box:hover {
-            background: var (--md-sys-color-primary);
-            color: var (--md-sys-color-on-primary);
+            background: var(--md-sys-color-primary);
+            color: var(--md-sys-color-on-primary);
             transform: none;
         }
 
@@ -1008,11 +1021,11 @@
 
         .nav-button.active {
             background: var(--md-sys-color-primary);
-            color: var (--md-sys-color-on-primary);
+            color: var(--md-sys-color-on-primary);
         }
 
         /* Typography updates */
-        .page-title {
+    .page-title {
             font-size: var(--md-sys-typescale-headline-l);
             background: none;
             -webkit-text-fill-color: var(--md-sys-color-on-surface);
@@ -1021,7 +1034,7 @@
 
         .card h2 {
             font-size: var(--md-sys-typescale-headline-s);
-            color: var (--md-sys-color-on-surface);
+            color: var(--md-sys-color-on-surface);
             border-bottom: 1px solid var(--md-sys-color-outline);
         }
 
@@ -1049,7 +1062,7 @@
             border-radius: 16px;
             border-spacing: 0;
             overflow: hidden;
-            border: 1px solid var (--md-sys-color-outline);
+            border: 1px solid var(--md-sys-color-outline);
         }
 
         .simple-table th {
@@ -1288,9 +1301,7 @@
         }
 
         /* Update navigation button styles */
-        .nav-button {
-            // ...existing code...
-        }
+    /* cleaned invalid CSS comment */
 
         .nav-button.active {
             background: var(--md-sys-color-primary);
@@ -2322,7 +2333,7 @@
         .progress-bar {
             width: 0;
             height: 100%;
-            background: var (--md-sys-color-primary);
+            background: var(--md-sys-color-primary);
             border-radius: 2px;
             transition: width 2s linear;  /* 調整動畫時間為 2 秒 */
         }
@@ -2330,7 +2341,7 @@
         .progress-bar {
             width: 0%;
             height: 100%;
-            background: var (--md-sys-color-primary);
+            background: var(--md-sys-color-primary);
             transition: width 5s linear;
         }
 
@@ -2589,50 +2600,53 @@
             }
         }
     </style>
-    <!-- Add structured data before closing head tag -->
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org/",
-        "@type": "ProfilePage",
-        "mainEntity": {
-            "@type": "Person",
-            "name": "Marco Wong",
-            "url": "https://mmw1984.com",
-            "image": "https://1.gravatar.com/avatar/40ad61aac43b0564bbd2cf7e5658b30cc2a1670a953bbda7af6fb5baa7048fe7?size=256",
-            "jobTitle": "WordPress & Server Expert",
-            "description": "WordPress hosting expert and server consultant providing professional services",
-            "sameAs": [
-                "https://www.instagram.com/tszfung.w",
-                "https://github.com/mmw1984",
-                "https://blog.mmw1984.com"
-            ],
-            "knowsLanguage": ["en", "zh-HK", "zh-CN"],
-            "knowsAbout": ["WordPress", "Web Hosting", "Server Administration"],
-            "makesOffer": [
-                {
-                    "@type": "Offer",
-                    "name": "Web hosting consultation",
-                    "description": "WordPress and server setup assistance",
-                "price": "120",
-                "priceCurrency": "USD"
-            },
-            {
-                "@type": "Offer",
-                "name": "Server purchase consultation",
-                "description": "Server selection and recommendation",
-                "price": "50",
-                "priceCurrency": "USD"
+        <!-- Structured data (valid JSON-LD) -->
+        <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "ProfilePage",
+            "mainEntity": {
+                "@type": "Person",
+                "name": "Marco Wong",
+                "url": "https://mmw1984.com",
+                "image": "https://1.gravatar.com/avatar/40ad61aac43b0564bbd2cf7e5658b30cc2a1670a953bbda7af6fb5baa7048fe7?size=256",
+                "jobTitle": "WordPress & Server Expert",
+                "description": "WordPress hosting expert and server consultant providing professional services.",
+                "sameAs": [
+                    "https://www.instagram.com/tszfung.w",
+                    "https://github.com/mmw1984",
+                    "https://blog.mmw1984.com"
+                ],
+                "knowsLanguage": ["en", "zh-HK", "zh-TW"],
+                "knowsAbout": ["WordPress", "Web Hosting", "Server Administration"],
+                "makesOffer": [
+                    {
+                        "@type": "Offer",
+                        "name": "Web hosting consultation",
+                        "description": "WordPress and server setup assistance",
+                        "price": "120",
+                        "priceCurrency": "USD"
+                    },
+                    {
+                        "@type": "Offer",
+                        "name": "Server purchase consultation",
+                        "description": "Server selection and recommendation",
+                        "price": "50",
+                        "priceCurrency": "USD"
+                    }
+                ]
             }
-        ]
-    }
-}
-    </script>
+        }
+        </script>
     
     <!-- Add Font Awesome before closing head tag -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <script src="translations.js"></script>
+    <script src="translations.js" defer></script>
 </head>
 <body>
+    <noscript>
+        This site works best with JavaScript enabled. Basic content is visible, but interactive features are disabled.
+    </noscript>
     <!-- 在 <body> 開始標籤後立即添加 -->
     <div class="loading-screen" id="loadingScreen">
         <div class="loading-content">
@@ -2699,22 +2713,22 @@
                     </div>
                     <div class="column" style="width:37.5%">
                         <div class="intro-image">
-                            <img src="notion-avatar-1736580317649.png" alt="Profile"/>
+                            <img src="notion-avatar-1736580317649.png" alt="Profile" loading="lazy" decoding="async"/>
                         </div>
                     </div>
                 </div>
                 <div style="margin-top: 1em;">
                     <h3 data-i18n="connect_title"></h3>
                     <div class="social-buttons">
-                        <a href="https://blog.mmw1984.com" target="_blank" class="skill-box">
+                        <a href="https://blog.mmw1984.com" target="_blank" rel="noopener noreferrer" class="skill-box">
                             <i class="fa-solid fa-window-maximize"></i>
                             <span data-i18n="visit_blog"></span>
                         </a>
-                        <a href="https://github.com/mmw1984" target="_blank" class="skill-box">
+                        <a href="https://github.com/mmw1984" target="_blank" rel="noopener noreferrer" class="skill-box">
                             <i class="fa-brands fa-github"></i>
                             GitHub <!-- 保留 GitHub 文字 -->
                         </a>
-                        <a href="https://instagram.com/tszfung.w" target="_blank" class="skill-box">
+                        <a href="https://instagram.com/tszfung.w" target="_blank" rel="noopener noreferrer" class="skill-box">
                             <i class="fa-brands fa-instagram"></i>
                             Instagram <!-- 保留 Instagram 文字 -->
                         </a>
@@ -2728,7 +2742,7 @@
                 <div class="skills-section">
                     <div class="skills-category">
                         <h3 data-i18n="software_skills"></h3>
-                        <a href="https://wordpress.org" target="_blank" class="skill-box" style="text-decoration: none;">
+                        <a href="https://wordpress.org" target="_blank" rel="noopener noreferrer" class="skill-box" style="text-decoration: none;">
                             <i class="fa-brands fa-wordpress-simple"></i>
                             WordPress <!-- 保留 WordPress 文字 -->
                         </a>
@@ -3090,6 +3104,8 @@
             
             document.getElementById('languageSelect').value = lang;
             localStorage.setItem('language', lang);
+            // Update document language for accessibility and SEO
+            document.documentElement.setAttribute('lang', lang);
 
             const elements = document.querySelectorAll('[data-i18n]');
             elements.forEach(element => {
@@ -3340,204 +3356,6 @@
             }
         }
 
-        async function showWelcomeAnimation() {
-            const welcomeScreen = document.getElementById('welcomeFullscreen');
-            const welcomeMessage = document.getElementById('welcomeMessage');
-            const progressContainer = document.getElementById('progressContainer');
-            const progressBar = document.getElementById('progressBar');
-            const userLocation = await getUserLocation();
-            const browserLang = navigator.language;
-            
-            let messages = {
-                greeting: '',
-                location: '',
-                progress: '',
-                final: '歡迎'
-            };
-
-            // Determine message based on language and location
-            if (browserLang.startsWith('zh-HK')) {
-                messages.progress = '而家幫緊你更換至香港版繁體中文';
-                
-                if (userLocation) {
-                    switch(userLocation.country) {
-                        case 'Hong Kong':
-                            messages.greeting = '哈嘍，香港人!!!';
-                            break;
-                        case 'United Kingdom':
-                            messages.greeting = '哈嘍，在英港人!!!';
-                            break;
-                        case 'Macau':
-                        case 'Macao':  // 添加 Macao 作為備選名稱
-                        case 'Macao SAR':  // 添加更多可能的澳門名稱變體
-                            messages.greeting = '哈嘍，澳門人!!!';
-                            messages.location = ''; // 清空位置信息
-                            break;
-                        default:
-                            messages.greeting = '哈嘍，香港人!!!';
-                            messages.location = `但是你在${userLocation.country}呢!`;
-                            break;
-                    }
-                } else {
-                    messages.greeting = '哈嘍，香港人!!!';
-                }
-            } else if (browserLang.startsWith('zh-TW')) {
-                messages.progress = '現在幫您切換至台灣正體中文';
-                
-                if (userLocation) {
-                    if (userLocation.country === 'Taiwan') {
-                        messages.greeting = '哈囉，台灣人!!!';
-                    } else {
-                        messages.greeting = '哈囉，台灣人!!!';
-                        messages.location = `但是您在${userLocation.country}呢!`;
-                    }
-                } else {
-                    messages.greeting = '哈囉，台灣人!!!';
-                }
-            }
-
-            // 顯示歡迎畫面
-            welcomeScreen.style.opacity = '0';
-            welcomeScreen.style.display = 'flex';
-            welcomeScreen.style.visibility = 'visible';
-
-            // Initial greeting
-            requestAnimationFrame(() => {
-                welcomeScreen.style.opacity = '1';
-                welcomeMessage.textContent = messages.greeting;
-                welcomeMessage.style.opacity = '1';
-                welcomeMessage.style.transform = 'translateY(0)';
-            });
-
-            // Show location message if exists
-            if (messages.location) {
-                setTimeout(() => {
-                    welcomeMessage.style.opacity = '0';
-                    welcomeMessage.style.transform = 'translateY(-10px)';
-                    setTimeout(() => {
-                        welcomeMessage.textContent = messages.location;
-                        welcomeMessage.style.opacity = '1';
-                        welcomeMessage.style.transform = 'translateY(0)';
-                    }, 300);
-                }, 1000);
-
-                // Adjust timing for the next message
-                setTimeout(() => {
-                    welcomeMessage.style.opacity = '0';
-                    welcomeMessage.style.transform = 'translateY(-10px)';
-                    setTimeout(() => {
-                        welcomeMessage.textContent = messages.progress;
-                        welcomeMessage.style.opacity = '1';
-                        welcomeMessage.style.transform = 'translateY(0)';
-                        
-                        // 顯示並啟動進度條
-                        progressContainer.style.opacity = '1';
-                        requestAnimationFrame(() => {
-                            progressBar.style.width = '100%';
-                        });
-                    }, 300);
-                }, 2000);
-            } else {
-                // Skip location message if none
-                setTimeout(() => {
-                    welcomeMessage.style.opacity = '0';
-                    welcomeMessage.style.transform = 'translateY(-10px)';
-                    setTimeout(() => {
-                        welcomeMessage.textContent = messages.progress;
-                        welcomeMessage.style.opacity = '1';
-                        welcomeMessage.style.transform = 'translateY(0)';
-                        
-                        // 顯示並啟動進度條
-                        progressContainer.style.opacity = '1';
-                        requestAnimationFrame(() => {
-                            progressBar.style.width = '100%';
-                        });
-                    }, 300);
-                }, 1000);
-            }
-
-            // Final welcome message
-            setTimeout(() => {
-                welcomeMessage.style.opacity = '0';
-                welcomeMessage.style.transform = 'translateY(-10px)';
-                progressContainer.style.opacity = '0';
-                setTimeout(() => {
-                    welcomeMessage.textContent = messages.final;
-                    welcomeMessage.style.opacity = '1';
-                    welcomeMessage.style.transform = 'translateY(0)';
-                }, 300);
-            }, messages.location ? 5000 : 4000);
-
-            // Close animation
-            setTimeout(() => {
-                welcomeScreen.style.opacity = '0';
-                setTimeout(() => {
-                    welcomeScreen.style.display = 'none';
-                }, 300);
-            }, messages.location ? 6500 : 5500);
-        }
-
-        window.addEventListener('load', async () => {
-            const loadingScreen = document.getElementById('loadingScreen');
-            const loadingBar = document.getElementById('loadingBar');
-            
-            // 模擬載入進度
-            let progress = 0;
-            const interval = setInterval(() => {
-                progress += Math.random() * 30;
-                if (progress > 100) {
-                    progress = 100;
-                    clearInterval(interval);
-                    
-                    // 當進度達到 100% 時，檢查是否需要顯示歡迎界面
-                    setTimeout(async () => {
-                        loadingScreen.style.opacity = '0';
-                        setTimeout(async () => {
-                            loadingScreen.style.display = 'none';
-                            
-                            // 檢查用戶語言和是否首次訪問
-                            const browserLang = navigator.language;
-                            const hasShownWelcomeHK = localStorage.getItem('hasShownWelcomeHK');
-                            const hasShownWelcomeTW = localStorage.getItem('hasShownWelcomeTW');
-                            
-                            if (!hasShownWelcomeHK && browserLang.startsWith('zh-HK')) {
-                                await showWelcomeAnimation();
-                                localStorage.setItem('hasShownWelcomeHK', 'true');
-                                setLanguage('zh-HK');
-                            } else if (!hasShownWelcomeTW && browserLang.startsWith('zh-TW')) {
-                                await showWelcomeAnimation();
-                                localStorage.setItem('hasShownWelcomeTW', 'true');
-                                setLanguage('zh-TW');
-                            } else if (browserLang.startsWith('zh-HK')) {
-                                setLanguage('zh-HK');
-                            } else if (browserLang.startsWith('zh-TW')) {
-                                setLanguage('zh-TW');
-                            } else {
-                                setLanguage('en');
-                            }
-                        }, 500);
-                    }, 200);
-                }
-                loadingBar.style.width = progress + '%';
-            }, 200);
-        });
-
-        // Add this function to get user's location from IP
-        async function getUserLocation() {
-            try {
-                const response = await fetch('https://ip-api.io/json');
-                const data = await response.json();
-                return {
-                    country: data.country_name,
-                    city: data.city,
-                    region: data.region_name
-                };
-            } catch (error) {
-                console.error('Error fetching location:', error);
-                return null;
-            }
-        }
-
         // Add this function to show a toast message
         function showToast(message) {
             const toast = document.createElement('div');
@@ -3559,5 +3377,33 @@
             }, 2000);
         }
     </script>
+        <script>
+            // Robust loader hide: always remove loading screen after max 3s
+            (function() {
+                function hideLoadingScreen() {
+                    var el = document.getElementById('loadingScreen');
+                    if (!el) return;
+                    el.style.opacity = '0';
+                    setTimeout(function(){ el.style.display = 'none'; }, 400);
+                }
+
+                // If other scripts hide it, this is a no-op; else, fallback
+                window.addEventListener('load', function(){
+                    // Allow any existing progress animation a brief moment, then hide
+                    setTimeout(hideLoadingScreen, 800);
+                });
+                // Absolute failsafe in case load never fires
+                setTimeout(hideLoadingScreen, 3000);
+            })();
+        </script>
+        <!-- Register Service Worker for PWA -->
+        <script>
+            if ('serviceWorker' in navigator) {
+                window.addEventListener('load', () => {
+                    navigator.serviceWorker.register('sw.js')
+                        .catch(err => console.warn('SW registration failed', err));
+                });
+            }
+        </script>
 </body>
 </html>
