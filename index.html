@@ -127,6 +127,7 @@
             font-weight: 800;
             margin: 0 0 1em;
             background: linear-gradient(45deg, #000, #333);
+            background-clip: text;
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             text-align: center;
@@ -1325,6 +1326,7 @@
 
         /* Enhanced Range Slider Styles */
         input[type="range"] {
+            appearance: none;
             -webkit-appearance: none;
             appearance: none;
             width: 200px;
@@ -1560,6 +1562,7 @@
 
         /* Range input styling */
         input[type="range"] {
+            appearance: none;
             -webkit-appearance: none;
             width: 200px;
             height: 4px;
@@ -2642,6 +2645,9 @@
     <!-- Add Font Awesome before closing head tag -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <script src="translations.js" defer></script>
+    <!-- EXIF parser and gallery logic -->
+    <script src="https://cdn.jsdelivr.net/npm/exifr@7.1.3/dist/full.umd.min.js" defer></script>
+    <script src="gallery/gallery.js?v=20250815-1" defer></script>
 </head>
 <body>
     <noscript>
@@ -2685,6 +2691,12 @@
                 <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/>
             </svg>
             <span data-i18n="nav_projects"></span>
+        </a>
+        <a href="#gallery" class="nav-button">
+            <svg viewBox="0 0 24 24" fill="currentColor">
+                <path d="M21 19V5c0-1.1-.9-2-2-2H5C3.9 3 3 3.9 3 5v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01 3.5-4.51L19 18H5l3.5-4.5zM8 8c0 1.1.9 2 2 2s2-.9 2-2-.9-2-2-2-2 .9-2 2z"/>
+            </svg>
+            <span data-i18n="nav_gallery"></span>
         </a>
         <a href="#services" class="nav-button">
             <svg viewBox="0 0 24 24" fill="currentColor">
@@ -2814,6 +2826,12 @@
                 </div>
             </div>
 
+            <!-- Gallery Card -->
+            <div class="card" id="gallery">
+                <h2 data-i18n="gallery_title"></h2>
+                <div id="galleryGrid" class="gallery-grid" aria-live="polite"></div>
+            </div>
+
             <!-- Contact Card -->
             <div class="card" id="contact">
                 <div class="contact-section">
@@ -2848,6 +2866,12 @@
                 <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/>
             </svg>
             <span data-i18n="nav_projects"></span>
+        </a>
+        <a href="#gallery" class="nav-button">
+            <svg viewBox="0 0 24 24" fill="currentColor">
+                <path d="M21 19V5c0-1.1-.9-2-2-2H5C3.9 3 3 3.9 3 5v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01 3.5-4.51L19 18H5l3.5-4.5zM8 8c0 1.1.9 2 2 2s2-.9 2-2-.9-2-2-2-2 .9-2 2z"/>
+            </svg>
+            <span data-i18n="nav_gallery"></span>
         </a>
         <a href="#services" class="nav-button">
             <svg viewBox="0 0 24 24" fill="currentColor">
@@ -3405,5 +3429,170 @@
                 });
             }
         </script>
+
+        <style>
+            /* Gallery styles */
+            .gallery-grid { 
+                display: grid; 
+                grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); 
+                gap: 6px; 
+                padding: 0;
+            }
+            .gallery-item { 
+                position: relative; 
+                overflow: hidden; 
+                border-radius: 16px; 
+                border: 1px solid var(--md-sys-color-outline); 
+                background: var(--card-bg);
+                cursor: pointer;
+                transition: box-shadow .25s, transform .25s, border-color .25s;
+                aspect-ratio: 4/3;
+                margin: 0; /* remove default figure margin */
+            }
+            .gallery-item:hover {
+                transform: translateY(-4px);
+                box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+                border-color: var(--md-sys-color-primary);
+            }
+            .gallery-item img { 
+                width: 100%; 
+                height: 100%; 
+                object-fit: cover; 
+                display: block; 
+            }
+            .gallery-caption { 
+                position: absolute; 
+                left: 0; 
+                right: 0; 
+                bottom: 0; 
+                padding: 12px; 
+                font-size: 14px; 
+                font-weight: 500;
+                color: white; 
+                background: linear-gradient(180deg, transparent 0%, rgba(0,0,0,0.4) 30%, rgba(0,0,0,0.8) 100%); 
+                text-shadow: 0 1px 2px rgba(0,0,0,0.7);
+                z-index: 2;
+            }
+            .gallery-date {
+                position: absolute;
+                top: 8px;
+                right: 8px;
+                background: rgba(0,0,0,0.7);
+                color: white;
+                padding: 4px 8px;
+                border-radius: 12px;
+                font-size: 12px;
+                font-weight: 500;
+                backdrop-filter: blur(4px);
+                z-index: 3;
+            }
+            .gallery-item:focus-within, .gallery-item:focus { 
+                outline: 2px solid var(--md-sys-color-primary); 
+                outline-offset: 2px;
+            }
+
+            /* Lightbox modal */
+            .lightbox { 
+                position: fixed; 
+                inset: 0; 
+                background: rgba(0,0,0,.95); 
+                display: none; 
+                align-items: center; 
+                justify-content: center; 
+                z-index: 3000; 
+                padding: 0; 
+            }
+            .lightbox.open { display: flex; }
+            .lightbox-content { 
+                position: relative; 
+                width: 100%; 
+                height: 100%; 
+                display: grid; 
+                grid-template-rows: auto 1fr auto; 
+            }
+            .lightbox-stage { 
+                position: relative; 
+                width: 100%; 
+                height: 100%; 
+                overflow: hidden; 
+                touch-action: none; 
+            }
+            .lightbox-image-wrap { 
+                position: absolute; 
+                inset: 0; 
+                display: flex; 
+                align-items: center; 
+                justify-content: center; 
+            }
+            .lightbox-img { 
+                max-width: 90vw; 
+                max-height: calc(100vh - 180px); 
+                width: auto; 
+                height: auto; 
+                object-fit: contain; 
+                display: block; 
+                transform-origin: center center; 
+                will-change: transform; 
+                border-radius: 8px;
+            }
+            .lightbox-meta { 
+                color: #fff; 
+                padding: 20px; 
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                font-size: 16px; 
+                background: linear-gradient(0deg, rgba(0,0,0,.8), rgba(0,0,0,0.2)); 
+                backdrop-filter: blur(8px);
+            }
+            .lightbox-close { 
+                position: absolute; 
+                top: 16px; 
+                right: 16px; 
+                background: rgba(0,0,0,.7); 
+                color: #fff; 
+                border: none; 
+                width: 48px; 
+                height: 48px; 
+                border-radius: 50%; 
+                cursor: pointer; 
+                display: flex; 
+                align-items: center; 
+                justify-content: center; 
+                z-index: 3; 
+                transition: all 0.2s ease;
+                backdrop-filter: blur(8px);
+            }
+            .lightbox-close:hover {
+                background: rgba(0,0,0,.9);
+                transform: scale(1.05);
+            }
+            @media (max-width: 768px) {
+                .gallery-grid { grid-template-columns: repeat(auto-fill, minmax(130px, 1fr)); gap: 6px; padding: 0; }
+                .gallery-item { border-radius: 12px; aspect-ratio: 1; }
+                .gallery-caption { padding: 6px 8px; font-size: 12px; }
+                .gallery-date { font-size: 10px; padding: 2px 6px; top: 6px; right: 6px; }
+                .lightbox-img { max-height: calc(100vh - 140px); max-width: 95vw; }
+                .lightbox-meta { padding: 12px; font-size: 14px; text-align: center; }
+                .lightbox-close { width: 40px; height: 40px; top: 8px; right: 8px; }
+            }
+        </style>
+
+        <!-- Lightbox markup (simplified: view + zoom by gesture/wheel only) -->
+        <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Image viewer">
+            <button class="lightbox-close" id="lightboxClose" aria-label="Close">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+            <div class="lightbox-content">
+                <div class="lightbox-stage" id="lightboxStage">
+                    <div class="lightbox-image-wrap">
+                        <img id="lightboxImage" class="lightbox-img" alt="" />
+                    </div>
+                </div>
+                <div class="lightbox-meta">
+                    <div><strong data-i18n="meta_date"></strong>: <span id="metaDate"></span></div>
+                </div>
+            </div>
+        </div>
 </body>
 </html>
