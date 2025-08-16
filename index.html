@@ -764,12 +764,14 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: rgba(0, 0, 0, 0.5);
+            background: rgba(16, 16, 16, 0.30); /* slightly lighter to reveal blur */
             z-index: 2000;
             padding: 2em;
             animation: fadeIn 0.3s ease-out;
             align-items: center;
             justify-content: center;
+            backdrop-filter: blur(18px) saturate(140%) contrast(1.05);
+            -webkit-backdrop-filter: blur(18px) saturate(140%) contrast(1.05);
         }
 
         .settings-modal .modal-content {
@@ -1600,14 +1602,14 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: rgba(0, 0, 0, 0.3);
+            background: rgba(16, 16, 16, 0.30);
             z-index: 2000;
             padding: 2em;
             animation: fadeIn 0.3s ease-out;
             align-items: center;
             justify-content: center;
-            backdrop-filter: blur(8px);
-            -webkit-backdrop-filter: blur(8px);
+            backdrop-filter: blur(18px) saturate(140%) contrast(1.05);
+            -webkit-backdrop-filter: blur(18px) saturate(140%) contrast(1.05);
         }
 
         .settings-modal .modal-content {
@@ -2647,7 +2649,7 @@
     <script src="translations.js" defer></script>
     <!-- EXIF parser and gallery logic -->
     <script src="https://cdn.jsdelivr.net/npm/exifr@7.1.3/dist/full.umd.min.js" defer></script>
-    <script src="gallery/gallery.js?v=20250815-1" defer></script>
+    <script src="gallery/gallery.js?v=20250816-1" defer></script>
 </head>
 <body>
     <noscript>
@@ -2931,7 +2933,7 @@
             <button class="reset-button" onclick="resetSettings()" data-i18n="reset"></button>
             
             <div class="version-info">
-                Version v0.1.5-beta
+                Version v0.2.2
             </div>
         </div>
     </div>
@@ -3508,7 +3510,7 @@
                 width: 100%; 
                 height: 100%; 
                 display: grid; 
-                grid-template-rows: auto 1fr auto; 
+                grid-template-rows: 1fr; /* Single stage; meta overlays absolutely */
             }
             .lightbox-stage { 
                 position: relative; 
@@ -3525,8 +3527,8 @@
                 justify-content: center; 
             }
             .lightbox-img { 
-                max-width: 90vw; 
-                max-height: calc(100vh - 180px); 
+                max-width: 95vw; 
+                max-height: 92vh; 
                 width: auto; 
                 height: auto; 
                 object-fit: contain; 
@@ -3536,6 +3538,8 @@
                 border-radius: 8px;
             }
             .lightbox-meta { 
+                position: absolute;
+                left: 0; right: 0; bottom: 0;
                 color: #fff; 
                 padding: 20px; 
                 display: flex;
@@ -3572,7 +3576,7 @@
                 .gallery-item { border-radius: 12px; aspect-ratio: 1; }
                 .gallery-caption { padding: 6px 8px; font-size: 12px; }
                 .gallery-date { font-size: 10px; padding: 2px 6px; top: 6px; right: 6px; }
-                .lightbox-img { max-height: calc(100vh - 140px); max-width: 95vw; }
+                .lightbox-img { max-height: 90vh; max-width: 95vw; }
                 .lightbox-meta { padding: 12px; font-size: 14px; text-align: center; }
                 .lightbox-close { width: 40px; height: 40px; top: 8px; right: 8px; }
             }

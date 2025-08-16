@@ -67,6 +67,12 @@
   }
 
   let scale = 1, originX = 0, originY = 0, startX = 0, startY = 0, isPanning = false;
+  // Track multi-touch pointers for pinch zoom
+  const pointers = new Map();
+  let pinchStartDistance = 0;
+  let pinchStartScale = 1;
+  let pinchCenter = { x: 0, y: 0 };
+  let isPinching = false;
   function applyTransform(){
     lbImg.style.transform = `translate(${originX}px, ${originY}px) scale(${scale})`;
   }
@@ -77,8 +83,11 @@
     lightbox.classList.add('open');
     lbImg.src = imgPath || imgEl.currentSrc || imgEl.src;
     lbImg.alt = title || imgEl.alt || '';
-    // reset transform
-    scale = 1; originX = 0; originY = 0; applyTransform();
+  // reset transform
+  scale = 1; originX = 0; originY = 0; applyTransform();
+  // reset gesture state
+  pointers.clear();
+  pinchStartDistance = 0; pinchStartScale = 1; pinchCenter = {x:0,y:0};
 
     // Default placeholder
     const lang = getLang();
@@ -131,25 +140,95 @@
   lightbox?.addEventListener('click', (e) => { if (e.target === lightbox) closeLightbox(); });
   window.addEventListener('keydown', (e) => { if (e.key === 'Escape' && lightbox.classList.contains('open')) closeLightbox(); });
 
-  // Zoom (gesture/wheel only)
-  function zoom(delta){
+  // Zoom helper with optional focal point (client coords relative to stage)
+  function zoom(delta, cx, cy){
     const newScale = Math.max(0.5, Math.min(5, scale + delta));
-    // keep center roughly
-    originX *= newScale/scale; originY *= newScale/scale;
+    if (newScale === scale) return;
+    if (typeof cx === 'number' && typeof cy === 'number') {
+      // Adjust translation so the point under the cursor stays fixed
+      // origin' = c - (c - origin) * (new/old)
+      originX = cx - (cx - originX) * (newScale / scale);
+      originY = cy - (cy - originY) * (newScale / scale);
+    } else {
+      // Fallback: scale around current origin
+      originX *= newScale/scale; originY *= newScale/scale;
+    }
     scale = newScale; applyTransform();
   }
   // Double-click/tap to reset zoom
-  stage?.addEventListener('dblclick', () => { scale=1; originX=0; originY=0; applyTransform(); });
+  stage?.addEventListener('dblclick', (e) => {
+    // Toggle between fit (1) and zoomed (2x) centered at click/tap
+    const rect = stage.getBoundingClientRect();
+    const cx = e.clientX - rect.left;
+    const cy = e.clientY - rect.top;
+    if (scale > 1) { scale=1; originX=0; originY=0; applyTransform(); }
+    else { zoom(1, cx, cy); }
+  });
 
-  // Pan with mouse/touch
+  // Pan with mouse/touch + Pinch zoom (multi-pointer)
   stage?.addEventListener('pointerdown', (e) => {
-    isPanning = true; startX = e.clientX - originX; startY = e.clientY - originY; stage.setPointerCapture(e.pointerId);
+    stage.setPointerCapture?.(e.pointerId);
+    pointers.set(e.pointerId, { x: e.clientX, y: e.clientY });
+    if (pointers.size === 2) {
+      // Initialize pinch
+      const pts = Array.from(pointers.values());
+      pinchStartDistance = Math.hypot(pts[0].x - pts[1].x, pts[0].y - pts[1].y);
+      pinchStartScale = scale;
+      const rect = stage.getBoundingClientRect();
+      pinchCenter = { x: (pts[0].x + pts[1].x)/2 - rect.left, y: (pts[0].y + pts[1].y)/2 - rect.top };
+      isPinching = true;
+    } else if (pointers.size === 1) {
+      // Start panning
+      isPanning = true;
+      startX = e.clientX - originX; startY = e.clientY - originY;
+    }
   });
   stage?.addEventListener('pointermove', (e) => {
-    if (!isPanning) return; originX = e.clientX - startX; originY = e.clientY - startY; applyTransform();
+    if (!lightbox.classList.contains('open')) return;
+    if (!pointers.has(e.pointerId)) return;
+    pointers.set(e.pointerId, { x: e.clientX, y: e.clientY });
+
+  if (pointers.size === 2) {
+      // Pinch to zoom
+      const pts = Array.from(pointers.values());
+      const dist = Math.hypot(pts[0].x - pts[1].x, pts[0].y - pts[1].y);
+      if (pinchStartDistance > 0) {
+        let newScale = pinchStartScale * (dist / pinchStartDistance);
+        newScale = Math.max(0.5, Math.min(5, newScale));
+        const rect = stage.getBoundingClientRect();
+        // Current center
+        const cx = (pts[0].x + pts[1].x)/2 - rect.left;
+        const cy = (pts[0].y + pts[1].y)/2 - rect.top;
+        // Adjust translation based on change in scale around center
+        originX = cx - (pinchCenter.x - originX) * (newScale / scale) - (cx - pinchCenter.x);
+        originY = cy - (pinchCenter.y - originY) * (newScale / scale) - (cy - pinchCenter.y);
+        scale = newScale;
+        applyTransform();
+      }
+      isPanning = false; // disable panning during pinch
+    } else if (isPanning && pointers.size === 1) {
+      originX = e.clientX - startX; originY = e.clientY - startY; applyTransform();
+    }
   });
-  stage?.addEventListener('pointerup', (e) => { isPanning = false; stage.releasePointerCapture?.(e.pointerId); });
-  stage?.addEventListener('wheel', (e) => { if (!lightbox.classList.contains('open')) return; e.preventDefault(); zoom(e.deltaY>0?-0.1:0.1); }, { passive:false });
+  stage?.addEventListener('pointerup', (e) => {
+    stage.releasePointerCapture?.(e.pointerId);
+    pointers.delete(e.pointerId);
+  if (pointers.size < 2) { pinchStartDistance = 0; isPinching = false; }
+    if (pointers.size === 0) { isPanning = false; }
+  });
+  stage?.addEventListener('pointercancel', (e) => {
+    stage.releasePointerCapture?.(e.pointerId);
+    pointers.delete(e.pointerId);
+  if (pointers.size < 2) { pinchStartDistance = 0; isPinching = false; }
+    if (pointers.size === 0) { isPanning = false; }
+  });
+  stage?.addEventListener('wheel', (e) => {
+    if (!lightbox.classList.contains('open')) return;
+    e.preventDefault();
+    const rect = stage.getBoundingClientRect();
+    const cx = e.clientX - rect.left; const cy = e.clientY - rect.top;
+    zoom(e.deltaY>0?-0.1:0.1, cx, cy);
+  }, { passive:false });
 
   // Hidden navigation: keyboard and swipe only (no visible buttons)
   function showIndex(i){
@@ -169,9 +248,16 @@
   });
   // Touch swipe
   let touchStartX = 0, touchEndX = 0, touchStartY = 0, touchEndY = 0;
-  stage?.addEventListener('touchstart', (e) => { if (e.touches.length === 1) { touchStartX = e.touches[0].clientX; touchStartY = e.touches[0].clientY; }});
-  stage?.addEventListener('touchmove', (e) => { if (e.touches.length === 1) { touchEndX = e.touches[0].clientX; touchEndY = e.touches[0].clientY; }});
+  stage?.addEventListener('touchstart', (e) => {
+    if (scale > 1 || isPinching) return; // disable swipe detection when zoomed or pinching
+    if (e.touches.length === 1) { touchStartX = e.touches[0].clientX; touchStartY = e.touches[0].clientY; }
+  });
+  stage?.addEventListener('touchmove', (e) => {
+    if (scale > 1 || isPinching) return;
+    if (e.touches.length === 1) { touchEndX = e.touches[0].clientX; touchEndY = e.touches[0].clientY; }
+  });
   stage?.addEventListener('touchend', () => {
+    if (scale > 1 || isPinching) { touchStartX = touchEndX = touchStartY = touchEndY = 0; return; }
     const dx = touchEndX - touchStartX; const dy = Math.abs(touchEndY - touchStartY);
     if (Math.abs(dx) > 60 && dy < 50) {
       if (dx < 0) showIndex(currentIndex+1); else showIndex(currentIndex-1);
