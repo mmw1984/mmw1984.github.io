@@ -72,6 +72,7 @@
   let pinchStartDistance = 0;
   let pinchStartScale = 1;
   let pinchCenter = { x: 0, y: 0 };
+  let isPinching = false;
   function applyTransform(){
     lbImg.style.transform = `translate(${originX}px, ${originY}px) scale(${scale})`;
   }
@@ -175,6 +176,7 @@
       pinchStartScale = scale;
       const rect = stage.getBoundingClientRect();
       pinchCenter = { x: (pts[0].x + pts[1].x)/2 - rect.left, y: (pts[0].y + pts[1].y)/2 - rect.top };
+      isPinching = true;
     } else if (pointers.size === 1) {
       // Start panning
       isPanning = true;
@@ -186,7 +188,7 @@
     if (!pointers.has(e.pointerId)) return;
     pointers.set(e.pointerId, { x: e.clientX, y: e.clientY });
 
-    if (pointers.size === 2) {
+  if (pointers.size === 2) {
       // Pinch to zoom
       const pts = Array.from(pointers.values());
       const dist = Math.hypot(pts[0].x - pts[1].x, pts[0].y - pts[1].y);
@@ -211,13 +213,13 @@
   stage?.addEventListener('pointerup', (e) => {
     stage.releasePointerCapture?.(e.pointerId);
     pointers.delete(e.pointerId);
-    if (pointers.size < 2) { pinchStartDistance = 0; }
+  if (pointers.size < 2) { pinchStartDistance = 0; isPinching = false; }
     if (pointers.size === 0) { isPanning = false; }
   });
   stage?.addEventListener('pointercancel', (e) => {
     stage.releasePointerCapture?.(e.pointerId);
     pointers.delete(e.pointerId);
-    if (pointers.size < 2) { pinchStartDistance = 0; }
+  if (pointers.size < 2) { pinchStartDistance = 0; isPinching = false; }
     if (pointers.size === 0) { isPanning = false; }
   });
   stage?.addEventListener('wheel', (e) => {
@@ -246,9 +248,16 @@
   });
   // Touch swipe
   let touchStartX = 0, touchEndX = 0, touchStartY = 0, touchEndY = 0;
-  stage?.addEventListener('touchstart', (e) => { if (e.touches.length === 1) { touchStartX = e.touches[0].clientX; touchStartY = e.touches[0].clientY; }});
-  stage?.addEventListener('touchmove', (e) => { if (e.touches.length === 1) { touchEndX = e.touches[0].clientX; touchEndY = e.touches[0].clientY; }});
+  stage?.addEventListener('touchstart', (e) => {
+    if (scale > 1 || isPinching) return; // disable swipe detection when zoomed or pinching
+    if (e.touches.length === 1) { touchStartX = e.touches[0].clientX; touchStartY = e.touches[0].clientY; }
+  });
+  stage?.addEventListener('touchmove', (e) => {
+    if (scale > 1 || isPinching) return;
+    if (e.touches.length === 1) { touchEndX = e.touches[0].clientX; touchEndY = e.touches[0].clientY; }
+  });
   stage?.addEventListener('touchend', () => {
+    if (scale > 1 || isPinching) { touchStartX = touchEndX = touchStartY = touchEndY = 0; return; }
     const dx = touchEndX - touchStartX; const dy = Math.abs(touchEndY - touchStartY);
     if (Math.abs(dx) > 60 && dy < 50) {
       if (dx < 0) showIndex(currentIndex+1); else showIndex(currentIndex-1);

@@ -6,12 +6,13 @@ const translations = {
         'nav_about': 'About',
         'nav_skills': 'Skills',
         'nav_projects': 'Projects', 
+    'nav_gallery': 'Gallery',
         'nav_services': 'Services',
         'nav_contact': 'Contact',
 
         // Introduction section
         'intro_hello': "Aloha! I am Marco Wong.",
-        'intro_exp': "(Or mmw1984, aka my username if you like)\nI'm still an ungraduate student in Form 3 (Grade 9/ Year 10), 14 yrs currently.",
+        'intro_exp': "(Or mmw1984, aka my username if you like)\nI'm still an ungraduate student in Form 4 (Grade 10/ Year 11), 15 yrs currently.",
         'intro_skills': "I have no idea why I made this website out and actually the whole webpage is made by AI\nAnd I have no idea about coding\nMaybe I have not enough time or passion on it?\nBut you could make a blog just with WordPress even though you don't know about any programming languages.\nFun, right?",
         'connect_title': 'Connect with Me',
         'visit_blog': 'Visit My Blog',
@@ -57,19 +58,32 @@ const translations = {
         'settings': 'Settings',
         'dark_mode': 'Dark Mode',
         'language': 'Language',
-        'reset': 'Reset to Default'
+    'reset': 'Reset to Default',
+
+    // Gallery
+    'gallery_title': 'Gallery',
+    'meta_date': 'Date',
+    'meta_camera': 'Camera',
+    'exif_loading': 'Loading EXIF…',
+    'exif_na': 'No EXIF data',
+    'meta_lens': 'Lens',
+    'meta_focal': 'Focal length',
+    'meta_aperture': 'Aperture',
+    'meta_shutter': 'Shutter',
+    'meta_iso': 'ISO'
     },
     'zh-HK': {
         // Navigation
         'nav_about': '關於我',
         'nav_skills': '技能',
         'nav_projects': '項目',
+    'nav_gallery': '作品集',
         'nav_services': '服務',
         'nav_contact': '聯絡',
 
         // Introduction section
         'intro_hello': "吾乃黃梓峰也",
-        'intro_exp': "(你都可以叫我 Marco Wong/ mmw1984)\n我仲係一個未畢業既中三學生咋，14 歲 luuuuuu",
+        'intro_exp': "(你都可以叫我 Marco Wong/ mmw1984)\n我仲係一個未畢業既中四學生咋，15 歲 luuuuuu",
         'intro_skills': "你問我整呢個網站有乜用，其實冇用，其實成個 Webpage 係 AI 整出黎俾我欣賞\n你問我識唔識打 Code????? 癡線，真唔識\n主要係我懶同埋冇乜太大精力7\n但其實 Coding 可以係一個解決生活唔少問題既方法\n而唔識 Code 都可以用 WordPress 整個 Blog 出黎\n就咁多，遲啲應該會越來越長",
         'connect_title': '社交連結',
         'visit_blog': '看看我的網誌',
@@ -115,19 +129,32 @@ const translations = {
         'settings': '設定',
         'dark_mode': '深色模式',
         'language': '語言',
-        'reset': '重設至預設值'
+    'reset': '重設至預設值',
+
+    // Gallery
+    'gallery_title': '作品集',
+    'meta_date': '拍攝日期',
+    'meta_camera': '相機',
+    'exif_loading': '讀取 EXIF 中…',
+    'exif_na': '沒有 EXIF 資料',
+    'meta_lens': '鏡頭',
+    'meta_focal': '焦距',
+    'meta_aperture': '光圈',
+    'meta_shutter': '快門',
+    'meta_iso': 'ISO'
     },
     'zh-TW': {
         // Navigation
         'nav_about': '關於我',
         'nav_skills': '專長',
         'nav_projects': '專案',
+    'nav_gallery': '作品集',
         'nav_services': '服務', 
         'nav_contact': '聯絡',
 
         // Introduction section
         'intro_hello': "哈嘍! 我是 Marco",
-        'intro_exp': "(你也可以叫我 mmw1984 —— 我的用戶名）\n我還在國三呢（香港叫做中三），14 歲啦",
+        'intro_exp': "(你也可以叫我 mmw1984 —— 我的用戶名）\n我還在國四呢（香港叫做中四），15 歲啦",
         'intro_skills': "我不知道為什麼要做這個網站，事實上整個網頁都是由 AI 製作的。\n我也不懂程式碼\n也許我沒有足夠的時間或經理？\n但即使你不懂任何程式語言，你也可以用 WordPress 做一個部落格。\n就算不懂電腦，其實現在的工具已經適合很多人經營一個網站啦",
         'connect_title': '我的社群連結',
         'visit_blog': '我的部落格',
@@ -173,6 +200,18 @@ const translations = {
         'settings': '設定',
         'dark_mode': '深色模式',
         'language': '語言',
-        'reset': '重置為預設值'
+    'reset': '重置為預設值',
+
+    // Gallery
+    'gallery_title': '作品集',
+    'meta_date': '拍攝日期',
+    'meta_camera': '相機',
+    'exif_loading': '讀取 EXIF 中…',
+    'exif_na': '沒有 EXIF 資料',
+    'meta_lens': '鏡頭',
+    'meta_focal': '焦距',
+    'meta_aperture': '光圈',
+    'meta_shutter': '快門',
+    'meta_iso': 'ISO'
     }
 };
