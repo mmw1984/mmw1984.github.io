@@ -12,7 +12,7 @@ const translations = {
 
         // Introduction section
         'intro_hello': "Aloha! I am Marco Wong.",
-        'intro_exp': "(Or mmw1984, aka my username if you like)\nI'm still an ungraduate student in Form 4 (Grade 10/ Year 11), 15 yrs currently.",
+        'intro_exp': "(Or mmw1984, aka my username if you like)\nI'm still an ungraduate student from CCCHWC in Form 4 (Grade 10/ Year 11), 15 yrs currently.",
         'intro_skills': "I have no idea why I made this website out and actually the whole webpage is made by AI\nAnd I have no idea about coding\nMaybe I have not enough time or passion on it?\nBut you could make a blog just with WordPress even though you don't know about any programming languages.\nFun, right?",
         'connect_title': 'Connect with Me',
         'visit_blog': 'Visit My Blog',
@@ -37,7 +37,7 @@ const translations = {
         'project_description': 'Guided and choose the most valuable server for her.',
 
         // Services section
-        'services_title': 'Services',
+        'services_title': "Services (I don't believe someone will buy haha)",
         'web_hosting': 'Web hosting',
         'server_help': 'Server purchase help',
         'services_description': 'Description',
@@ -83,13 +83,13 @@ const translations = {
 
         // Introduction section
         'intro_hello': "吾乃黃梓峰也",
-        'intro_exp': "(你都可以叫我 Marco Wong/ mmw1984)\n我仲係一個未畢業既中四學生咋，15 歲 luuuuuu",
+        'intro_exp': "(你都可以叫我 Marco Wong/ mmw1984)\n我仲係一個未畢業既協和中四學生咋，15 歲 luuuuuu",
         'intro_skills': "你問我整呢個網站有乜用，其實冇用，其實成個 Webpage 係 AI 整出黎俾我欣賞\n你問我識唔識打 Code????? 癡線，真唔識\n主要係我懶同埋冇乜太大精力7\n但其實 Coding 可以係一個解決生活唔少問題既方法\n而唔識 Code 都可以用 WordPress 整個 Blog 出黎\n就咁多，遲啲應該會越來越長",
         'connect_title': '社交連結',
         'visit_blog': '看看我的網誌',
 
         // Skills section
-        'skills_title': '技能',
+        'skills_title': '技能 (永遠相信唔會有人買)',
         'software_skills': '軟件技能',
         'language_skills': '語言能力',
         'cantonese': '廣東話',
@@ -179,7 +179,7 @@ const translations = {
         'project_description': '協助客戶選擇最具價值的主機。',
 
         // Services section
-        'services_title': '服務',
+        'services_title': '服務 (沒人會買的)',
         'web_hosting': '網站代管',
         'server_help': '主機選購諮詢',
         'services_description': '說明',
