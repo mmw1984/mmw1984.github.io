@@ -3163,45 +3163,22 @@
             setLanguage(lang);
         }
 
-        // 添加彈窗控制腳本
-        window.addEventListener('load', () => {
-            // 檢查是否已經顯示過彈窗
-            const hasShownPopup = localStorage.getItem('hasShownWelcomePopup');
-            const browserLang = navigator.language;
-            
-            if (!hasShownPopup) {
-                let popup;
-                if (browserLang.startsWith('zh-HK')) {
-                    popup = document.getElementById('welcomePopupHK');
-                    setLanguage('zh-HK');
-                } else if (browserLang.startsWith('zh-TW')) {
-                    popup = document.getElementById('welcomePopupTW');
-                    setLanguage('zh-TW');
-                }
-                
-                if (popup) {
-                    popup.style.display = 'block';
-                    popup.offsetHeight; // 強制重繪
-                    popup.classList.add('show');
-                    
-                    setTimeout(() => {
-                        closeWelcomePopup(browserLang.startsWith('zh-HK') ? 'HK' : 'TW');
-                    }, 3000);
-                    
-                    localStorage.setItem('hasShownWelcomePopup', 'true');
-                }
-            }
-        });
-
         function closeWelcomePopup(region) {
             const popup = document.getElementById(`welcomePopup${region}`);
             popup.classList.add('hiding');
             
             // 等待動畫完成後再隱藏元素
             setTimeout(() => {
+                popup.style.display = 'none';
                 popup.classList.remove('show');
                 popup.classList.remove('hiding');
             }, 300); // 300ms 要和 CSS transition 時間相匹配
+        }
+
+        // Function to switch to English for Hong Kong users
+        function switchToEnglish() {
+            setLanguage('en');
+            closeWelcomePopup('HK');
         }
 
         // 更新歡迎動畫相關函數
@@ -3342,13 +3319,51 @@
             }, messages.location ? 6500 : 5500);
         }
 
-        // 更新語言檢測相關代碼
-        window.addEventListener('load', () => {
+        // Main language detection function with IP priority for Hong Kong
+        async function initializeLanguage() {
             const savedLang = localStorage.getItem('language');
             const browserLang = navigator.language;
             const hasShownWelcomeHK = localStorage.getItem('hasShownWelcomeHK');
             const hasShownWelcomeTW = localStorage.getItem('hasShownWelcomeTW');
-
+            const hasShownHKIPPopup = localStorage.getItem('hasShownHKIPPopup');
+            
+            // If user has already saved a language preference, use that
+            if (savedLang) {
+                setLanguage(savedLang);
+                return;
+            }
+            
+            // Get user location
+            const userLocation = await getUserLocation();
+            
+            // Priority 1: If IP is from Hong Kong, always set to zh-HK and show popup
+            if (userLocation && userLocation.country === 'Hong Kong') {
+                setLanguage('zh-HK');
+                
+                // Show Hong Kong IP popup if not shown before
+                if (!hasShownHKIPPopup) {
+                    setTimeout(() => {
+                        const popup = document.getElementById('welcomePopupHK');
+                        if (popup) {
+                            popup.style.display = 'block';
+                            popup.offsetHeight; // Force reflow
+                            popup.classList.add('show');
+                            
+                            // Auto-close after 5 seconds if user doesn't interact
+                            setTimeout(() => {
+                                if (popup.classList.contains('show')) {
+                                    closeWelcomePopup('HK');
+                                }
+                            }, 5000);
+                            
+                            localStorage.setItem('hasShownHKIPPopup', 'true');
+                        }
+                    }, 1000); // Show popup after 1 second delay
+                }
+                return;
+            }
+            
+            // Priority 2: Browser language detection (existing logic)
             if (!hasShownWelcomeHK && browserLang.startsWith('zh-HK')) {
                 showWelcomeAnimation();
                 localStorage.setItem('hasShownWelcomeHK', 'true');
@@ -3364,6 +3379,11 @@
             } else {
                 setLanguage('en');
             }
+        }
+
+        // 更新語言檢測相關代碼
+        window.addEventListener('load', () => {
+            initializeLanguage();
         });
 
         // Add this function to get user's location from IP
@@ -3598,5 +3618,16 @@
                 </div>
             </div>
         </div>
+
+    <!-- Hong Kong IP Detection Popup -->
+    <div class="welcome-popup" id="welcomePopupHK">
+        <div class="welcome-title" data-i18n="hk_ip_popup_title">歡迎香港朋友！</div>
+        <div class="welcome-message" data-i18n="hk_ip_popup_message">我地偵測到你係香港上網，所以網站已經設定為香港繁體中文。如果你想用英文版，可以隨時轉換。</div>
+        <div style="display: flex; gap: 8px;">
+            <button class="close-popup" onclick="closeWelcomePopup('HK')" data-i18n="hk_ip_popup_button">知道了</button>
+            <button class="close-popup" onclick="switchToEnglish()" data-i18n="hk_ip_popup_switch_english" style="background: var(--md-sys-color-secondary);">轉換為英文</button>
+        </div>
+    </div>
+
 </body>
 </html>

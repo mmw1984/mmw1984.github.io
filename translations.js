@@ -70,7 +70,13 @@ const translations = {
     'meta_focal': 'Focal length',
     'meta_aperture': 'Aperture',
     'meta_shutter': 'Shutter',
-    'meta_iso': 'ISO'
+    'meta_iso': 'ISO',
+
+    // Hong Kong IP Detection Popup
+    'hk_ip_popup_title': 'Welcome from Hong Kong!',
+    'hk_ip_popup_message': 'We detected you are browsing from Hong Kong. The website is now set to Traditional Chinese (Hong Kong). You can switch to English if preferred.',
+    'hk_ip_popup_button': 'Got it',
+    'hk_ip_popup_switch_english': 'Switch to English'
     },
     'zh-HK': {
         // Navigation
@@ -141,7 +147,13 @@ const translations = {
     'meta_focal': '焦距',
     'meta_aperture': '光圈',
     'meta_shutter': '快門',
-    'meta_iso': 'ISO'
+    'meta_iso': 'ISO',
+
+    // Hong Kong IP Detection Popup
+    'hk_ip_popup_title': '歡迎香港朋友！',
+    'hk_ip_popup_message': '我地偵測到你係香港上網，所以網站已經設定為香港繁體中文。如果你想用英文版，可以隨時轉換。',
+    'hk_ip_popup_button': '知道了',
+    'hk_ip_popup_switch_english': '轉換為英文'
     },
     'zh-TW': {
         // Navigation
