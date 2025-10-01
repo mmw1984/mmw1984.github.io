@@ -6,9 +6,9 @@
       "en": "Caution: Slippery",
       "zh-HK": "小心地滑",
       "zh-TW": "小心地滑"
-  },
-  "date": "2025.07.29",
-  "camera": ""
+    },
+    "date": "2025.07.29",
+    "camera": ""
   },
   {
     "src": "images/turnfail.jpg",
@@ -17,9 +17,9 @@
       "en": "Fail Turn",
       "zh-HK": "轉彎失敗",
       "zh-TW": "轉彎失敗"
-  },
-  "date": "2024.12.15",
-  "camera": ""
+    },
+    "date": "2024.12.15",
+    "camera": ""
   },
   {
     "src": "images/wtslungst.jpg",
@@ -28,9 +28,9 @@
       "en": "Lung Cheung Road",
       "zh-HK": "龍翔道",
       "zh-TW": "龍翔道"
-  },
-  "date": "2024.11.08",
-  "camera": ""
+    },
+    "date": "2024.11.08",
+    "camera": ""
   },
   {
     "src": "images/plane1.jpg",
@@ -39,8 +39,8 @@
       "en": "Plane@HK",
       "zh-HK": "飛機",
       "zh-TW": "飛機"
-  },
-  "date": "2024.10.22",
-  "camera": ""
+    },
+    "date": "2024.10.22",
+    "camera": ""
   }
 ]
