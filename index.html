@@ -769,23 +769,28 @@
         }
 
         .lightbox-content {
-            max-width: 90vw;
-            max-height: 90vh;
+            max-width: 92vw;
+            max-height: 92vh;
             position: relative;
-            background: var(--glass-bg);
-            backdrop-filter: var(--glass-blur);
-            -webkit-backdrop-filter: var(--glass-blur);
-            border-radius: 20px;
-            padding: 1.5rem;
-            box-shadow: var(--glass-shadow);
-            border: 1px solid var(--glass-border);
+            background: transparent;
+            border-radius: 16px;
+            padding: 0;
+            box-shadow: none;
+            border: none;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1rem;
         }
 
         .lightbox-content img {
             max-width: 100%;
-            max-height: 80vh;
+            max-height: 75vh;
             object-fit: contain;
             border-radius: 12px;
+            display: block;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            flex-shrink: 0;
         }
 
         .lightbox-caption {
@@ -795,16 +800,23 @@
             font-weight: 500;
         }
 
+        .lightbox-controls {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            align-items: center;
+            padding: 0.5rem;
+            flex-shrink: 0;
+        }
+
         .lightbox-close {
-            position: absolute;
-            top: -1rem;
-            right: -1rem;
+            position: static;
             background: var(--glass-bg);
             backdrop-filter: var(--glass-blur);
             -webkit-backdrop-filter: var(--glass-blur);
             border: 2px solid var(--glass-border);
             color: var(--text-primary);
-            font-size: 1.5rem;
+            font-size: 1.25rem;
             width: 48px;
             height: 48px;
             border-radius: 50%;
@@ -823,15 +835,13 @@
         }
 
         .lightbox-nav {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
+            position: static;
             background: var(--glass-bg);
             backdrop-filter: var(--glass-blur);
             -webkit-backdrop-filter: var(--glass-blur);
             border: 2px solid var(--glass-border);
             color: var(--text-primary);
-            font-size: 1.5rem;
+            font-size: 1.25rem;
             width: 48px;
             height: 48px;
             border-radius: 50%;
@@ -846,15 +856,7 @@
         .lightbox-nav:hover {
             background: var(--accent);
             color: white;
-            transform: translateY(-50%) scale(1.1);
-        }
-
-        .lightbox-prev {
-            left: 1rem;
-        }
-
-        .lightbox-next {
-            right: 1rem;
+            transform: scale(1.1);
         }
 
         /* Main Content */
@@ -1238,6 +1240,8 @@
                 z-index: 999;
                 visibility: hidden;
                 opacity: 0;
+                display: block;
+                pointer-events: none;
             }
 
             nav.active {
@@ -1247,6 +1251,7 @@
                 transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), 
                             opacity 0.3s ease,
                             visibility 0s linear 0s;
+                pointer-events: auto;
             }
 
             nav ul {
@@ -1355,26 +1360,16 @@
                 font-size: 0.9rem;
             }
 
-            .lightbox-close {
-                top: 0.5rem;
-                right: 0.5rem;
-                width: 40px;
-                height: 40px;
-                font-size: 1.25rem;
+            .lightbox-controls {
+                gap: 0.75rem;
+                padding: 0.25rem;
             }
 
+            .lightbox-close,
             .lightbox-nav {
-                width: 40px;
-                height: 40px;
-                font-size: 1.25rem;
-            }
-
-            .lightbox-prev {
-                left: 0.5rem;
-            }
-
-            .lightbox-next {
-                right: 0.5rem;
+                width: 44px;
+                height: 44px;
+                font-size: 1.1rem;
             }
 
             .lightbox {
@@ -1713,20 +1708,22 @@
 
     <!-- Lightbox -->
     <div class="lightbox" id="lightbox">
-        <button class="lightbox-close" onclick="closeLightbox()">
-            <i class="fas fa-times"></i>
-        </button>
-        <button class="lightbox-nav lightbox-prev" onclick="navigateLightbox(-1)">
-            <i class="fas fa-chevron-left"></i>
-        </button>
-        <button class="lightbox-nav lightbox-next" onclick="navigateLightbox(1)">
-            <i class="fas fa-chevron-right"></i>
-        </button>
         <div class="lightbox-content">
             <img id="lightboxImage" src="" alt="">
             <div class="lightbox-caption">
                 <h3 id="lightboxCaption"></h3>
                 <div class="gallery-meta" id="lightboxMeta" style="justify-content: center; margin-top: 0.5rem;"></div>
+            </div>
+            <div class="lightbox-controls">
+                <button class="lightbox-nav lightbox-prev" onclick="navigateLightbox(-1)">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <button class="lightbox-close" onclick="closeLightbox()">
+                    <i class="fas fa-times"></i>
+                </button>
+                <button class="lightbox-nav lightbox-next" onclick="navigateLightbox(1)">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
             </div>
         </div>
     </div>
@@ -1740,19 +1737,98 @@
         </p>
     </footer>
 
+    <script id="galleryDataFallback" type="application/json">[
+        {
+            "src": "images/caution.jpg",
+            "alt": "小心地滑",
+            "caption": {
+                "en": "Caution: Slippery",
+                "zh-HK": "小心地滑",
+                "zh-TW": "小心地滑"
+            },
+            "date": "2025.07.29",
+            "camera": ""
+        },
+        {
+            "src": "images/turnfail.jpg",
+            "alt": "轉彎失敗",
+            "caption": {
+                "en": "Fail Turn",
+                "zh-HK": "轉彎失敗",
+                "zh-TW": "轉彎失敗"
+            },
+            "date": "2024.12.15",
+            "camera": ""
+        },
+        {
+            "src": "images/wtslungst.jpg",
+            "alt": "黃大仙",
+            "caption": {
+                "en": "Lung Cheung Road",
+                "zh-HK": "龍翔道",
+                "zh-TW": "龍翔道"
+            },
+            "date": "2024.11.08",
+            "camera": ""
+        },
+        {
+            "src": "images/plane1.jpg",
+            "alt": "飛機",
+            "caption": {
+                "en": "Plane@HK",
+                "zh-HK": "飛機",
+                "zh-TW": "飛機"
+            },
+            "date": "2024.10.22",
+            "camera": ""
+        }
+    ]</script>
+
     <script>
         // Gallery Management
         let galleryData = [];
         let currentImageIndex = 0;
 
         async function loadGallery() {
+            const grid = document.getElementById('galleryGrid');
+            const inlineItems = getInlineGalleryData();
             try {
-                const response = await fetch('gallery/gallery.json');
-                galleryData = await response.json();
+                const response = await fetch('gallery/gallery.json', { cache: 'no-store' });
+                if (!response.ok) {
+                    throw new Error('HTTP ' + response.status);
+                }
+                const items = await response.json();
+                if (!Array.isArray(items) || !items.length) {
+                    throw new Error('Empty gallery payload');
+                }
+                galleryData = items;
                 displayGallery();
             } catch (error) {
-                console.error('Error loading gallery:', error);
+                console.warn('Falling back to inline gallery data:', error);
+                if (inlineItems.length) {
+                    galleryData = inlineItems;
+                    displayGallery();
+                } else if (grid) {
+                    grid.innerHTML = '<div style="opacity:.7">Gallery temporarily unavailable.</div>';
+                }
             }
+        }
+
+        function getInlineGalleryData() {
+            if (!window.__inlineGalleryData) {
+                const el = document.getElementById('galleryDataFallback');
+                if (!el) {
+                    window.__inlineGalleryData = [];
+                } else {
+                    try {
+                        window.__inlineGalleryData = JSON.parse(el.textContent || '[]');
+                    } catch (err) {
+                        console.error('Inline gallery JSON parse error:', err);
+                        window.__inlineGalleryData = [];
+                    }
+                }
+            }
+            return Array.isArray(window.__inlineGalleryData) ? window.__inlineGalleryData : [];
         }
 
         function displayGallery() {
