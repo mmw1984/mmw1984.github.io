@@ -2137,7 +2137,7 @@
             }
             
             const popup = document.getElementById('welcomePopup');
-            const lang = localStorage.getItem('language') || 'en';
+            const lang = localStorage.getItem('language') || 'zh-HK';
             
             const welcomeContent = {
                 'en': {
@@ -2242,9 +2242,9 @@
             const theme = this.checked ? 'dark' : 'light';
             document.documentElement.setAttribute('data-theme', theme);
             localStorage.setItem('theme', theme);
-            
+
             // Update theme icon in header
-            const themeIcon = document.getElementById('themeIcon');
+            const themeIcon = document.querySelector('.theme-toggle i');
             if (themeIcon) {
                 themeIcon.className = theme === 'dark' ? 'fas fa-sun' : 'fas fa-moon';
             }
@@ -2267,11 +2267,11 @@
             settingsThemeToggle.checked = false;
             document.documentElement.setAttribute('data-theme', 'light');
             localStorage.setItem('theme', 'light');
-            const themeIcon = document.getElementById('themeIcon');
+            const themeIcon = document.querySelector('.theme-toggle i');
             if (themeIcon) {
                 themeIcon.className = 'fas fa-moon';
             }
-            
+
             alert(currentLang === 'en' ? 'Settings reset to defaults' : '設定已重設為預設值');
         }
     </script>
