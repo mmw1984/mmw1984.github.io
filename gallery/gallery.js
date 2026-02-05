@@ -5,10 +5,8 @@
 
   const lightbox = document.getElementById('lightbox');
   const lbImg = document.getElementById('lightboxImage');
-  const metaDate = document.getElementById('metaDate');
-  const lbClose = document.getElementById('lightboxClose');
-  // Buttons removed per simplified UI (zoom via wheel/pinch, no nav buttons)
-  const stage = document.getElementById('lightboxStage');
+  const lbClose = document.querySelector('.lightbox-close');
+  const stage = document.getElementById('lightbox');
 
   const getLang = () => localStorage.getItem('language') || (navigator.language.startsWith('zh-HK') ? 'zh-HK' : navigator.language.startsWith('zh-TW') ? 'zh-TW' : 'en');
 
@@ -89,44 +87,51 @@
   pointers.clear();
   pinchStartDistance = 0; pinchStartScale = 1; pinchCenter = {x:0,y:0};
 
-    // Default placeholder
-    const lang = getLang();
-    const t = (k, fallback) => (window.translations && window.translations[lang] && window.translations[lang][k]) || fallback || k;
-    const loadingText = t('exif_loading', 'Loading…');
-    metaDate.textContent = loadingText;
+    // Update lightbox metadata if elements exist
+    const metaDate = document.getElementById('lightboxMeta');
+    if (metaDate) {
+      const lang = getLang();
+      const t = (k, fallback) => (window.translations && window.translations[lang] && window.translations[lang][k]) || fallback || k;
+      const loadingText = t('exif_loading', 'Loading…');
+      metaDate.innerHTML = loadingText;
 
-    try {
-      // Check if JSON has date first
-      let shotDate = item.date && item.date.trim() ? item.date : null;
+      try {
+        // Check if JSON has date first
+        let shotDate = item.date && item.date.trim() ? item.date : null;
 
-      // If no date in JSON, try to get from EXIF
-      if (!shotDate) {
-        if (window.exifr && typeof window.exifr.parse === 'function') {
-          try {
-            const resp = await fetch(imgPath);
-            const buf = await resp.arrayBuffer();
-            const exif = await window.exifr.parse(buf).catch(() => null);
-            
-            if (exif && exif.DateTimeOriginal) {
-              // Format date as YYYY.MM.DD
-              try {
-                const d = new Date(exif.DateTimeOriginal);
-                const yyyy = d.getFullYear();
-                const mm = String(d.getMonth() + 1).padStart(2, '0');
-                const dd = String(d.getDate()).padStart(2, '0');
-                shotDate = `${yyyy}.${mm}.${dd}`;
-              } catch {}
-            }
-          } catch {}
+        // If no date in JSON, try to get from EXIF
+        if (!shotDate) {
+          if (window.exifr && typeof window.exifr.parse === 'function') {
+            try {
+              const resp = await fetch(imgPath);
+              const buf = await resp.arrayBuffer();
+              const exif = await window.exifr.parse(buf).catch(() => null);
+
+              if (exif && exif.DateTimeOriginal) {
+                // Format date as YYYY.MM.DD
+                try {
+                  const d = new Date(exif.DateTimeOriginal);
+                  const yyyy = d.getFullYear();
+                  const mm = String(d.getMonth() + 1).padStart(2, '0');
+                  const dd = String(d.getDate()).padStart(2, '0');
+                  shotDate = `${yyyy}.${mm}.${dd}`;
+                } catch {}
+              }
+            } catch {}
+          }
         }
-      }
 
-      metaDate.textContent = shotDate || t('exif_na', 'Date not available');
-    } catch (e) {
-      console.warn('Date read failed', e);
-      const lang2 = getLang();
-      const t2 = (k, fallback) => (window.translations && window.translations[lang2] && window.translations[lang2][k]) || fallback || k;
-      metaDate.textContent = t2('exif_na', 'Date not available');
+        if (shotDate) {
+          metaDate.innerHTML = `<span><i class="fas fa-calendar"></i>${shotDate}</span>${item.camera ? `<span><i class="fas fa-camera"></i>${item.camera}</span>` : ''}`;
+        } else {
+          metaDate.innerHTML = t('exif_na', 'Date not available');
+        }
+      } catch (e) {
+        console.warn('Date read failed', e);
+        const lang2 = getLang();
+        const t2 = (k, fallback) => (window.translations && window.translations[lang2] && window.translations[lang2][k]) || fallback || k;
+        metaDate.innerHTML = t2('exif_na', 'Date not available');
+      }
     }
   }
 

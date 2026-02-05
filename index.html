@@ -1746,7 +1746,7 @@
                 "zh-HK": "小心地滑",
                 "zh-TW": "小心地滑"
             },
-            "date": "2025.07.29",
+            "date": "2024.07.29",
             "camera": ""
         },
         {
@@ -1975,8 +1975,8 @@
             const icon = document.querySelector('.theme-toggle i');
             icon.className = savedTheme === 'dark' ? 'fas fa-sun' : 'fas fa-moon';
             
-            // Load saved language or default to en
-            const savedLang = localStorage.getItem('language') || 'en';
+            // Load saved language or default to zh-HK
+            const savedLang = localStorage.getItem('language') || 'zh-HK';
             currentLang = savedLang;
             
             // Load gallery first
@@ -2142,20 +2142,17 @@
             const welcomeContent = {
                 'en': {
                     title: 'Welcome! 🎉',
-                    message: 'Thanks for visiting my portfolio. You can switch languages using the 🌐 button in the navigation.',
-                    button: 'English'
+                    message: 'Thanks for visiting my portfolio. You can switch languages using the 🌐 button in the navigation.'
                 },
                 'zh-HK': {
                     title: '歡迎！🎉',
-                    message: '多謝你嚟到我既網站！你可以用導航列既🌐按鈕切換語言。',
-                    button: '繁中(香港)'
+                    message: '多謝你嚟到我既網站！你可以用導航列既🌐按鈕切換語言。'
                 }
             };
-            
-            const content = welcomeContent[lang] || welcomeContent['en'];
+
+            const content = welcomeContent[lang] || welcomeContent['zh-HK'];
             document.getElementById('welcomeTitle').textContent = content.title;
             document.getElementById('welcomeText').textContent = content.message;
-            document.getElementById('closeBtn').textContent = content.button;
             
             // Initialize liquid glass effect
             initLiquidGlass();

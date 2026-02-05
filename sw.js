@@ -10,8 +10,6 @@ const ASSETS = [
 	'/favicon-32x32.png',
 	'/favicon.ico',
 	'/notion-avatar-1736580317649.png',
-	'/fonts/your-font-file.woff2',
-	'/notion-avatar-1736580317649.png',
 ];
 
 self.addEventListener('install', (event) => {

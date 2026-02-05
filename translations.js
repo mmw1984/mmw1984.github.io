@@ -27,6 +27,7 @@ const translations = {
         'software_skills': 'Software Skills',
         'language_skills': 'Language Skills',
         'skill_wordpress': 'WordPress',
+        'skill_notion': 'Notion',
         'skill_server': 'Server Management',
         'skill_hosting': 'Hosting',
         'skill_database': 'Database',
