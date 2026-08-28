@@ -7,34 +7,36 @@ const translations = {
         'nav_gallery': 'Gallery',
         'nav_services': 'Services',
         'nav_contact': 'Contact',
-        
+
         // Gallery
         'gallery_title': 'Gallery',
         'exif_loading': 'Loading…',
         'exif_na': 'Date not available',
 
         // Hero
-        'hero_title': 'Aloha! I am Marco Wong.',
-        'hero_subtitle': "WordPress hosting expert and server consultant. I'm a Form 4 student from CCCHWC, passionate about web technologies and helping others with their hosting needs.",
+        'hero_title': "Hi, I'm Marco Wong.",
+        'hero_subtitle': "Full-Stack Web Development & Cloud Consultation. Form 5 Student at CCCHWC.",
         'btn_blog': 'Visit My Blog',
         'btn_contact': 'Get in Touch',
 
         // About
         'about_title': 'About Me',
-        'about_p1': "I'm still an undergraduate student from CCCHWC in Form 4 (Grade 10/Year 11), currently 15 years old. This website was created with the help of AI, and while I'm still learning about coding, I'm passionate about web technologies and WordPress.",
-        'about_p2': "Even if you don't know programming languages, you can create a blog with WordPress. That's the beauty of modern web development - it's accessible to everyone!",
+        'about_p1': "I'm a Form 5 student at CCCHWC specializing in AI-native software engineering, serverless architectures, and modern web technologies. I build and ship full-stack applications using Next.js (App Router), TypeScript, and Cloudflare/Vercel, powered by AI-driven workflows with Cursor and state-of-the-art coding models.",
+        'about_p2': "AI has transformed the way I engineer solutions. Instead of getting blocked by boilerplate, I leverage AI pair programming to prototype rapidly, debug systematically, and ship reliable production-ready systems. Beyond building personal projects, I assist peers and clients with web development, cloud hosting, infrastructure setup, and long-term maintenance.",
 
         // Skills
         'skills_title': 'Skills & Expertise',
         'software_skills': 'Software Skills',
         'language_skills': 'Language Skills',
+        'vibe_label': 'Vibe Coding',
+        'vibe_line': 'Vibe coding for 3 years.',
         'skill_wordpress': 'WordPress',
         'skill_notion': 'Notion',
-        'skill_server': 'Server Management',
-        'skill_hosting': 'Hosting',
-        'skill_database': 'Database',
-        'skill_webdev': 'Web Development',
-        'skill_security': 'Security',
+        'skill_typescript': 'TypeScript',
+        'skill_nextjs': 'Next.js',
+        'skill_react': 'React',
+        'skill_vercel': 'Vercel',
+        'skill_cloudflare': 'Cloudflare',
         'lang_cantonese': 'Cantonese',
         'lang_mandarin': 'Mandarin',
         'lang_english': 'English',
@@ -42,18 +44,8 @@ const translations = {
         'level_fluent': 'Fluent',
         'level_proficient': 'Proficient',
 
-        // Projects
-        'projects_title': 'Projects',
-        'projects_name': 'Name',
-        'projects_service': 'Service',
-        'projects_desc': 'Description',
-        'project1_name': 'Server Consultation',
-        'project1_service': 'Server Purchase Help',
-        'project1_desc': 'Guided and chose the most valuable server for a client',
-
         // Services
         'services_title': 'Services',
-        'services_note': "(I don't believe someone will buy haha)",
         'service1_title': 'Web Hosting',
         'service1_desc': 'I could help you in setting up WordPress or other stuffs on your server.',
         'service1_price': '$120 for a 30-min session',
@@ -68,7 +60,7 @@ const translations = {
 
         // Contact
         'contact_title': 'Get in Touch',
-        'contact_subtitle': "I'm here to help! Fill out the contact form and I'll get back to you as soon as possible.",
+        'contact_subtitle': "The fastest way to reach me is by email — I'll get back to you as soon as possible.",
 
         // Footer
         'footer_rights': 'All rights reserved.',
@@ -78,7 +70,6 @@ const translations = {
         'settings_title': 'Settings',
         'font_size': 'Font Size',
         'animations': 'Animations',
-        'theme': 'Dark Mode',
         'reset_settings': 'Reset to Defaults'
     },
     'zh-HK': {
@@ -89,33 +80,36 @@ const translations = {
         'nav_gallery': '作品集',
         'nav_services': '服務',
         'nav_contact': '聯絡',
-        
+
         // Gallery
         'gallery_title': '作品集',
         'exif_loading': '載入中…',
         'exif_na': '沒有可用日期',
 
         // Hero
-        'hero_title': '吾乃黃梓峰也',
-        'hero_subtitle': 'WordPress 託管專家及伺服器顧問。我係協和書院中四學生，熱衷於網絡技術同幫助其他人解決託管需求。',
+        'hero_title': '你好，我係黃梓峰。',
+        'hero_subtitle': '全棧網頁開發與雲端架構諮詢。協和書院中五學生。',
         'btn_blog': '睇吓我嘅網誌',
         'btn_contact': '聯絡我',
 
         // About
         'about_title': '關於我',
-        'about_p1': '我仲係一個未畢業既協和中四學生咋，15 歲 luuuuuu。呢個網站係 AI 整出黎俾我欣賞，雖然我仲學緊 coding，但我對網絡技術同 WordPress 好有熱情。',
-        'about_p2': '就算唔識 Code 都可以用 WordPress 整個 Blog 出黎。呢個就係現代網絡開發既美妙之處 - 人人都可以做到！',
+        'about_p1': '我係協和書院中五學生，專注喺 AI 輔助開發、Serverless 架構同現代 Web 技術。平時主力用 Cursor 同各大 AI coding tools 進行快速原型設計與全棧開發，由 Next.js、TypeScript 到 Cloudflare / Vercel 部署，成個流程都係以高效率 ship 出真實產品為核心。',
+        'about_p2': 'AI 徹底重塑咗我學習同開發嘅模式。我擅長利用 AI pair programming 將想法快速轉化為高可用嘅 Web 應用與自架服務，並持續探索 Human-Computer Interaction (HCI) 同現代化網絡基礎設施。除咗自己寫 project，我都幫朋友同客戶處理網站架構、雲端託管、效能優化同日常維運。',
 
         // Skills
         'skills_title': '技能同專長',
         'software_skills': '軟件技能',
         'language_skills': '語言能力',
+        'vibe_label': 'Vibe Coding',
+        'vibe_line': '連續三年 Vibe Coding。',
         'skill_wordpress': 'WordPress',
-        'skill_server': '伺服器管理',
-        'skill_hosting': '網站託管',
-        'skill_database': '資料庫',
-        'skill_webdev': '網站開發',
-        'skill_security': '安全',
+        'skill_notion': 'Notion',
+        'skill_typescript': 'TypeScript',
+        'skill_nextjs': 'Next.js',
+        'skill_react': 'React',
+        'skill_vercel': 'Vercel',
+        'skill_cloudflare': 'Cloudflare',
         'lang_cantonese': '廣東話',
         'lang_mandarin': '普通話',
         'lang_english': '英文',
@@ -123,20 +117,10 @@ const translations = {
         'level_fluent': '流利',
         'level_proficient': '熟練',
 
-        // Projects
-        'projects_title': '項目',
-        'projects_name': '名稱',
-        'projects_service': '服務',
-        'projects_desc': '描述',
-        'project1_name': '伺服器諮詢',
-        'project1_service': '伺服器選購幫助',
-        'project1_desc': '為客戶選擇咗最具價值嘅伺服器',
-
         // Services
         'services_title': '服務',
-        'services_note': '(永遠相信唔會有人買)',
         'service1_title': '網站託管',
-        'service1_desc': '我可以幫你喺伺服器上面設置 WordPress 或者其他野。',
+        'service1_desc': '我可以幫你喺伺服器上面設置 WordPress 或者其他網頁。',
         'service1_price': '30分鐘 USD$120',
         'service1_feature1': '自訂設置',
         'service1_feature2': 'WordPress支援',
@@ -149,7 +133,7 @@ const translations = {
 
         // Contact
         'contact_title': '聯絡我',
-        'contact_subtitle': '我好樂意幫忙！填寫聯絡表格，我會盡快回覆你。',
+        'contact_subtitle': '最快搵到我嘅方法係 email — 我會盡快回覆你。',
 
         // Footer
         'footer_rights': '版權所有。',
@@ -159,7 +143,6 @@ const translations = {
         'settings_title': '設定',
         'font_size': '字體大小',
         'animations': '動畫效果',
-        'theme': '深色模式',
         'reset_settings': '重設為預設值'
     },
     'zh-TW': {
@@ -170,33 +153,36 @@ const translations = {
         'nav_gallery': '作品集',
         'nav_services': '服務',
         'nav_contact': '聯絡',
-        
+
         // Gallery
         'gallery_title': '作品集',
         'exif_loading': '載入中…',
         'exif_na': '無可用日期',
 
         // Hero
-        'hero_title': '哈嘍! 我是 Marco',
-        'hero_subtitle': 'WordPress 代管專家及主機顧問。我是協和書院高一學生，熱衷於網路技術並幫助他人解決代管需求。',
+        'hero_title': '你好，我是黃梓峰。',
+        'hero_subtitle': '全端網頁開發與雲端架構諮詢。協和書院高二學生。',
         'btn_blog': '我的部落格',
         'btn_contact': '聯絡我',
 
         // About
         'about_title': '關於我',
-        'about_p1': '我還在國四呢（香港叫做中四），15 歲啦。這個網站是由 AI 製作的，雖然我還在學習程式碼，但我對網路技術和 WordPress 很有熱情。',
-        'about_p2': '即使你不懂程式語言，你也可以用 WordPress 做一個部落格。這就是現代網路開發的美妙之處 - 人人都能做到！',
+        'about_p1': '我是協和書院高二學生，專注於 AI 輔助開發、Serverless 架構與現代 Web 全端技術。平時主要使用 Cursor 搭配前沿 AI 工具進行敏捷開發，涵蓋 Next.js、TypeScript 到 Cloudflare / Vercel 雲端部署，致力於以最高效率打造真正落地的產品。',
+        'about_p2': 'AI 深刻改變了我學習與構建系統的方式。透過與 AI 協同結對開發，我能快速完成原型設計、精準除錯並優化效能。除了自主開發專案，我也協助朋友與客戶規劃現代化網站架構、主機託管、雲端部署與後續維運。',
 
         // Skills
         'skills_title': '技能與專長',
         'software_skills': '軟體專長',
         'language_skills': '語言能力',
+        'vibe_label': 'Vibe Coding',
+        'vibe_line': '連續三年 Vibe Coding。',
         'skill_wordpress': 'WordPress',
-        'skill_server': '主機管理',
-        'skill_hosting': '網站代管',
-        'skill_database': '資料庫',
-        'skill_webdev': '網站開發',
-        'skill_security': '安全',
+        'skill_notion': 'Notion',
+        'skill_typescript': 'TypeScript',
+        'skill_nextjs': 'Next.js',
+        'skill_react': 'React',
+        'skill_vercel': 'Vercel',
+        'skill_cloudflare': 'Cloudflare',
         'lang_cantonese': '粵語',
         'lang_mandarin': '國語',
         'lang_english': '英語',
@@ -204,18 +190,8 @@ const translations = {
         'level_fluent': '流利',
         'level_proficient': '熟練',
 
-        // Projects
-        'projects_title': '專案',
-        'projects_name': '名稱',
-        'projects_service': '服務',
-        'projects_desc': '說明',
-        'project1_name': '主機諮詢',
-        'project1_service': '主機選購協助',
-        'project1_desc': '協助客戶選擇最具價值的主機',
-
         // Services
         'services_title': '服務',
-        'services_note': '(沒人會買的)',
         'service1_title': '網站代管',
         'service1_desc': '我可以協助您在主機上設定 WordPress 或其他網頁。',
         'service1_price': '30分鐘 USD$120',
@@ -230,7 +206,7 @@ const translations = {
 
         // Contact
         'contact_title': '聯絡我',
-        'contact_subtitle': '我很樂意協助！填寫聯絡表單，我會儘快回覆您。',
+        'contact_subtitle': '最快找到我的方式是 email — 我會盡快回覆您。',
 
         // Footer
         'footer_rights': '版權所有。',
@@ -240,7 +216,6 @@ const translations = {
         'settings_title': '設定',
         'font_size': '字體大小',
         'animations': '動畫效果',
-        'theme': '深色模式',
         'reset_settings': '重設為預設值'
     }
 };

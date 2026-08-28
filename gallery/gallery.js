@@ -158,7 +158,7 @@
         }
 
         if (shotDate) {
-          metaDate.innerHTML = `<span><i class="fas fa-calendar"></i>${formatDisplayDate(shotDate, lang)}</span>${item.camera ? `<span><i class="fas fa-camera"></i>${item.camera}</span>` : ''}`;
+        metaDate.innerHTML = `<span>${formatDisplayDate(shotDate, lang)}</span>${item.camera ? `<span>${item.camera}</span>` : ''}`;
         } else {
           metaDate.innerHTML = t('exif_na', 'Date not available');
         }
@@ -206,8 +206,14 @@
     else { zoom(1, cx, cy); }
   });
 
+  // Swipe origin for lightbox navigation when not zoomed (pointer-based, works for mouse & touch)
+  let swipeStartX = 0, swipeStartY = 0;
+  let swipeArmed = false;
   // Pan with mouse/touch + Pinch zoom (multi-pointer)
   stage?.addEventListener('pointerdown', (e) => {
+    if (!lightbox.classList.contains('open')) return;
+    // Don't interfere with control buttons — let their click handlers fire normally
+    if (e.target.closest('button')) return;
     stage.setPointerCapture?.(e.pointerId);
     pointers.set(e.pointerId, { x: e.clientX, y: e.clientY });
     if (pointers.size === 2) {
@@ -218,10 +224,18 @@
       const rect = stage.getBoundingClientRect();
       pinchCenter = { x: (pts[0].x + pts[1].x)/2 - rect.left, y: (pts[0].y + pts[1].y)/2 - rect.top };
       isPinching = true;
+      isPanning = false;
     } else if (pointers.size === 1) {
-      // Start panning
-      isPanning = true;
-      startX = e.clientX - originX; startY = e.clientY - originY;
+      if (scale > 1) {
+        // Only pan when zoomed
+        isPanning = true;
+        startX = e.clientX - originX; startY = e.clientY - originY;
+      } else {
+        // Record swipe origin when at 1x
+        isPanning = false;
+        swipeStartX = e.clientX; swipeStartY = e.clientY;
+        swipeArmed = true;
+      }
     }
   });
   stage?.addEventListener('pointermove', (e) => {
@@ -247,21 +261,30 @@
         applyTransform();
       }
       isPanning = false; // disable panning during pinch
-    } else if (isPanning && pointers.size === 1) {
+    } else if (isPanning && pointers.size === 1 && scale > 1) {
       originX = e.clientX - startX; originY = e.clientY - startY; applyTransform();
     }
   });
   stage?.addEventListener('pointerup', (e) => {
+    // Swipe navigation at 1x (pointer-based) — must run before clearing pointers
+    // Only if swipe was armed (pointerdown was not on a button)
+    if (swipeArmed && pointers.size === 1 && scale === 1 && !isPinching) {
+      const dx = e.clientX - swipeStartX;
+      const dy = Math.abs(e.clientY - swipeStartY);
+      if (Math.abs(dx) > 60 && dy < 80) {
+        if (dx < 0) showIndex(currentIndex+1); else showIndex(currentIndex-1);
+      }
+    }
     stage.releasePointerCapture?.(e.pointerId);
     pointers.delete(e.pointerId);
   if (pointers.size < 2) { pinchStartDistance = 0; isPinching = false; }
-    if (pointers.size === 0) { isPanning = false; }
+    if (pointers.size === 0) { isPanning = false; swipeStartX = 0; swipeStartY = 0; swipeArmed = false; }
   });
   stage?.addEventListener('pointercancel', (e) => {
     stage.releasePointerCapture?.(e.pointerId);
     pointers.delete(e.pointerId);
   if (pointers.size < 2) { pinchStartDistance = 0; isPinching = false; }
-    if (pointers.size === 0) { isPanning = false; }
+    if (pointers.size === 0) { isPanning = false; swipeStartX = 0; swipeStartY = 0; swipeArmed = false; }
   });
   stage?.addEventListener('wheel', (e) => {
     if (!lightbox.classList.contains('open')) return;
@@ -287,17 +310,26 @@
     if (e.key === 'ArrowLeft') showIndex(currentIndex-1);
     if (e.key === 'ArrowRight') showIndex(currentIndex+1);
   });
-  // Touch swipe
+  // Touch swipe (kept for older browsers; pointer-based swipe above is primary)
   let touchStartX = 0, touchEndX = 0, touchStartY = 0, touchEndY = 0;
   stage?.addEventListener('touchstart', (e) => {
+    if (e.target.closest('button')) return;
     if (scale > 1 || isPinching) return; // disable swipe detection when zoomed or pinching
     if (e.touches.length === 1) { touchStartX = e.touches[0].clientX; touchStartY = e.touches[0].clientY; }
-  });
+  }, { passive: true });
   stage?.addEventListener('touchmove', (e) => {
+    if (e.target.closest('button')) return;
     if (scale > 1 || isPinching) return;
     if (e.touches.length === 1) { touchEndX = e.touches[0].clientX; touchEndY = e.touches[0].clientY; }
-  });
-  stage?.addEventListener('touchend', () => {
+  }, { passive: true });
+  stage?.addEventListener('touchend', (e) => {
+    if (e.target.closest('button')) return;
+    // If pointer-based swipe already handled, skip to avoid double navigation
+    if (window.PointerEvent && e.sourceCapabilities && e.sourceCapabilities.firesTouchEvents) {
+      // Let pointer handler do the navigation; just reset
+      touchStartX = touchEndX = touchStartY = touchEndY = 0;
+      return;
+    }
     if (scale > 1 || isPinching) { touchStartX = touchEndX = touchStartY = touchEndY = 0; return; }
     const dx = touchEndX - touchStartX; const dy = Math.abs(touchEndY - touchStartY);
     if (Math.abs(dx) > 60 && dy < 50) {
