@@ -22,7 +22,7 @@ const translations = {
         // About
         'about_title': 'About Me',
         'about_p1': "I'm a Form 5 student at CCCHWC specializing in AI-native software engineering, serverless architectures, and modern web technologies. I build and ship full-stack applications using Next.js (App Router), TypeScript, and Cloudflare/Vercel, powered by AI-driven workflows with Cursor and state-of-the-art coding models.",
-        'about_p2': "AI has transformed the way I engineer solutions. Instead of getting blocked by boilerplate, I leverage AI pair programming to prototype rapidly, debug systematically, and ship reliable production-ready systems. Beyond building personal projects, I assist peers and clients with web development, cloud hosting, infrastructure setup, and long-term maintenance.",
+        'about_p2': "AI has transformed the way I engineer solutions. Instead of getting blocked by boilerplate, I leverage AI pair programming to prototype rapidly, debug systematically, and ship reliable production-ready systems.",
 
         // Skills
         'skills_title': 'Skills & Expertise',
@@ -95,7 +95,7 @@ const translations = {
         // About
         'about_title': '關於我',
         'about_p1': '我係協和書院中五學生，專注喺 AI 輔助開發、Serverless 架構同現代 Web 技術。平時主力用 Cursor 同各大 AI coding tools 進行快速原型設計與全棧開發，由 Next.js、TypeScript 到 Cloudflare / Vercel 部署，成個流程都係以高效率 ship 出真實產品為核心。',
-        'about_p2': 'AI 徹底重塑咗我學習同開發嘅模式。我擅長利用 AI pair programming 將想法快速轉化為高可用嘅 Web 應用與自架服務，並持續探索 Human-Computer Interaction (HCI) 同現代化網絡基礎設施。除咗自己寫 project，我都幫朋友同客戶處理網站架構、雲端託管、效能優化同日常維運。',
+        'about_p2': 'AI 徹底重塑咗我學習同開發嘅模式。我擅長利用 AI pair programming 將想法快速轉化為高可用嘅 Web 應用與自架服務。',
 
         // Skills
         'skills_title': '技能同專長',
@@ -168,7 +168,7 @@ const translations = {
         // About
         'about_title': '關於我',
         'about_p1': '我是協和書院高二學生，專注於 AI 輔助開發、Serverless 架構與現代 Web 全端技術。平時主要使用 Cursor 搭配前沿 AI 工具進行敏捷開發，涵蓋 Next.js、TypeScript 到 Cloudflare / Vercel 雲端部署，致力於以最高效率打造真正落地的產品。',
-        'about_p2': 'AI 深刻改變了我學習與構建系統的方式。透過與 AI 協同結對開發，我能快速完成原型設計、精準除錯並優化效能。除了自主開發專案，我也協助朋友與客戶規劃現代化網站架構、主機託管、雲端部署與後續維運。',
+        'about_p2': 'AI 深刻改變了我學習與構建系統的方式。透過與 AI 協同結對開發，我能快速完成原型設計、精準除錯並優化效能。',
 
         // Skills
         'skills_title': '技能與專長',
