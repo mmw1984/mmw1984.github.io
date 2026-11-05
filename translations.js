@@ -6,16 +6,14 @@ const translations = {
         'exif_na': 'Date not available',
 
         // Intro
-        'hero_eyebrow': 'Form 5 student at CCCHWC · Hong Kong',
-        'hero_title': "Hi, I'm Marco Wong.",
-        'hero_subtitle': 'Full-stack web development & cloud consultation.',
+        'hero_title': "Hello, I'm Marco Wong.",
+        'hero_subtitle': 'Building real apps with AI.',
         'btn_blog': 'Read my blog',
         'btn_contact': 'Email me',
 
         // About
         'about_title': 'About',
-        'about_p1': "I'm a Form 5 student at CCCHWC specializing in AI-native software engineering, serverless architectures, and modern web technologies. I build and ship full-stack applications using Next.js (App Router), TypeScript, and Cloudflare/Vercel, powered by AI-driven workflows with Cursor and state-of-the-art coding models.",
-        'about_p2': "AI has transformed the way I engineer solutions. Instead of getting blocked by boilerplate, I leverage AI pair programming to prototype rapidly, debug systematically, and ship reliable production-ready systems.",
+        'about_p1': "I'm a Form 5 student at CCC Heep Woh College, taking the DSE in 2028. For three years I have built apps through vibe coding, mainly with TypeScript and Next.js, with backends on Cloudflare Workers. My work includes a bill-splitting app, a school timetable, a price tracker, and a ticketing system. I serve as External Secretary of the Students' Association and received the Chief Scout's Award. My goal is to become a software engineer.",
 
         // Skills
         'skills_title': 'Skills & Expertise',
@@ -43,16 +41,14 @@ const translations = {
         'exif_na': '沒有可用日期',
 
         // Intro
-        'hero_eyebrow': '協和書院中五學生 · 香港',
         'hero_title': '你好，我係黃梓峰。',
-        'hero_subtitle': '全棧網頁開發與雲端架構諮詢。',
+        'hero_subtitle': '用 AI 寫真嘅 App。',
         'btn_blog': '睇吓我嘅網誌',
         'btn_contact': 'Email 我',
 
         // About
         'about_title': '關於我',
-        'about_p1': '我係協和書院中五學生，專注喺 AI 輔助開發、Serverless 架構同現代 Web 技術。平時主力用 Cursor 同各大 AI coding tools 進行快速原型設計與全棧開發，由 Next.js、TypeScript 到 Cloudflare / Vercel 部署，成個流程都係以高效率 ship 出真實產品為核心。',
-        'about_p2': 'AI 徹底重塑咗我學習同開發嘅模式。我擅長利用 AI pair programming 將想法快速轉化為高可用嘅 Web 應用與自架服務。',
+        'about_p1': '我係中華基督教會協和書院中五學生。三年嚟都係用 Vibe Coding 方式寫 app，主要用 TypeScript 同 Next.js，後端用 Cloudflare Workers。寫過分帳 app、學校時間表、格價追蹤器，仲有幫寫咗個售票系統。而家做緊學生會外務秘書，攞過童軍總領袖獎章，目標係做軟件工程師。',
 
         // Skills
         'skills_title': '技能同專長',

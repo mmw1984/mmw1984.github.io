@@ -1,4 +1,4 @@
-const CACHE_NAME = 'mmw1984-cache-v11';
+const CACHE_NAME = 'mmw1984-cache-v12';
 const ASSETS = [
 	'/',
 	'/index.html',
