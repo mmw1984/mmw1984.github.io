@@ -6,14 +6,14 @@
 
     <!-- SEO Meta Tags -->
     <title>Marco Wong - mmw1984</title>
-    <meta name="description" content="Marco (MMW1984) - WordPress hosting expert and server consultant. Providing professional web hosting and server purchase consultation services.">
-    <meta name="keywords" content="MMW1984, Marco, WordPress hosting, server consultation, web hosting expert">
+    <meta name="description" content="Marco Wong (mmw1984) - full-stack web development and cloud consultation. Form 5 student at CCCHWC, Hong Kong.">
+    <meta name="keywords" content="MMW1984, Marco Wong, 黃梓峰, full-stack, Next.js, TypeScript, Cloudflare, WordPress hosting">
     <meta name="author" content="Marco Wong - mmw1984">
-    <meta name="theme-color" content="#050505">
+    <meta name="theme-color" content="#ffffff">
 
     <!-- Open Graph -->
     <meta property="og:title" content="Marco Wong">
-    <meta property="og:description" content="WordPress hosting expert and server consultant.">
+    <meta property="og:description" content="Full-stack web development and cloud consultation.">
     <meta property="og:site_name" content="MMW1984">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://mmw1984.com/">
@@ -26,50 +26,70 @@
     <link rel="icon" type="image/png" sizes="192x192" href="android-chrome-192x192.png">
     <link rel="icon" type="image/png" sizes="512x512" href="android-chrome-512x512.png">
     <link rel="manifest" href="site.webmanifest">
-    <link rel="preload" href="fonts/GoogleSansFlex-Variable.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="fonts/Newsreader-Regular-latin.woff2" as="font" type="font/woff2" crossorigin>
 
-    <!-- Translations -->
+    <script>document.documentElement.classList.add('js');</script>
     <script src="translations.js"></script>
 
     <style>
         @font-face {
+            font-family: "Newsreader";
+            src: url("fonts/Newsreader-Regular-latin.woff2") format("woff2");
+            font-weight: 200 800;
+            font-style: normal;
+            unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+            font-display: swap;
+        }
+
+        @font-face {
+            font-family: "Newsreader";
+            src: url("fonts/Newsreader-Regular-latin-ext.woff2") format("woff2");
+            font-weight: 200 800;
+            font-style: normal;
+            unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;
+            font-display: swap;
+        }
+
+        @font-face {
+            font-family: "Newsreader";
+            src: url("fonts/Newsreader-Italic-latin.woff2") format("woff2");
+            font-weight: 200 800;
+            font-style: italic;
+            unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+            font-display: swap;
+        }
+
+        @font-face {
             font-family: "Google Sans Flex";
-            src: url("/fonts/GoogleSansFlex-Variable.woff2") format("woff2");
+            src: url("fonts/GoogleSansFlex-Variable.woff2") format("woff2");
             font-weight: 100 900;
             font-style: normal;
             font-display: swap;
         }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
 
         :root {
-            --canvas: #050505;
-            --surface: rgba(255, 255, 255, 0.035);
-            --surface-active: rgba(255, 255, 255, 0.065);
-            --ink: #fafafa;
-            --muted: #a1a1aa;
-            --faint: #71717a;
-            --line: #27272a;
-            --line-strong: #52525b;
-            --radius-control: 12px;
-            --radius-small: 8px;
-            --ease-spring: cubic-bezier(0.16, 1, 0.3, 1);
-            --ease-standard: cubic-bezier(0.4, 0, 0.2, 1);
+            --canvas: #ffffff;
+            --wash: #f7f5f2;
+            --ink: #1f2322;
+            --soft: #585254;
+            --faint: #6f6a6b;
+            --rule: #e9e6e1;
+            --clay: #e1d5cd;
+            --clay-deep: #d5c2b5;
 
-            --font-display: "Google Sans Flex", ui-sans-serif, system-ui, -apple-system, "Segoe UI", "PingFang HK", "Microsoft JhengHei", "Noto Sans TC", sans-serif;
-            --font-ui: "Google Sans Flex", ui-sans-serif, system-ui, -apple-system, "Segoe UI", "PingFang HK", "Microsoft JhengHei", "Noto Sans TC", sans-serif;
-            --font-mono: "Google Sans Flex", ui-sans-serif, system-ui, -apple-system, "Segoe UI", "PingFang HK", "Microsoft JhengHei", "Noto Sans TC", sans-serif;
+            --serif: "Newsreader", "Songti TC", "Noto Serif TC", "Source Han Serif TC", "PingFang HK", Georgia, serif;
+            --sans: "Google Sans Flex", ui-sans-serif, system-ui, -apple-system, "Segoe UI", "PingFang HK", "Microsoft JhengHei", "Noto Sans TC", sans-serif;
 
-            --base-font-size: 16px;
+            --gutter: 24px;
+            --col: 680px;
+            --ease: cubic-bezier(0.22, 1, 0.36, 1);
         }
 
         html {
-            color-scheme: dark;
-            scroll-padding-top: 24px;
+            color-scheme: light;
+            scroll-padding-top: 32px;
         }
 
         @media (prefers-reduced-motion: no-preference) {
@@ -77,831 +97,420 @@
         }
 
         body {
-            font-family: var(--font-ui);
-            font-optical-sizing: auto;
+            font-family: var(--sans);
             background: var(--canvas);
             color: var(--ink);
-            font-size: var(--base-font-size);
-            line-height: 1.55;
-            min-height: 100vh;
+            font-size: 16px;
+            line-height: 1.5;
+            min-height: 100dvh;
             -webkit-font-smoothing: antialiased;
             text-rendering: optimizeLegibility;
         }
 
-        ::selection { background: rgba(250, 250, 250, 0.18); }
+        ::selection { background: var(--clay); color: var(--ink); }
 
-        :focus-visible {
-            outline: 2px solid rgba(250, 250, 250, 0.65);
-            outline-offset: 2px;
-            border-radius: 4px;
-        }
+        :focus-visible { outline: 2px solid var(--clay-deep); outline-offset: 4px; }
 
         img { max-width: 100%; display: block; }
-        a { color: inherit; }
-        button { font-family: inherit; }
+        a { color: inherit; text-decoration: none; }
+        button { font: inherit; color: inherit; background: none; border: 0; cursor: pointer; }
+        svg { flex-shrink: 0; }
 
-        .mono { font-family: var(--font-mono); font-variant-numeric: tabular-nums; letter-spacing: 0; }
-
-        .container {
-            width: min(100% - 40px, 1040px);
-            margin-inline: auto;
+        .shell {
+            width: min(100% - (var(--gutter) * 2), var(--col));
+            margin-inline: var(--gutter) auto;
         }
 
-        @media (min-width: 1100px) {
-            .container { width: min(100% - 96px, 1040px); }
+        @media (min-width: 760px) {
+            :root { --gutter: 40px; }
         }
 
-        /* ---------- Motion primitives ---------- */
+        /* ---------- Reveal ---------- */
 
-        @keyframes fade-in {
-            from { opacity: 0; transform: translateY(8px); }
-            to { opacity: 1; transform: translateY(0); }
+        @keyframes rise {
+            from { opacity: 0; transform: translateY(12px); }
+            to { opacity: 1; transform: none; }
         }
 
-        @keyframes pop {
-            from { opacity: 0; transform: scale(0.84); }
-            to { opacity: 1; transform: scale(1); }
+        html.js .reveal { opacity: 0; }
+
+        html.js .reveal.in {
+            animation: rise 620ms var(--ease) calc(var(--i, 0) * 80ms) both;
         }
 
-        .enter { animation: fade-in 280ms var(--ease-spring) both; }
+        /* ---------- Masthead ---------- */
 
-        .pressable {
-            transition:
-                transform 420ms var(--ease-spring),
-                opacity 200ms,
-                background-color 200ms,
-                border-color 200ms,
-                color 200ms;
-        }
+        .masthead { padding-top: 28px; }
 
-        .pressable:active { transform: scale(0.97); }
-
-        /* ---------- Top bar ---------- */
-
-        .topbar { padding-top: 28px; }
-
-        .topbar-row {
+        .masthead-row {
             display: flex;
             align-items: center;
             justify-content: space-between;
             gap: 16px;
         }
 
-        .wordmark {
-            font-weight: 500;
-            font-size: 0.9375rem;
-            letter-spacing: 0.01em;
-            text-decoration: none;
-            color: var(--ink);
-        }
+        .brand { display: inline-flex; align-items: center; gap: 10px; }
 
-        .wordmark .dot { color: var(--faint); }
-
-        .topbar-tools {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        /* Segmented control */
-
-        .segmented {
-            position: relative;
-            display: inline-grid;
-            grid-auto-flow: column;
-            grid-auto-columns: 1fr;
-            gap: 2px;
-            padding: 4px;
-            border: 1px solid var(--line);
-            border-radius: var(--radius-control);
-            background: var(--surface);
-        }
-
-        .segmented-indicator {
-            position: absolute;
-            top: 4px;
-            bottom: 4px;
-            left: 4px;
-            width: calc((100% - 8px - 4px) / 3);
-            background: var(--surface-active);
-            border: 1px solid var(--line-strong);
-            border-radius: calc(var(--radius-control) - 4px);
-            transition: transform 420ms var(--ease-spring);
-            transform: translateX(calc(var(--index, 0) * (100% + 2px)));
-        }
-
-        .segmented button {
-            position: relative;
-            z-index: 1;
-            appearance: none;
-            background: none;
-            border: 0;
-            border-radius: calc(var(--radius-control) - 4px);
-            padding: 6px 12px;
-            font-size: 0.8125rem;
-            font-weight: 400;
-            line-height: 1.2;
-            color: var(--muted);
-            cursor: pointer;
-            white-space: nowrap;
-            transition: color 200ms var(--ease-standard);
-        }
-
-        .segmented button[aria-checked="true"] { color: var(--ink); font-weight: 500; }
-
-        @media (max-width: 480px) {
-            .segmented button { padding: 6px 9px; font-size: 0.78rem; }
-        }
-
-        .icon-btn {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            width: 40px;
-            height: 40px;
-            border-radius: var(--radius-control);
-            border: 1px solid var(--line);
-            background: var(--surface);
-            color: var(--muted);
-            cursor: pointer;
-        }
-
-        .icon-btn:hover { color: var(--ink); background: var(--surface-active); border-color: var(--line-strong); }
-        .icon-btn svg { width: 17px; height: 17px; }
-
-        /* ---------- Main layout ---------- */
-
-        main { padding-top: 36px; padding-bottom: 8px; }
-
-        section { margin-block-start: clamp(44px, 6vw, 56px); }
-        main > section:first-child { margin-block-start: 0; }
-
-        @media (min-width: 900px) {
-            main { padding-top: 44px; }
-        }
-
-        .section-heading {
-            font-family: var(--font-ui);
-            font-size: 1.125rem;
-            font-weight: 500;
-            line-height: 1.3;
-            letter-spacing: -0.01em;
-            margin-bottom: 18px;
-        }
-
-        .sub-label {
-            font-size: 0.875rem;
-            font-weight: 500;
-            color: var(--muted);
-            margin: 22px 0 10px;
-        }
-
-        .sub-label:first-of-type { margin-top: 0; }
-
-        .sub-note {
-            font-size: 0.8125rem;
-            color: var(--faint);
-            margin: -2px 0 10px;
-        }
-
-        /* ---------- Hero ---------- */
-
-        .hero-id { display: flex; align-items: center; gap: 14px; margin-bottom: 20px; }
-
-        .avatar {
-            width: 56px;
-            height: 56px;
+        .brand img {
+            width: 26px;
+            height: 26px;
             border-radius: 50%;
-            border: 1px solid var(--line-strong);
-            outline: 2px solid var(--canvas);
-            box-shadow: 0 0 0 1px var(--line);
+            filter: grayscale(1) contrast(1.08);
         }
 
-        .hero-kicker { font-size: 0.8125rem; color: var(--muted); line-height: 1.4; }
-        .hero-kicker .mono { font-size: 0.75rem; color: var(--faint); }
-
-        .display-title {
-            font-family: var(--font-display);
-            font-size: clamp(2.375rem, 1.2rem + 4.2vw, 3.5rem);
-            font-weight: 500;
-            line-height: 1.06;
-            letter-spacing: -0.02em;
-            max-width: 18ch;
+        .brand-name {
+            font-family: var(--serif);
+            font-size: 1.125rem;
+            letter-spacing: -0.015em;
         }
 
-        .lede {
-            margin-top: 16px;
-            max-width: 58ch;
-            color: var(--muted);
-            font-size: 1rem;
-            line-height: 1.65;
-        }
-
-        .actions {
+        .lang {
             display: flex;
-            flex-wrap: wrap;
+            align-items: baseline;
             gap: 10px;
-            margin-top: 26px;
-        }
-
-        .btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            height: 42px;
-            padding: 0 18px;
-            border-radius: var(--radius-control);
-            font-size: 0.9375rem;
-            font-weight: 500;
-            line-height: 1;
-            text-decoration: none;
-            cursor: pointer;
-        }
-
-        .btn svg { width: 15px; height: 15px; }
-
-        .btn-primary {
-            background: var(--ink);
-            color: #09090b;
-            border: 1px solid var(--ink);
-        }
-
-        .btn-primary:hover { background: #ffffff; }
-
-        .btn-secondary {
-            background: var(--surface);
-            color: var(--ink);
-            border: 1px solid var(--line);
-        }
-
-        .btn-secondary:hover { background: var(--surface-active); border-color: var(--line-strong); }
-
-        .section-nav {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 4px 18px;
-            margin-top: 30px;
-            padding-top: 18px;
-            border-top: 1px solid var(--line);
-            font-size: 0.8438rem;
-        }
-
-        .section-nav a {
+            font-size: 0.8125rem;
             color: var(--faint);
-            text-decoration: none;
-            padding: 4px 0;
-            transition: color 150ms var(--ease-standard);
         }
 
-        .section-nav a:hover { color: var(--ink); }
-
-        /* ---------- Two-column zone ---------- */
-
-        .cols {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: clamp(32px, 4.5vw, 48px);
-            align-items: start;
+        .lang button {
+            position: relative;
+            padding-bottom: 3px;
+            letter-spacing: 0.02em;
+            transition: color 220ms var(--ease);
         }
 
-        @media (max-width: 900px) {
-            .cols { grid-template-columns: 1fr; }
+        .lang button::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            height: 3px;
+            background: var(--clay);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 320ms var(--ease);
         }
 
-        .prose p { color: var(--muted); line-height: 1.7; }
-        .prose p + p { margin-top: 12px; }
+        .lang button[aria-pressed="true"] { color: var(--ink); }
+        .lang button[aria-pressed="true"]::after { transform: scaleX(1); }
+        .lang button:hover { color: var(--ink); }
 
-        /* Chips */
+        .lang-sep { color: var(--rule); }
 
-        .chip-row { display: flex; flex-wrap: wrap; gap: 8px; }
+        /* ---------- Main ---------- */
 
-        .chip {
+        main { padding-top: clamp(52px, 9vw, 96px); padding-bottom: 8px; }
+
+        .eyebrow {
+            font-size: 0.8125rem;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            color: var(--faint);
+        }
+
+        .greeting {
+            margin-top: 16px;
+            font-family: var(--serif);
+            font-size: clamp(2.125rem, 1.3rem + 3.2vw, 3.25rem);
+            line-height: 1.08;
+            letter-spacing: -0.022em;
+            text-wrap: balance;
+        }
+
+        .lead {
+            margin-top: 20px;
+            font-family: var(--serif);
+            font-size: clamp(1.1875rem, 1.05rem + 0.5vw, 1.375rem);
+            line-height: 1.42;
+            letter-spacing: -0.012em;
+            color: var(--soft);
+            max-width: 34ch;
+            text-wrap: pretty;
+        }
+
+        /* ---------- CTAs ---------- */
+
+        .ctas {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-top: 38px;
+        }
+
+        .cta {
             display: inline-flex;
             align-items: center;
-            gap: 8px;
-            height: 40px;
-            padding: 0 14px;
-            border: 1px solid var(--line);
-            border-radius: var(--radius-control);
-            background: var(--surface);
-            font-size: 0.875rem;
-            color: var(--ink);
+            gap: 10px;
+            width: fit-content;
+            font-family: var(--serif);
+            font-size: clamp(1.1875rem, 1.05rem + 0.4vw, 1.3125rem);
+            line-height: 1.3;
+            letter-spacing: -0.012em;
         }
 
-        .chip svg { width: 15px; height: 15px; fill: currentColor; flex-shrink: 0; }
+        .cta-label { position: relative; isolation: isolate; display: inline-block; }
 
-        /* Bordered row lists */
+        .cta-label::before {
+            content: "";
+            position: absolute;
+            z-index: -1;
+            left: -0.08em;
+            right: -0.08em;
+            bottom: 0.06em;
+            height: 0.42em;
+            background: var(--clay);
+            transition: height 320ms var(--ease), background-color 320ms var(--ease);
+        }
 
-        .row-list { border: 1px solid var(--line); border-radius: var(--radius-control); overflow: hidden; }
+        .cta:hover .cta-label::before,
+        .cta:focus-visible .cta-label::before {
+            height: 0.66em;
+            background: var(--clay-deep);
+        }
 
-        .row-list > * + * { border-top: 1px solid var(--line); }
+        .cta svg {
+            width: 17px;
+            height: 17px;
+            stroke: var(--faint);
+            transition: transform 320ms var(--ease), stroke 320ms var(--ease);
+        }
 
-        .lang-row {
+        .cta:hover svg,
+        .cta:focus-visible svg { transform: translateX(4px); stroke: var(--ink); }
+
+        /* ---------- Blocks ---------- */
+
+        .block { margin-top: clamp(64px, 11vw, 104px); }
+
+        .block-head {
             display: flex;
-            align-items: center;
-            justify-content: space-between;
+            align-items: baseline;
             gap: 12px;
-            min-height: 48px;
-            padding: 10px 14px;
-            background: var(--surface);
+            padding-bottom: 12px;
+            border-bottom: 1px solid var(--rule);
+            margin-bottom: 26px;
         }
 
-        .lang-row .name { font-size: 0.9375rem; }
-
-        .lang-row .level {
-            font-family: var(--font-mono);
+        .block-num {
             font-size: 0.75rem;
+            letter-spacing: 0.04em;
             color: var(--faint);
             font-variant-numeric: tabular-nums;
         }
 
-        /* ---------- Services ---------- */
-
-        .service-row {
-            display: grid;
-            grid-template-columns: 1fr auto;
-            gap: 8px 24px;
-            padding: 18px 16px;
-            background: var(--surface);
-            align-items: start;
+        .block-head h2 {
+            font-size: 0.8125rem;
+            font-weight: 500;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
         }
 
-        .service-row:hover { background: var(--surface-active); }
+        .prose p {
+            font-family: var(--serif);
+            font-size: clamp(1.0625rem, 1rem + 0.3vw, 1.1875rem);
+            line-height: 1.55;
+            letter-spacing: -0.008em;
+            text-wrap: pretty;
+            hanging-punctuation: first last;
+        }
 
-        .service-name { font-size: 0.9375rem; font-weight: 500; }
+        .prose p + p { margin-top: 16px; }
 
-        .service-desc { margin-top: 4px; color: var(--muted); font-size: 0.875rem; line-height: 1.55; max-width: 52ch; }
+        /* ---------- Spec rows ---------- */
 
-        .service-meta {
-            margin-top: 10px;
+        .spec > * + * { border-top: 1px solid var(--rule); }
+
+        .spec-row {
+            display: grid;
+            grid-template-columns: 132px 1fr;
+            gap: 24px;
+            padding: 18px 0;
+        }
+
+        .spec-row dt {
+            font-size: 0.8125rem;
+            letter-spacing: 0.02em;
+            color: var(--soft);
+            padding-top: 5px;
+        }
+
+        .spec-row dd { font-family: var(--serif); }
+
+        .stack {
             display: flex;
             flex-wrap: wrap;
-            gap: 4px 14px;
-            font-size: 0.7813rem;
+            gap: 2px 12px;
+            font-size: clamp(1.0625rem, 1rem + 0.3vw, 1.1875rem);
+            line-height: 1.5;
+        }
+
+        .stack .sep { color: var(--rule); }
+
+        .spec-note {
+            font-family: var(--sans);
+            font-size: 0.8125rem;
             color: var(--faint);
+            margin-bottom: 8px;
         }
-
-        .service-side { display: flex; flex-direction: column; align-items: flex-end; gap: 10px; text-align: right; }
-
-        .price { font-size: 0.9375rem; font-weight: 500; font-variant-numeric: tabular-nums; white-space: nowrap; }
-
-        .text-action {
-            font-size: 0.8438rem;
-            color: var(--muted);
-            text-decoration: none;
-            border-bottom: 1px solid var(--line-strong);
-            padding-bottom: 1px;
-            white-space: nowrap;
-            transition: color 150ms var(--ease-standard), border-color 150ms var(--ease-standard);
-        }
-
-        .text-action:hover { color: var(--ink); border-color: var(--ink); }
 
         @media (max-width: 560px) {
-            .service-row { grid-template-columns: 1fr; }
-            .service-side { flex-direction: row; align-items: center; justify-content: space-between; text-align: left; }
+            .spec-row { grid-template-columns: 1fr; gap: 8px; padding: 16px 0; }
+            .spec-row dt { padding-top: 0; }
+            .gallery-meta { flex-direction: column; align-items: flex-start; gap: 3px; }
         }
 
         /* ---------- Gallery ---------- */
 
         .gallery-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
-            gap: 14px;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 28px 20px;
         }
 
-        @media (max-width: 640px) {
-            .gallery-grid {
-                grid-template-columns: 1fr;
-                gap: 10px;
-            }
-            .gallery-item img {
-                aspect-ratio: 4 / 3;
-            }
-            .gallery-caption {
-                padding: 9px 10px 22px;
-                font-size: 0.8125rem;
-            }
-            .gallery-date {
-                font-size: 0.625rem;
-                right: 10px;
-                bottom: 8px;
-            }
-        }
-
-        @media (max-width: 400px) {
-            .gallery-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        .gallery-item {
-            position: relative;
-            display: flex;
-            flex-direction: column;
-            border: 1px solid var(--line);
-            border-radius: var(--radius-control);
-            background: var(--surface);
-            overflow: hidden;
-            cursor: pointer;
-            transition: border-color 200ms var(--ease-standard), background-color 200ms var(--ease-standard);
-        }
-
-        .gallery-item:hover { border-color: var(--line-strong); }
-
-        .gallery-item:focus-visible { outline-offset: 3px; }
+        .gallery-item { cursor: pointer; }
 
         .gallery-item img {
             width: 100%;
-            aspect-ratio: 3 / 2;
+            aspect-ratio: 4 / 5;
             object-fit: cover;
-            transition: transform 420ms var(--ease-spring);
+            border-radius: 3px;
+            background: var(--wash);
+            transition: transform 520ms var(--ease);
         }
 
-        .gallery-item:hover img { transform: scale(1.03); }
+        .gallery-item:hover img,
+        .gallery-item:focus-visible img { transform: scale(1.015); }
+
+        .gallery-meta {
+            display: flex;
+            align-items: baseline;
+            justify-content: space-between;
+            gap: 12px;
+            padding-top: 9px;
+        }
 
         .gallery-caption {
-            padding: 10px 12px 28px;
-            font-size: 0.875rem;
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
+            font-family: var(--serif);
+            font-size: 1rem;
+            letter-spacing: -0.005em;
         }
 
         .gallery-date {
-            position: absolute;
-            right: 12px;
-            bottom: 10px;
-            font-family: var(--font-mono);
-            font-size: 0.6875rem;
+            font-size: 0.75rem;
             color: var(--faint);
             font-variant-numeric: tabular-nums;
+            white-space: nowrap;
         }
 
         /* ---------- Contact ---------- */
 
-        .contact-sub { color: var(--muted); font-size: 0.9375rem; margin: -6px 0 18px; max-width: 56ch; }
-
-        .email-card {
+        .email-line {
             display: flex;
             align-items: center;
-            justify-content: space-between;
+            flex-wrap: wrap;
             gap: 16px;
-            border: 1px solid var(--line);
-            border-radius: var(--radius-control);
-            background: var(--surface);
-            padding: 16px 18px;
-            transition: border-color 200ms var(--ease-standard), background 200ms var(--ease-standard);
+            margin-top: 22px;
         }
-
-        .email-card:hover { border-color: var(--line-strong); background: var(--surface-active); }
-
-        .email-address {
-            font-family: var(--font-mono);
-            font-size: 1.0625rem;
-            font-weight: 500;
-            letter-spacing: 0.01em;
-            color: var(--ink);
-            text-decoration: none;
-            word-break: break-all;
-        }
-
-        .email-address:hover { text-decoration: underline; text-underline-offset: 3px; }
 
         .copy-btn {
-            flex-shrink: 0;
-            height: 36px;
-            padding: 0 14px;
-            border-radius: 999px;
-            border: 1px solid var(--line);
-            background: var(--surface);
-            color: var(--muted);
-            font-size: 0.8125rem;
-            font-weight: 500;
-            cursor: pointer;
-            transition: all 200ms var(--ease-standard);
-        }
-
-        .copy-btn:hover { color: var(--ink); border-color: var(--line-strong); background: var(--surface-active); }
-        .copy-btn.copied { color: #86efac; border-color: rgba(134,239,172,0.3); }
-
-        /* ---------- Footer ---------- */
-
-        footer {
-            margin-top: clamp(48px, 7vw, 64px);
-            border-top: 1px solid var(--line);
-            padding: 26px 0 0;
             font-size: 0.8125rem;
             color: var(--faint);
-            overflow: hidden;
+            text-decoration: underline;
+            text-decoration-thickness: 1px;
+            text-underline-offset: 3px;
+            text-decoration-color: var(--rule);
+            transition: color 220ms var(--ease), text-decoration-color 220ms var(--ease);
         }
 
-        body { overflow-x: hidden; }
+        .copy-btn:hover { color: var(--ink); text-decoration-color: var(--ink); }
+        .copy-btn.copied { color: var(--ink); text-decoration-color: var(--clay-deep); }
 
-        .footer-meta {
+        /* ---------- Colophon ---------- */
+
+        .colophon {
+            margin-top: clamp(72px, 12vw, 112px);
+            padding: 26px 0 44px;
+            border-top: 1px solid var(--rule);
+        }
+
+        .colophon-row {
             display: flex;
             flex-wrap: wrap;
-            gap: 6px 20px;
+            gap: 8px 28px;
             justify-content: space-between;
-            padding-bottom: 26px;
+            font-size: 0.8125rem;
+            color: var(--faint);
         }
 
-        .footer-row { display: flex; flex-wrap: wrap; gap: 6px 20px; justify-content: space-between; }
-
-        footer a { color: var(--muted); text-decoration: none; }
-        footer a:hover { color: var(--ink); }
-
-        .footer-wordmark {
-            display: flex;
-            align-items: flex-end;
-            justify-content: center;
-            gap: clamp(12px, 1.8vw, 28px);
-            width: 100vw;
-            margin-left: calc(50% - 50vw);
-            padding: 24px 64px 14px 24px;
-            box-sizing: border-box;
-            color: rgba(250, 250, 250, 0.10);
-            user-select: none;
-            pointer-events: none;
-            line-height: 0.82;
-            font-size: clamp(96px, 15vw, 200px);
-            mask-image: linear-gradient(to bottom, black 62%, transparent 100%);
-            -webkit-mask-image: linear-gradient(to bottom, black 62%, transparent 100%);
-            overflow: visible;
+        .colophon a {
+            text-decoration: underline;
+            text-decoration-thickness: 1px;
+            text-underline-offset: 3px;
+            text-decoration-color: var(--rule);
+            transition: color 220ms var(--ease), text-decoration-color 220ms var(--ease);
         }
 
-        .footer-wordmark img {
-            height: 1.42em;
-            width: auto;
-            flex-shrink: 0;
-            object-fit: contain;
-            filter: grayscale(1) contrast(1.05);
-            opacity: 0.92;
-            border-radius: 50%;
-            border: 0;
-            outline: 0;
-            box-shadow: none;
-            transform: translateY(0.03em);
-            mask-image: linear-gradient(to bottom, black 78%, transparent 100%);
-            -webkit-mask-image: linear-gradient(to bottom, black 78%, transparent 100%);
-        }
-
-        .footer-wordmark span {
-            font-family: var(--font-display);
-            font-size: 1em;
-            font-weight: 800;
-            letter-spacing: -0.05em;
-            line-height: 0.82;
-            white-space: nowrap;
-        }
-
-        @media (max-width: 640px) {
-            .footer-wordmark { font-size: clamp(56px, 15vw, 72px); gap: 10px; padding: 18px 56px 8px 16px; }
-            .footer-wordmark img { height: 1.55em; }
-        }
-
-        /* ---------- Floating settings button ---------- */
-
-        .settings-btn {
-            display: none !important;
-        }
-
-        .settings-btn:hover { color: var(--ink); border-color: var(--line-strong); transform: translateY(-2px); }
-        .settings-btn svg { width: 17px; height: 17px; }
-
-        /* ---------- Welcome popup ---------- */
-
-        .welcome-popup {
-            position: fixed;
-            bottom: 22px;
-            left: 50%;
-            width: min(92%, 420px);
-            transform: translateX(-50%);
-            z-index: 10000;
-            opacity: 0;
-            visibility: hidden;
-            transition: opacity 280ms var(--ease-spring), transform 280ms var(--ease-spring), visibility 0s linear 280ms;
-        }
-
-        .welcome-popup.show {
-            opacity: 1;
-            visibility: visible;
-            transition-delay: 0s;
-        }
-
-        .welcome-popup.show .welcome-card { transform: translateY(0); }
-
-        .welcome-card {
-            background: #0c0c0e;
-            border: 1px solid var(--line-strong);
-            border-radius: 16px;
-            padding: 20px 22px;
-            box-shadow: 0 16px 40px rgba(0, 0, 0, 0.5);
-            transform: translateY(10px);
-            transition: transform 280ms var(--ease-spring);
-        }
-
-        .welcome-title { font-size: 0.9375rem; font-weight: 500; margin-bottom: 6px; }
-
-        .welcome-message { font-size: 0.8438rem; color: var(--muted); line-height: 1.6; margin-bottom: 16px; }
-
-        .welcome-actions { display: flex; gap: 8px; }
-        .welcome-actions .btn { flex: 1; justify-content: center; }
-
-        /* ---------- Settings modal ---------- */
-
-        .settings-modal {
-            position: fixed;
-            inset: 0;
-            background: rgba(5, 5, 5, 0.7);
-            display: none;
-            align-items: center;
-            justify-content: center;
-            padding: 20px;
-            z-index: 1001;
-        }
-
-        .settings-modal.active { display: flex; }
-
-        .modal-content {
-            width: min(100%, 420px);
-            background: #0c0c0e;
-            border: 1px solid var(--line-strong);
-            border-radius: 16px;
-            padding: 22px;
-            animation: fade-in 280ms var(--ease-spring) both;
-        }
-
-        .modal-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; }
-
-        .modal-header h3 { font-size: 1rem; font-weight: 500; }
-
-        .setting-item {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 16px;
-            min-height: 52px;
-            padding: 10px 0;
-        }
-
-        .setting-item + .setting-item { border-top: 1px solid var(--line); }
-
-        .setting-item label { font-size: 0.9375rem; }
-
-        .setting-inline { display: flex; align-items: center; gap: 10px; }
-
-        .font-size-value { font-family: var(--font-mono); font-size: 0.7813rem; color: var(--faint); min-width: 42px; text-align: right; font-variant-numeric: tabular-nums; }
-
-        input[type="range"] {
-            -webkit-appearance: none;
-            appearance: none;
-            width: 140px;
-            height: 4px;
-            border-radius: 999px;
-            background: var(--line-strong);
-            outline-offset: 6px;
-            cursor: pointer;
-        }
-
-        input[type="range"]::-webkit-slider-thumb {
-            -webkit-appearance: none;
-            appearance: none;
-            width: 18px;
-            height: 18px;
-            border-radius: 50%;
-            background: var(--ink);
-            border: 0;
-            transition: transform 220ms var(--ease-spring);
-        }
-
-        input[type="range"]::-webkit-slider-thumb:hover { transform: scale(1.12); }
-        input[type="range"]::-webkit-slider-thumb:active { transform: scale(0.95); }
-
-        input[type="range"]::-moz-range-thumb {
-            width: 18px;
-            height: 18px;
-            border-radius: 50%;
-            background: var(--ink);
-            border: 0;
-            transition: transform 220ms var(--ease-spring);
-        }
-
-        .toggle-switch { position: relative; display: inline-block; width: 44px; height: 26px; flex-shrink: 0; }
-
-        .toggle-switch input { opacity: 0; width: 100%; height: 100%; position: absolute; inset: 0; margin: 0; cursor: pointer; }
-
-        .slider-track {
-            position: absolute;
-            inset: 0;
-            border-radius: 999px;
-            background: var(--surface-active);
-            border: 1px solid var(--line-strong);
-            pointer-events: none;
-            transition: background-color 200ms var(--ease-standard), border-color 200ms var(--ease-standard);
-        }
-
-        .slider-track::before {
-            content: "";
-            position: absolute;
-            top: 2px;
-            left: 2px;
-            width: 20px;
-            height: 20px;
-            border-radius: 50%;
-            background: var(--ink);
-            transition: transform 300ms var(--ease-spring), background-color 200ms var(--ease-standard);
-        }
-
-        .toggle-switch input:checked + .slider-track { background: var(--ink); border-color: var(--ink); }
-        .toggle-switch input:checked + .slider-track::before { transform: translateX(18px); background: #09090b; }
-
-        .toggle-switch input:focus-visible + .slider-track { outline: 2px solid rgba(250, 250, 250, 0.65); outline-offset: 2px; }
-
-        .modal-footer { margin-top: 18px; display: flex; align-items: center; justify-content: space-between; gap: 12px; }
-
-        .reset-btn {
-            height: 40px;
-            padding: 0 16px;
-            border-radius: var(--radius-control);
-            border: 1px solid var(--line);
-            background: var(--surface);
-            color: var(--ink);
-            font-size: 0.875rem;
-            cursor: pointer;
-        }
-
-        .reset-btn:hover { background: var(--surface-active); border-color: var(--line-strong); }
-
-        .settings-status { font-size: 0.8125rem; color: var(--muted); opacity: 0; transition: opacity 200ms var(--ease-standard); }
-        .settings-status.visible { opacity: 1; }
+        .colophon a:hover { color: var(--ink); text-decoration-color: var(--ink); }
 
         /* ---------- Lightbox ---------- */
 
         .lightbox {
             position: fixed;
             inset: 0;
-            background: rgba(5, 5, 5, 0.9);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            display: none;
             z-index: 9999;
-            padding: 24px;
-        }
-
-        .lightbox.open { display: flex; align-items: center; justify-content: center; }
-
-        .lightbox-content {
-            max-width: 92vw;
-            max-height: 94vh;
-            display: flex;
+            display: none;
             flex-direction: column;
             align-items: center;
-            gap: 16px;
+            justify-content: center;
+            gap: 20px;
+            padding: 24px;
+            background: rgba(23, 26, 25, 0.96);
         }
 
-        .lightbox-content img {
+        .lightbox.open { display: flex; }
+
+        .lightbox img {
             max-width: 100%;
-            max-height: 72vh;
+            max-height: 74vh;
             object-fit: contain;
-            border-radius: var(--radius-small);
-            border: 1px solid var(--line-strong);
-            flex-shrink: 0;
+            border-radius: 3px;
         }
 
-        .lightbox-caption { text-align: center; }
-
-        .lightbox-caption h3 { font-size: 0.9375rem; font-weight: 500; }
+        .lightbox-caption {
+            text-align: center;
+            color: #f4f2ef;
+            font-family: var(--serif);
+            font-size: 1.0625rem;
+        }
 
         .lightbox-meta {
-            margin-top: 6px;
+            margin-top: 4px;
+            font-family: var(--sans);
+            font-size: 0.75rem;
+            color: #9a9b98;
             display: flex;
             justify-content: center;
-            flex-wrap: wrap;
-            gap: 4px 16px;
-            font-family: var(--font-mono);
-            font-size: 0.75rem;
-            color: var(--faint);
-            font-variant-numeric: tabular-nums;
+            gap: 14px;
         }
 
         .lightbox-controls { display: flex; gap: 10px; }
 
         .lightbox-btn {
-            width: 44px;
-            height: 44px;
-            border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            background: rgba(12, 12, 14, 0.85);
-            border: 1px solid var(--line-strong);
-            color: var(--muted);
-            cursor: pointer;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            border: 1px solid rgba(244, 242, 239, 0.22);
+            color: #d8d5d0;
+            transition: background-color 240ms var(--ease), color 240ms var(--ease);
         }
 
-        .lightbox-btn:hover { color: var(--ink); background: #17171a; }
-        .lightbox-btn svg { width: 16px; height: 16px; }
+        .lightbox-btn:hover { background: rgba(244, 242, 239, 0.12); color: #ffffff; }
+        .lightbox-btn svg { width: 16px; height: 16px; stroke: currentColor; }
 
         /* ---------- Reduced motion ---------- */
 
@@ -909,455 +518,253 @@
             *, *::before, *::after {
                 scroll-behavior: auto !important;
                 animation-duration: 1ms !important;
-                animation-iteration-count: 1 !important;
+                animation-delay: 0ms !important;
                 transition-duration: 1ms !important;
             }
-        }
-
-        body.disable-animations *,
-        body.disable-animations *::before,
-        body.disable-animations *::after {
-            animation: none !important;
-            transition: none !important;
+            html.js .reveal { opacity: 1; }
         }
     </style>
 </head>
 <body>
-    <header class="topbar">
-        <div class="container topbar-row">
-            <a href="/" class="wordmark pressable">mmw1984</a>
-            <div class="topbar-tools">
-                <div class="segmented" id="langSwitch" role="radiogroup" aria-label="Language / 語言" style="--index:1">
-                    <span class="segmented-indicator" aria-hidden="true"></span>
-                    <button type="button" role="radio" aria-checked="false" data-lang="en">EN</button>
-                    <button type="button" role="radio" aria-checked="true" data-lang="zh-HK">繁HK</button>
-                    <button type="button" role="radio" aria-checked="false" data-lang="zh-TW">繁TW</button>
-                </div>
+    <header class="masthead reveal">
+        <div class="shell masthead-row">
+            <a href="/" class="brand">
+                <img src="notion-avatar-1736580317649.png" alt="" aria-hidden="true">
+                <span class="brand-name">mmw1984</span>
+            </a>
+            <div class="lang" role="group" aria-label="Language / 語言">
+                <button type="button" data-lang="en" aria-pressed="false">EN</button>
+                <span class="lang-sep" aria-hidden="true">/</span>
+                <button type="button" data-lang="zh-HK" aria-pressed="true">繁</button>
             </div>
         </div>
     </header>
 
-    <main class="container">
-        <!-- Hero -->
-        <section class="hero enter" aria-labelledby="heroTitle">
-            <div class="hero-id">
-                <img src="notion-avatar-1736580317649.png" alt="Marco Wong" class="avatar">
+    <main class="shell">
+        <section class="intro" aria-labelledby="greeting">
+            <p class="eyebrow reveal" style="--i:1" data-i18n="hero_eyebrow">協和書院中五學生 · 香港</p>
+            <h1 class="greeting reveal" id="greeting" style="--i:2" data-i18n="hero_title">你好，我係黃梓峰。</h1>
+            <p class="lead reveal" style="--i:3" data-i18n="hero_subtitle">全棧網頁開發與雲端架構諮詢。</p>
+            <ul class="ctas reveal" style="--i:4">
+                <li>
+                    <a class="cta" href="https://blog.mmw1984.com" target="_blank" rel="noopener">
+                        <span class="cta-label" data-i18n="btn_blog">睇吓我嘅網誌</span>
+                        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg>
+                    </a>
+                </li>
+                <li>
+                    <a class="cta" href="https://github.com/mmw1984" target="_blank" rel="noopener">
+                        <span class="cta-label">GitHub</span>
+                        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg>
+                    </a>
+                </li>
+                <li>
+                    <a class="cta" href="https://instagram.com/tszfung.w" target="_blank" rel="noopener">
+                        <span class="cta-label">Instagram</span>
+                        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg>
+                    </a>
+                </li>
+                <li>
+                    <a class="cta" href="mailto:me@mmw1984.com">
+                        <span class="cta-label" data-i18n="btn_contact">Email 我</span>
+                        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg>
+                    </a>
+                </li>
+            </ul>
+        </section>
+
+        <section id="about" class="block reveal">
+            <div class="block-head">
+                <span class="block-num">01</span>
+                <h2 data-i18n="about_title">關於我</h2>
             </div>
-            <h1 class="display-title" id="heroTitle" data-i18n="hero_title">你好，我係黃梓峰。</h1>
-            <p class="lede" data-i18n="hero_subtitle">全棧網頁開發與雲端架構諮詢。協和書院中五學生。</p>
-            <div class="actions">
-                <a href="https://blog.mmw1984.com" class="btn btn-primary pressable" target="_blank" rel="noopener">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-                    <span data-i18n="btn_blog">Visit My Blog</span>
-                </a>
-                <a href="https://github.com/mmw1984" class="btn btn-secondary pressable" target="_blank" rel="noopener">
-                    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.29 9.39 7.86 10.91.58.11.79-.25.79-.55 0-.27-.01-1.17-.02-2.12-3.2.7-3.87-1.36-3.87-1.36-.52-1.33-1.28-1.68-1.28-1.68-1.04-.71.08-.7.08-.7 1.15.08 1.76 1.19 1.76 1.19 1.03 1.76 2.69 1.25 3.35.96.1-.75.4-1.25.72-1.54-2.55-.29-5.23-1.28-5.23-5.68 0-1.26.45-2.28 1.19-3.09-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.17 1.18a11 11 0 0 1 5.77 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.83 1.19 3.09 0 4.41-2.69 5.38-5.25 5.67.41.35.77 1.05.77 2.12 0 1.53-.01 2.76-.01 3.14 0 .3.2.67.8.55A11.51 11.51 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5z"/></svg>
-                    <span>GitHub</span>
-                </a>
-                <a href="https://instagram.com/tszfung.w" class="btn btn-secondary pressable" target="_blank" rel="noopener">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
-                    <span>Instagram</span>
-                </a>
-                <a href="mailto:me@mmw1984.com" class="btn btn-secondary pressable">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg>
-                    <span data-i18n="btn_contact">Get in Touch</span>
-                </a>
+            <div class="prose">
+                <p data-i18n="about_p1">我係協和書院中五學生，專注喺 AI 輔助開發、Serverless 架構同現代 Web 技術。</p>
+                <p data-i18n="about_p2">AI 徹底重塑咗我學習同開發嘅模式。</p>
             </div>
         </section>
 
-        <div class="cols">
-            <!-- About -->
-            <section id="about" aria-labelledby="aboutHeading">
-                <h2 class="section-heading" id="aboutHeading" data-i18n="about_title">About Me</h2>
-                <div class="prose">
-                    <p data-i18n="about_p1">
-                        我係協和書院中五學生，專注喺 AI 輔助開發、Serverless 架構同現代 Web 技術。平時主力用 Cursor 同各大 AI coding tools 進行快速原型設計與全棧開發，由 Next.js、TypeScript 到 Cloudflare / Vercel 部署，成個流程都係以高效率 ship 出真實產品為核心。
-                    </p>
-                    <p data-i18n="about_p2">
-                        AI 徹底重塑咗我學習同開發嘅模式。我擅長利用 AI pair programming 將想法快速轉化為高可用嘅 Web 應用與自架服務。
-                    </p>
+        <section id="skills" class="block reveal">
+            <div class="block-head">
+                <span class="block-num">02</span>
+                <h2 data-i18n="skills_title">技能同專長</h2>
+            </div>
+            <dl class="spec">
+                <div class="spec-row">
+                    <dt data-i18n="software_skills">軟件技能</dt>
+                    <dd>
+                        <div class="stack">
+                            <span>WordPress</span><span class="sep" aria-hidden="true">/</span>
+                            <span>Notion</span><span class="sep" aria-hidden="true">/</span>
+                            <span>C++</span>
+                        </div>
+                    </dd>
                 </div>
-            </section>
+                <div class="spec-row">
+                    <dt data-i18n="vibe_label">Vibe Coding</dt>
+                    <dd>
+                        <p class="spec-note" data-i18n="vibe_line">連續三年 Vibe Coding。</p>
+                        <div class="stack">
+                            <span>Codex</span><span class="sep" aria-hidden="true">/</span>
+                            <span>Cursor</span><span class="sep" aria-hidden="true">/</span>
+                            <span>GitHub Copilot</span><span class="sep" aria-hidden="true">/</span>
+                            <span>OpenCode</span>
+                        </div>
+                    </dd>
+                </div>
+                <div class="spec-row">
+                    <dt data-i18n="language_skills">語言能力</dt>
+                    <dd>
+                        <div class="stack">
+                            <span data-i18n="lang_cantonese">廣東話</span><span class="sep" aria-hidden="true">/</span>
+                            <span data-i18n="lang_mandarin">普通話</span><span class="sep" aria-hidden="true">/</span>
+                            <span data-i18n="lang_english">英文</span>
+                        </div>
+                    </dd>
+                </div>
+            </dl>
+        </section>
 
-            <!-- Skills -->
-            <section id="skills" aria-labelledby="skillsHeading">
-                <h2 class="section-heading" id="skillsHeading" data-i18n="skills_title">Skills &amp; Expertise</h2>
-                <h3 class="sub-label" data-i18n="software_skills">Software Skills</h3>
-                <div class="chip-row">
-                    <span class="chip">TypeScript</span>
-                    <span class="chip">Next.js</span>
-                    <span class="chip">React</span>
-                    <span class="chip">Vercel</span>
-                    <span class="chip">Cloudflare</span>
-                    <span class="chip" data-i18n="skill_wordpress">WordPress</span>
-                    <span class="chip" data-i18n="skill_notion">Notion</span>
-                </div>
-                <h3 class="sub-label" data-i18n="vibe_label">Vibe Coding</h3>
-                <p class="sub-note" data-i18n="vibe_line">Vibe coding for 3 years.</p>
-                <div class="chip-row">
-                    <span class="chip">
-                        <svg viewBox="1.68 1.75 16.65 16.5" aria-hidden="true"><path d="M11.248 18.25q-.825 0-1.568-.314a4.3 4.3 0 0 1-1.32-.874 4 4 0 0 1-1.304.214 4 4 0 0 1-2.046-.544 4.27 4.27 0 0 1-1.518-1.485 4 4 0 0 1-.56-2.095q0-.48.131-1.04A4.4 4.4 0 0 1 2.04 10.71a4.07 4.07 0 0 1 .017-3.4 4.2 4.2 0 0 1 1.056-1.418 3.8 3.8 0 0 1 1.6-.842 3.9 3.9 0 0 1 .76-1.683q.593-.759 1.451-1.188a4.04 4.04 0 0 1 1.832-.429q.825 0 1.567.313.742.314 1.32.875a4 4 0 0 1 1.304-.215q1.106 0 2.046.545a4.14 4.14 0 0 1 1.501 1.485q.578.941.578 2.095 0 .48-.132 1.04.66.61 1.023 1.419.363.792.363 1.666 0 .892-.38 1.717a4.3 4.3 0 0 1-1.072 1.435 3.8 3.8 0 0 1-1.584.825 3.8 3.8 0 0 1-.775 1.683 4.06 4.06 0 0 1-1.436 1.188 4.04 4.04 0 0 1-1.832.429m-4.076-2.062q.825 0 1.435-.347l3.103-1.782a.36.36 0 0 0 .164-.313v-1.42L7.881 14.62a.67.67 0 0 1-.726 0l-3.118-1.798a.5.5 0 0 1-.017.115v.198q0 .841.396 1.551.413.693 1.139 1.089a3.2 3.2 0 0 0 1.617.412m.165-2.69a.4.4 0 0 0 .181.05q.083 0 .165-.05l1.238-.71-3.977-2.31a.7.7 0 0 1-.363-.643v-3.58q-.825.362-1.32 1.122a2.9 2.9 0 0 0-.495 1.65q0 .809.413 1.55.412.743 1.072 1.123zm3.91 3.663q.875 0 1.585-.396a2.96 2.96 0 0 0 1.534-2.64v-3.564a.32.32 0 0 0-.165-.297l-1.254-.726v4.604a.7.7 0 0 1-.363.643l-3.119 1.799a3 3 0 0 0 1.783.577m.627-6.039V8.878L10.01 7.822 8.129 8.878v2.244l1.881 1.056zM7.057 5.859a.7.7 0 0 1 .363-.644l3.119-1.798a3 3 0 0 0-1.782-.578q-.874 0-1.584.396A2.96 2.96 0 0 0 6.05 4.324a3.07 3.07 0 0 0-.396 1.551v3.547q0 .199.165.314l1.237.726zm8.383 7.887q.825-.364 1.303-1.123.495-.758.495-1.65a3.15 3.15 0 0 0-.412-1.55q-.413-.743-1.073-1.123l-3.086-1.782q-.099-.065-.181-.049a.3.3 0 0 0-.165.05l-1.238.692 3.993 2.327a.6.6 0 0 1 .264.264.64.64 0 0 1 .1.363zm-3.317-8.382a.63.63 0 0 1 .726 0l3.135 1.831v-.297q0-.792-.396-1.501a2.86 2.86 0 0 0-1.105-1.155q-.71-.43-1.65-.43-.825 0-1.436.347L8.294 5.941a.36.36 0 0 0-.165.314v1.418z"/></svg>
-                        Codex
-                    </span>
-                    <span class="chip">
-                        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M11.503.131 1.891 5.678a.84.84 0 0 0-.42.726v11.188c0 .3.162.575.42.724l9.609 5.55a1 1 0 0 0 .998 0l9.61-5.55a.84.84 0 0 0 .42-.724V6.404a.84.84 0 0 0-.42-.726L12.497.131a1.01 1.01 0 0 0-.996 0M2.657 6.338h18.55c.263 0 .43.287.297.515L12.23 22.918c-.062.107-.229.064-.229-.06V12.335a.59.59 0 0 0-.295-.51l-9.11-5.257c-.109-.063-.064-.23.061-.23"/></svg>
-                        Cursor
-                    </span>
-                    <span class="chip">
-                        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M23.922 16.997C23.061 18.492 18.063 22.02 12 22.02 5.937 22.02.939 18.492.078 16.997A.641.641 0 0 1 0 16.741v-2.869a.883.883 0 0 1 .053-.22c.372-.935 1.347-2.292 2.605-2.656.167-.429.414-1.055.644-1.517a10.098 10.098 0 0 1-.052-1.086c0-1.331.282-2.499 1.132-3.368.397-.406.89-.717 1.474-.952C7.255 2.937 9.248 1.98 11.978 1.98c2.731 0 4.767.957 6.166 2.093.584.235 1.077.546 1.474.952.85.869 1.132 2.037 1.132 3.368 0 .368-.014.733-.052 1.086.23.462.477 1.088.644 1.517 1.258.364 2.233 1.721 2.605 2.656a.841.841 0 0 1 .053.22v2.869a.641.641 0 0 1-.078.256Zm-11.75-5.992h-.344a4.359 4.359 0 0 1-.355.508c-.77.947-1.918 1.492-3.508 1.492-1.725 0-2.989-.359-3.782-1.259a2.137 2.137 0 0 1-.085-.104L4 11.746v6.585c1.435.779 4.514 2.179 8 2.179 3.486 0 6.565-1.4 8-2.179v-6.585l-.098-.104s-.033.045-.085.104c-.793.9-2.057 1.259-3.782 1.259-1.59 0-2.738-.545-3.508-1.492a4.359 4.359 0 0 1-.355-.508Zm2.328 3.25c.549 0 1 .451 1 1v2c0 .549-.451 1-1 1-.549 0-1-.451-1-1v-2c0-.549.451-1 1-1Zm-5 0c.549 0 1 .451 1 1v2c0 .549-.451 1-1 1-.549 0-1-.451-1-1v-2c0-.549.451-1 1-1Zm3.313-6.185c.136 1.057.403 1.913.878 2.497.442.544 1.134.938 2.344.938 1.573 0 2.292-.337 2.657-.751.384-.435.558-1.15.558-2.361 0-1.14-.243-1.847-.705-2.319-.477-.488-1.319-.862-2.824-1.025-1.487-.161-2.192.138-2.533.529-.269.307-.437.808-.438 1.578v.021c0 .265.021.562.063.893Zm-1.626 0c.042-.331.063-.628.063-.894v-.02c-.001-.77-.169-1.271-.438-1.578-.341-.391-1.046-.69-2.533-.529-1.505.163-2.347.537-2.824 1.025-.462.472-.705 1.179-.705 2.319 0 1.211.175 1.926.558 2.361.365.414 1.084.751 2.657.751 1.21 0 1.902-.394 2.344-.938.475-.584.742-1.44.878-2.497Z"/></svg>
-                        GitHub Copilot
-                    </span>
-                    <span class="chip">
-                        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M22 24H2V0h20zM17 4.8H7v14.4h10z"/></svg>
-                        OpenCode
-                    </span>
-                </div>
-                <h3 class="sub-label" data-i18n="language_skills">Language Skills</h3>
-                <div class="row-list">
-                    <div class="lang-row">
-                        <span class="name" data-i18n="lang_cantonese">Cantonese</span>
-                        <span class="level" data-i18n="level_native">Native</span>
-                    </div>
-                    <div class="lang-row">
-                        <span class="name" data-i18n="lang_mandarin">Mandarin</span>
-                        <span class="level" data-i18n="level_fluent">Fluent</span>
-                    </div>
-                    <div class="lang-row">
-                        <span class="name" data-i18n="lang_english">English</span>
-                        <span class="level" data-i18n="level_proficient">Proficient</span>
-                    </div>
-                </div>
-            </section>
-        </div>
-
-        <!-- Gallery -->
-        <section id="gallery" aria-labelledby="galleryHeading">
-            <h2 class="section-heading" id="galleryHeading" data-i18n="gallery_title">Gallery</h2>
+        <section id="gallery" class="block reveal">
+            <div class="block-head">
+                <span class="block-num">03</span>
+                <h2 data-i18n="gallery_title">作品集</h2>
+            </div>
             <div class="gallery-grid" id="galleryGrid"></div>
         </section>
 
-        <!-- Contact -->
-        <section id="contact" aria-labelledby="contactHeading">
-            <h2 class="section-heading" id="contactHeading" data-i18n="contact_title">Get in Touch</h2>
-            <p class="contact-sub" data-i18n="contact_subtitle">
-                I'm here to help! Fill out the contact form and I'll get back to you as soon as possible.
-            </p>
-            <div class="email-card">
-                <a href="mailto:me@mmw1984.com" class="email-address" id="emailLink" data-user="me" data-domain="mmw1984.com">me@mmw1984.com</a>
-                <button type="button" class="copy-btn" id="copyEmailBtn" onclick="copyEmail()">Copy</button>
+        <section id="contact" class="block reveal">
+            <div class="block-head">
+                <span class="block-num">04</span>
+                <h2 data-i18n="contact_title">聯絡我</h2>
+            </div>
+            <div class="prose">
+                <p data-i18n="contact_subtitle">最快搵到我嘅方法係 email — 我會盡快回覆你。</p>
+            </div>
+            <div class="email-line">
+                <a class="cta" href="mailto:me@mmw1984.com">
+                    <span class="cta-label">me@mmw1984.com</span>
+                </a>
+                <button type="button" class="copy-btn" id="copyEmailBtn" onclick="copyEmail()" data-i18n="copy_email">複製</button>
             </div>
         </section>
     </main>
 
-    <footer>
-        <div class="container footer-meta">
-            <p>&copy; 2026 Marco Wong (mmw1984).</p>
-        </div>
-        <div class="container footer-wordmark" aria-hidden="true">
-            <span>mmw1984</span>
+    <footer class="colophon">
+        <div class="shell colophon-row">
+            <p>&copy; 2026 Marco Wong (mmw1984)</p>
+            <p><a href="https://github.com/mmw1984/mmw1984.github.io" target="_blank" rel="noopener" data-i18n="footer_source">源碼</a></p>
         </div>
     </footer>
 
-    <!-- Settings button -->
-    <button class="settings-btn pressable" id="settingsBtn" onclick="toggleSettings()" aria-label="Settings / 設定" aria-haspopup="dialog" aria-expanded="false">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 1 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 1 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 1 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 1 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
-    </button>
-
-    <!-- Welcome popup -->
-    <div class="welcome-popup" id="welcomePopup" role="dialog" aria-labelledby="welcomeTitle">
-        <div class="welcome-card">
-            <h3 class="welcome-title" id="welcomeTitle">歡迎</h3>
-            <p class="welcome-message" id="welcomeText">感謝您的到訪！</p>
-            <div class="welcome-actions">
-                <button type="button" class="btn btn-secondary" onclick="closeWelcomeWithLang('en')">English</button>
-                <button type="button" class="btn btn-secondary" onclick="closeWelcomeWithLang('zh-HK')">繁中(香港)</button>
-            </div>
-        </div>
-    </div>
-
-    <!-- Settings modal -->
-    <div class="settings-modal" id="settingsModal" role="dialog" aria-modal="true" aria-labelledby="settingsTitle">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h3 id="settingsTitle" data-i18n="settings_title">設定</h3>
-                <button type="button" class="icon-btn" onclick="toggleSettings()" aria-label="Close / 關閉">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
-                </button>
-            </div>
-
-            <div class="setting-item">
-                <label for="fontSizeSlider"><span data-i18n="font_size">字體大小</span></label>
-                <div class="setting-inline">
-                    <input type="range" id="fontSizeSlider" min="14" max="20" value="16" step="1">
-                    <span class="font-size-value" id="fontSizeValue">16px</span>
-                </div>
-            </div>
-
-            <div class="setting-item">
-                <label for="animationsToggle"><span data-i18n="animations">動畫效果</span></label>
-                <label class="toggle-switch">
-                    <input type="checkbox" id="animationsToggle" checked>
-                    <span class="slider-track"></span>
-                </label>
-            </div>
-
-            <div class="modal-footer">
-                <span class="settings-status" id="settingsStatus">✓</span>
-                <button type="button" class="reset-btn pressable" onclick="resetSettings()" data-i18n="reset_settings">重設為預設值</button>
-            </div>
-        </div>
-    </div>
-
-    <!-- Lightbox -->
     <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Image viewer">
-        <div class="lightbox-content">
-            <img id="lightboxImage" src="" alt="">
-            <div class="lightbox-caption">
-                <h3 id="lightboxCaption"></h3>
-                <div class="lightbox-meta" id="lightboxMeta"></div>
-            </div>
-            <div class="lightbox-controls">
-                <button type="button" class="lightbox-btn" onclick="navigateLightbox(-1)" aria-label="Previous image">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="15 18 9 12 15 6"/></svg>
-                </button>
-                <button type="button" class="lightbox-close lightbox-btn" onclick="closeLightbox()" aria-label="Close viewer">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
-                </button>
-                <button type="button" class="lightbox-btn" onclick="navigateLightbox(1)" aria-label="Next image">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg>
-                </button>
-            </div>
+        <img id="lightboxImage" src="" alt="">
+        <div>
+            <div class="lightbox-caption" id="lightboxCaption"></div>
+            <div class="lightbox-meta" id="lightboxMeta"></div>
+        </div>
+        <div class="lightbox-controls">
+            <button type="button" class="lightbox-btn" onclick="navigateLightbox(-1)" aria-label="Previous image">
+                <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m14 6-6 6 6 6"/></svg>
+            </button>
+            <button type="button" class="lightbox-close lightbox-btn" onclick="closeLightbox()" aria-label="Close viewer">
+                <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+            </button>
+            <button type="button" class="lightbox-btn" onclick="navigateLightbox(1)" aria-label="Next image">
+                <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m10 6 6 6-6 6"/></svg>
+            </button>
         </div>
     </div>
 
     <script>
-      // Register service worker for GitHub Pages (root scope)
-      if ('serviceWorker' in navigator) {
-        navigator.serviceWorker.register('/sw.js', { scope: '/' })
-          .catch(err => console.warn('ServiceWorker registration failed:', err));
-      }
-    </script>
-
-    <script>
-      // Define the setLanguage hook before gallery.js loads, and make sure the
-      // stored language matches the site default so the first gallery render agrees.
-      (function () {
-        var lang = localStorage.getItem('language') || 'zh-HK';
-        localStorage.setItem('language', lang);
-        window.setLanguage = function () {};
-      })();
+        // The offline cache would serve stale HTML while iterating locally.
+        if ('serviceWorker' in navigator && !['localhost', '127.0.0.1'].includes(location.hostname)) {
+            navigator.serviceWorker.register('/sw.js', { scope: '/' })
+                .catch(err => console.warn('ServiceWorker registration failed:', err));
+        }
     </script>
 
     <script src="https://cdn.jsdelivr.net/npm/exifr/dist/full.umd.js?v=1"></script>
-    <script src="gallery/gallery.js?v=2"></script>
+    <script src="gallery/gallery.js?v=3"></script>
 
     <script>
-        const LANGS = ['en', 'zh-HK', 'zh-TW'];
-        let currentLang = 'zh-HK';
+        const LANGS = ['en', 'zh-HK'];
+
+        function detectLang() {
+            const saved = localStorage.getItem('language');
+            if (LANGS.includes(saved)) return saved;
+            return (navigator.language || '').startsWith('zh') ? 'zh-HK' : 'en';
+        }
+
+        let currentLang = detectLang();
+        localStorage.setItem('language', currentLang);
 
         function updateContent() {
-            const elements = document.querySelectorAll('[data-i18n]');
-            elements.forEach(element => {
-                const key = element.getAttribute('data-i18n');
-                if (translations[currentLang] && translations[currentLang][key]) {
-                    element.textContent = translations[currentLang][key];
-                }
+            document.querySelectorAll('[data-i18n]').forEach(el => {
+                const value = translations[currentLang] && translations[currentLang][el.dataset.i18n];
+                if (value) el.textContent = value;
             });
         }
 
         function applyLangUI(lang) {
-            const index = LANGS.indexOf(lang);
-            const group = document.getElementById('langSwitch');
-            group.style.setProperty('--index', String(Math.max(0, index)));
-            group.querySelectorAll('button').forEach(btn => {
-                btn.setAttribute('aria-checked', String(btn.dataset.lang === lang));
+            document.querySelectorAll('.lang button').forEach(btn => {
+                btn.setAttribute('aria-pressed', String(btn.dataset.lang === lang));
             });
             document.documentElement.lang = lang;
         }
 
         function switchLanguage(lang) {
-            if (!LANGS.includes(lang)) return;
+            if (!LANGS.includes(lang) || lang === currentLang) return;
             currentLang = lang;
             localStorage.setItem('language', lang);
             applyLangUI(lang);
             updateContent();
             if (typeof window.setLanguage === 'function') {
-                try { window.setLanguage(lang); } catch (e) { console.error('setLanguage error:', e); }
+                try { window.setLanguage(lang); } catch (e) { console.error(e); }
             }
         }
 
-        document.getElementById('langSwitch').addEventListener('click', (e) => {
+        document.querySelector('.lang').addEventListener('click', (e) => {
             const btn = e.target.closest('button[data-lang]');
             if (btn) switchLanguage(btn.dataset.lang);
         });
 
-        document.getElementById('langSwitch').addEventListener('keydown', (e) => {
-            if (e.key !== 'ArrowRight' && e.key !== 'ArrowLeft') return;
-            e.preventDefault();
-            const next = LANGS[(LANGS.indexOf(currentLang) + (e.key === 'ArrowRight' ? 1 : -1) + LANGS.length) % LANGS.length];
-            switchLanguage(next);
-            document.getElementById('langSwitch').querySelector(`button[data-lang="${next}"]`).focus();
-        });
-
-        // Mobile-friendly smooth scroll
-        const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                const id = this.getAttribute('href');
-                if (id === '#') return;
-                const target = document.querySelector(id);
-                if (target) {
-                    e.preventDefault();
-                    target.scrollIntoView({ behavior: reduceMotion.matches ? 'auto' : 'smooth', block: 'start' });
-                }
-            });
-        });
-
-        // Settings modal
-        const settingsModal = document.getElementById('settingsModal');
-        const settingsBtn = document.getElementById('settingsBtn');
-
-        function toggleSettings(force) {
-            const open = typeof force === 'boolean' ? force : !settingsModal.classList.contains('active');
-            settingsModal.classList.toggle('active', open);
-            settingsBtn.setAttribute('aria-expanded', String(open));
-        }
-
-        settingsModal.addEventListener('click', function (e) {
-            if (e.target === this) toggleSettings(false);
-        });
-
-        window.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape' && settingsModal.classList.contains('active')) {
-                toggleSettings(false);
-                settingsBtn.focus();
-            }
-        });
-
-        // Font size control
-        const fontSizeSlider = document.getElementById('fontSizeSlider');
-        const fontSizeValue = document.getElementById('fontSizeValue');
-
-        function applyFontSize(size) {
-            fontSizeValue.textContent = size + 'px';
-            document.documentElement.style.setProperty('--base-font-size', size + 'px');
-        }
-
-        const savedFontSize = localStorage.getItem('fontSize') || '16';
-        fontSizeSlider.value = savedFontSize;
-        applyFontSize(savedFontSize);
-
-        fontSizeSlider.addEventListener('input', function () {
-            applyFontSize(this.value);
-            localStorage.setItem('fontSize', this.value);
-        });
-
-        // Animations toggle
-        const animationsToggle = document.getElementById('animationsToggle');
-        if (localStorage.getItem('animations') === 'false') {
-            animationsToggle.checked = false;
-            document.body.classList.add('disable-animations');
-        }
-
-        animationsToggle.addEventListener('change', function () {
-            document.body.classList.toggle('disable-animations', !this.checked);
-            localStorage.setItem('animations', String(this.checked));
-        });
-
-        // Reset settings with quiet inline confirmation
-        const settingsStatus = document.getElementById('settingsStatus');
-        let statusTimer = null;
-
-        function resetSettings() {
-            fontSizeSlider.value = '16';
-            applyFontSize('16');
-            localStorage.setItem('fontSize', '16');
-
-            animationsToggle.checked = true;
-            document.body.classList.remove('disable-animations');
-            localStorage.setItem('animations', 'true');
-
-            settingsStatus.classList.add('visible');
-            clearTimeout(statusTimer);
-            statusTimer = setTimeout(() => settingsStatus.classList.remove('visible'), 1600);
-        }
-
-        // Welcome popup
-        window.addEventListener('load', function () {
-            if (localStorage.getItem('welcomeShown')) return;
-
-            const popup = document.getElementById('welcomePopup');
-            const lang = localStorage.getItem('language') || 'zh-HK';
-
-            const welcomeContent = {
-                'en': {
-                    title: 'Welcome!',
-                    message: 'Thanks for visiting my site. Pick a language to continue — you can change it anytime from the top-right switch.'
-                },
-                'zh-HK': {
-                    title: '歡迎！',
-                    message: '多謝你嚟到我嘅網站！揀一種語言繼續，之後可以喺右上角隨時切換。'
-                }
-            };
-
-            const content = welcomeContent[lang] || welcomeContent['zh-HK'];
-            document.getElementById('welcomeTitle').textContent = content.title;
-            document.getElementById('welcomeText').textContent = content.message;
-
-            setTimeout(() => popup.classList.add('show'), 500);
-            localStorage.setItem('welcomeShown', 'true');
-            setTimeout(closeWelcome, 10000);
-        });
-
-        function closeWelcome() {
-            const popup = document.getElementById('welcomePopup');
-            popup.classList.remove('show');
-        }
-
-        function closeWelcomeWithLang(lang) {
-            switchLanguage(lang);
-            closeWelcome();
+        // Stagger content in as it enters the viewport.
+        const revealTargets = document.querySelectorAll('.reveal');
+        if ('IntersectionObserver' in window) {
+            const observer = new IntersectionObserver(entries => {
+                entries.forEach(entry => {
+                    if (!entry.isIntersecting) return;
+                    entry.target.classList.add('in');
+                    observer.unobserve(entry.target);
+                });
+            }, { rootMargin: '0px 0px -8% 0px', threshold: 0.06 });
+            revealTargets.forEach(el => observer.observe(el));
+        } else {
+            revealTargets.forEach(el => el.classList.add('in'));
         }
 
         function copyEmail() {
             const email = 'me@mmw1984.com';
             const btn = document.getElementById('copyEmailBtn');
+            const t = key => (translations[currentLang] && translations[currentLang][key]) || key;
             const done = () => {
-                if (!btn) return;
-                btn.textContent = 'Copied!';
+                btn.textContent = t('copied');
                 btn.classList.add('copied');
-                setTimeout(() => { btn.textContent = 'Copy'; btn.classList.remove('copied'); }, 1600);
+                setTimeout(() => {
+                    btn.textContent = t('copy_email');
+                    btn.classList.remove('copied');
+                }, 1600);
             };
             if (navigator.clipboard && navigator.clipboard.writeText) {
-                navigator.clipboard.writeText(email).then(done).catch(() => {
-                    window.prompt('Copy email address:', email);
-                });
+                navigator.clipboard.writeText(email).then(done).catch(() => window.prompt('Copy email address:', email));
             } else {
                 window.prompt('Copy email address:', email);
             }
         }
 
-        // Decode email for display (keeps @ out of static HTML)
-        function initEmail() {
-            const link = document.getElementById('emailLink');
-            if (!link) return;
-            const user = link.dataset.user;
-            const domain = link.dataset.domain;
-            if (!user || !domain) return;
-            const addr = user + '@' + domain;
-            link.textContent = addr;
-            link.setAttribute('href', 'mailto:' + addr);
-            link.setAttribute('aria-label', 'Email ' + addr);
-        }
-
-        // Initialize on page load
-        document.addEventListener('DOMContentLoaded', () => {
-            const savedLang = localStorage.getItem('language') || 'zh-HK';
-            currentLang = savedLang;
-            applyLangUI(savedLang);
-            updateContent();
-            initEmail();
-        });
+        applyLangUI(currentLang);
+        updateContent();
     </script>
 </body>
 </html>

@@ -1,20 +1,59 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Page Not Found</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Page not found - mmw1984</title>
+  <meta name="theme-color" content="#ffffff">
   <style>
-    body {font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; margin:0; display:grid; place-items:center; height:100vh; color:#1a1a1a; background:#fafbfc}
-    .box {text-align:center; padding:24px}
-    a {color:#006495; text-decoration:none}
+    @font-face {
+      font-family: "Newsreader";
+      src: url("/fonts/Newsreader-Regular-latin.woff2") format("woff2");
+      font-weight: 200 800;
+      font-style: normal;
+      font-display: swap;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: "Google Sans Flex", ui-sans-serif, system-ui, -apple-system, "Segoe UI", "PingFang HK", sans-serif;
+      background: #ffffff;
+      color: #1f2322;
+      min-height: 100dvh;
+      display: grid;
+      align-content: center;
+      padding: 24px;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .shell { width: min(100%, 680px); margin-inline: auto; }
+
+    h1, p { font-family: "Newsreader", "Songti TC", "PingFang HK", Georgia, serif; }
+
+    h1 { font-size: clamp(2rem, 1.2rem + 3vw, 3rem); font-weight: 400; letter-spacing: -0.022em; line-height: 1.08; }
+
+    p { margin-top: 16px; font-size: 1.1875rem; line-height: 1.5; color: #585254; }
+
+    a {
+      display: inline-block;
+      margin-top: 28px;
+      font-size: 1.1875rem;
+      color: #1f2322;
+      text-decoration: underline;
+      text-decoration-thickness: 1px;
+      text-underline-offset: 4px;
+      text-decoration-color: #d5c2b5;
+    }
+
+    a:hover { text-decoration-color: #1f2322; }
   </style>
 </head>
 <body>
-  <div class="box">
+  <div class="shell">
     <h1>404</h1>
-    <p>The page you’re looking for doesn’t exist.</p>
-    <p><a href="./">Go back to the homepage</a></p>
+    <p>This page doesn’t exist. It may have moved, or the link may be mistyped.</p>
+    <a href="/">Back to mmw1984.com</a>
   </div>
 </body>
 </html>

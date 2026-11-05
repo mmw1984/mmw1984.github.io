@@ -8,7 +8,7 @@
   const lbClose = document.querySelector('.lightbox-close');
   const stage = document.getElementById('lightbox');
 
-  const getLang = () => localStorage.getItem('language') || (navigator.language.startsWith('zh-HK') ? 'zh-HK' : navigator.language.startsWith('zh-TW') ? 'zh-TW' : 'en');
+  const getLang = () => localStorage.getItem('language') || ((navigator.language || '').startsWith('zh') ? 'zh-HK' : 'en');
 
   // Format date for display (accepts string or Date). Localized: zh -> "YYYY年M月D日", otherwise "DD Mon YYYY"
   function formatDisplayDate(raw, lang) {
@@ -75,20 +75,25 @@
       img.src = imgPath;
       img.alt = item.alt || '';
 
-      const cap = document.createElement('figcaption');
-      cap.className = 'gallery-caption';
       const title = item.caption?.[lang] || item.caption?.en || '';
-      cap.textContent = title;
 
-      fig.appendChild(img);
-      // Add date overlay if available (append after img for proper stacking)
+      const meta = document.createElement('figcaption');
+      meta.className = 'gallery-meta';
+
+      const cap = document.createElement('span');
+      cap.className = 'gallery-caption';
+      cap.textContent = title;
+      meta.appendChild(cap);
+
       if (item.date && item.date.trim()) {
-        const dateElement = document.createElement('div');
+        const dateElement = document.createElement('span');
         dateElement.className = 'gallery-date';
         dateElement.textContent = formatDisplayDate(item.date, getLang());
-        fig.appendChild(dateElement);
+        meta.appendChild(dateElement);
       }
-      fig.appendChild(cap);
+
+      fig.appendChild(img);
+      fig.appendChild(meta);
       grid.appendChild(fig);
 
       const open = () => openLightbox(idx, item, img, title, imgPath);

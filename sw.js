@@ -1,10 +1,13 @@
-const CACHE_NAME = 'mmw1984-cache-v10';
+const CACHE_NAME = 'mmw1984-cache-v11';
 const ASSETS = [
 	'/',
 	'/index.html',
 	'/manifest.json',
 	'/translations.js',
 	'/fonts/GoogleSansFlex-Variable.woff2',
+	'/fonts/Newsreader-Regular-latin.woff2',
+	'/fonts/Newsreader-Regular-latin-ext.woff2',
+	'/fonts/Newsreader-Italic-latin.woff2',
 	'/android-chrome-192x192.png',
 	'/android-chrome-512x512.png',
 	'/favicon-16x16.png',
